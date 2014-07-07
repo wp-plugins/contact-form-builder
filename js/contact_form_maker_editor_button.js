@@ -14,7 +14,7 @@
       ed.addButton('contact_form_maker_mce', {
         title : 'Insert Contact Form',
         cmd : 'mceconact_Form_Maker_mce',
-        image: contact_form_maker_plugin_url + '/images/contact_form_maker_logo20.png'
+        image: url + '/images/contact_form_maker_logo20.png'
       });
     }
   });
