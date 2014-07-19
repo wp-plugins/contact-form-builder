@@ -28,7 +28,7 @@ class CFMViewThemes_cfm {
       <div style="float: left; font-size: 14px; font-weight: bold;">
         This section allows you to edit form themes.
         <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-2.html">Read More in User Manual</a><br /><br />
-        This feature is disabled for the non-commercial version.<br /><br />
+        <span style="color: #FF0000;">This feature is disabled for the non-commercial version.</span><br /><br />
         Here are some examples standard templates included in the commercial version.
         <a style="color: blue; text-decoration: none;" target="_blank" href="http://wpdemo.web-dorado.com/contact-form-builder">Demo</a>
       </div>

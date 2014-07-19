@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -102,21 +102,30 @@ function cfm_do_output_buffer() {
 add_action('init', 'cfm_do_output_buffer');
 
 function contact_form_maker_frontend_main($content) {
-  $pattern = '[\[Contact_Form_Builder id="([0-9]*)"\]]';
-  $count_forms_in_post = preg_match_all($pattern, $content, $matches_form);
-  if ($count_forms_in_post) {
-    require_once (WD_CFM_DIR . '/frontend/controllers/CFMControllerForm_maker.php');
-    $controller = new CFMControllerForm_maker();
-    for ($jj = 0; $jj < $count_forms_in_post; $jj++) {
-      $padron = $matches_form[0][$jj];
-      $replacment = $controller->execute($matches_form[1][$jj]);
-      $content = str_replace($padron, $replacment, $content);
+  global $cfm_generate_action;
+  if ($cfm_generate_action) {
+    $pattern = '[\[Contact_Form_Builder id="([0-9]*)"\]]';
+    $count_forms_in_post = preg_match_all($pattern, $content, $matches_form);
+    if ($count_forms_in_post) {
+      require_once (WD_CFM_DIR . '/frontend/controllers/CFMControllerForm_maker.php');
+      $controller = new CFMControllerForm_maker();
+      for ($jj = 0; $jj < $count_forms_in_post; $jj++) {
+        $padron = $matches_form[0][$jj];
+        $replacment = $controller->execute($matches_form[1][$jj]);
+        $content = str_replace($padron, $replacment, $content);
+      }
     }
   }
   return $content;
 }
 add_filter('the_content', 'contact_form_maker_frontend_main', 5000);
 
+$cfm_generate_action = 0;
+function cfm_generate_action() {
+  global $cfm_generate_action;
+  $cfm_generate_action = 1;
+}
+add_filter('wp_head', 'cfm_generate_action', 10000);
 
 // Add the Contact Form Builder button to editor.
 add_action('wp_ajax_CFMShortcode', 'contact_form_maker_ajax');

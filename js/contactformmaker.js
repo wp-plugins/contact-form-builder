@@ -2,7 +2,6 @@ j = 2;
 var c;
 var need_enable = true;;
 var a = new Array();
-var id_ifr_editor = -1;
 if (ajaxurl.indexOf("://") != -1) {
   var url_for_ajax = ajaxurl;
 }
@@ -1105,8 +1104,8 @@ function close_window() {
   document.getElementById('edit_table').innerHTML = "";
   document.getElementById('show_table').innerHTML = "";
   document.getElementById('main_editor').style.display = "none";
-  if (document.getElementsByTagName("iframe")[id_ifr_editor]) {
-    ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+  if (document.getElementById("form_maker_editor_ifr")) {
+    ifr_id = "form_maker_editor_ifr";
     ifr = getIFrameDocument(ifr_id);
     ifr.body.innerHTML = "";
   }
@@ -1601,21 +1600,22 @@ function remove_option(id, num)
 		choices_td.removeChild(br);
 }
 
-function getIFrameDocument(aID){ 
-var rv = null; 
-/* if contentDocument exists, W3C compliant (Mozilla) */
-if (document.getElementById(aID).contentDocument){ 
-rv = document.getElementById(aID).contentDocument; 
-} else { 
-/* IE */
-rv = document.frames[aID].document; 
-} 
-return rv; 
+function getIFrameDocument(aID) { 
+  var rv = null; 
+  if (document.getElementById(aID) && document.getElementById(aID).contentDocument){ 
+    /* if contentDocument exists, W3C compliant (Mozilla) */
+    rv = document.getElementById(aID).contentDocument; 
+  }
+  else if (document.getElementById(aID)) {
+    /* IE */
+    rv = document.frames[aID].document; 
+  } 
+  return rv;
 }
 
 function delete_last_child() {
-  if (document.getElementsByTagName("iframe")[id_ifr_editor]) {
-    ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+  if (document.getElementById("form_maker_editor_ifr")) {
+    ifr_id = "form_maker_editor_ifr";
     ifr = getIFrameDocument(ifr_id);
     ifr.body.innerHTML = "";
   }
@@ -1857,8 +1857,8 @@ function type_section_break(i, w_editor){
 		document.getElementById('main_editor').style.display="block";
 		document.getElementById('main_editor').style.left=iReturnLeft+30+"px";
 		document.getElementById('main_editor').style.top=iReturnTop+45+"px";
-		if (document.getElementsByTagName("iframe")[id_ifr_editor] && document.getElementById('form_maker_editor').style.display == "none") {
-      ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+    if (document.getElementById("form_maker_editor_ifr") && document.getElementById('form_maker_editor').style.display == "none") {
+      ifr_id = "form_maker_editor_ifr";
       ifr = getIFrameDocument(ifr_id);
       ifr.body.innerHTML = w_editor;
     }
@@ -1932,8 +1932,8 @@ function type_editor(i, w_editor){
 		document.getElementById('main_editor').style.left=iReturnLeft+30+"px";
 		document.getElementById('main_editor').style.top=iReturnTop+45+"px";
 
-    if (document.getElementsByTagName("iframe")[id_ifr_editor] && document.getElementById('form_maker_editor').style.display == "none") {
-			ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+    if (document.getElementById("form_maker_editor_ifr") && document.getElementById('form_maker_editor').style.display == "none") {
+      ifr_id = "form_maker_editor_ifr";
 			ifr = getIFrameDocument(ifr_id);
 			ifr.body.innerHTML = w_editor;
 		}
@@ -9736,8 +9736,8 @@ function add(key) {
 			i=document.getElementById('editing_id').value;		
 			document.getElementById('editing_id').value = "";
 			wdform_field_in_editor=document.getElementById(i+"_element_sectionform_id_temp");
-      if (document.getElementsByTagName("iframe")[id_ifr_editor] && document.getElementById('form_maker_editor').style.display == "none") {
-        ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+      if (document.getElementById("form_maker_editor_ifr") && document.getElementById('form_maker_editor').style.display == "none") {
+        ifr_id = "form_maker_editor_ifr";
         ifr = getIFrameDocument(ifr_id);
         wdform_field_in_editor.innerHTML = ifr.body.innerHTML;
       }
@@ -9810,8 +9810,8 @@ function add(key) {
          			in_editor.setAttribute("align", 'left');
          			in_editor.setAttribute("class", 'wdform_section_break');
 
-      if (document.getElementsByTagName("iframe")[id_ifr_editor] && document.getElementById('form_maker_editor').style.display == "none") {
-        ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+      if (document.getElementById("form_maker_editor_ifr") && document.getElementById('form_maker_editor').style.display == "none") {
+        ifr_id = "form_maker_editor_ifr";
         ifr = getIFrameDocument(ifr_id);
         in_editor.innerHTML = ifr.body.innerHTML;
       }
@@ -9863,8 +9863,8 @@ function add(key) {
 				document.getElementById('editing_id').value="";
 			wdform_field=document.getElementById("wdform_field"+i);
 			destroyChildren(wdform_field);
-      if (document.getElementsByTagName("iframe")[id_ifr_editor] && document.getElementById('form_maker_editor').style.display == "none") {
-        ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+      if (document.getElementById("form_maker_editor_ifr") && document.getElementById('form_maker_editor').style.display == "none") {
+        ifr_id = "form_maker_editor_ifr";
         ifr = getIFrameDocument(ifr_id);
         wdform_field.innerHTML = ifr.body.innerHTML;
       }
@@ -9977,8 +9977,8 @@ function add(key) {
 		
 			
 
-    if (document.getElementsByTagName("iframe")[id_ifr_editor] && document.getElementById('form_maker_editor').style.display == "none") {
-      ifr_id = document.getElementsByTagName("iframe")[id_ifr_editor].id;
+    if (document.getElementById("form_maker_editor_ifr") && document.getElementById('form_maker_editor').style.display == "none") {
+      ifr_id = "form_maker_editor_ifr";
       ifr = getIFrameDocument(ifr_id);
       wdform_field.innerHTML = ifr.body.innerHTML;
     }

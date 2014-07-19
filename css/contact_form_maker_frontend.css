@@ -1,3 +1,11 @@
+.wdform_map {
+  width: inherit !important;
+}
+
+div.wdform-element-section {
+  width: initial !important;
+}
+
 .radio-div,
 .radio-div *,
 .checkbox-div,

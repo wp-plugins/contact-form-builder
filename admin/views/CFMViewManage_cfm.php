@@ -362,17 +362,6 @@ class CFMViewManage_cfm {
       gen = <?php echo (($id != 0) ? $row->counter : 1); ?>;
 
       function enable() {
-        for (iiiii = 0; iiiii < 1000; iiiii++) {
-          if (document.getElementsByTagName("iframe")[iiiii]) {
-            if (document.getElementsByTagName("iframe")[iiiii].id == 'form_maker_editor_ifr') {
-              id_ifr_editor = iiiii;
-              break;
-            }            
-            else {
-              id_ifr_editor = -1;
-            }
-          }
-        }
         if (document.getElementById('formMakerDiv').style.display == 'block') {
           jQuery('#formMakerDiv').slideToggle(200);}else{jQuery('#formMakerDiv').slideToggle(400);
         }
@@ -889,6 +878,7 @@ class CFMViewManage_cfm {
               <a onclick="alert('This option is disabled in free version.'); return false;" href="#" class="button-secondary" id="edit_css" title="Edit CSS">
                 Edit CSS
               </a>
+              <div class="spider_description spider_free_desc">Themes are disabled in free version.</div>
             </td>
           </tr>
           <tr valign="top">

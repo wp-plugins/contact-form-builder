@@ -620,9 +620,9 @@ div.wd_preview a {
 }
 
 .cfm_logo {
-  font-family: cursive;
-  font-size: 23px;
-  font-weight: bold;
+  font-family: cursive !important;
+  font-size: 23px !important;
+  font-weight: bold !important;
 }
 
 .cfm_black {
@@ -631,4 +631,8 @@ div.wd_preview a {
 
 .cfm_white {
   color: #FFFFFF;
+}
+
+.spider_free_desc {
+  color: #FF0000 !important;
 }
