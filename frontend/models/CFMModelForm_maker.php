@@ -163,56 +163,56 @@ class CFMModelForm_maker {
           case "type_submitter_mail":
           case "type_own_select":					
           case "type_number": {
-            $value = isset($_POST['wdform_'.$i."_element".$id]) ? $_POST['wdform_'.$i."_element".$id] : "";
+            $value = isset($_POST['wdform_'.$i."_element".$id]) ? esc_html($_POST['wdform_'.$i."_element".$id]) : "";
             break;
           }
           case "type_phone": {
-            $value = (isset($_POST['wdform_'.$i."_element_first".$id]) ? $_POST['wdform_'.$i."_element_first".$id] : "") . ' ' . (isset($_POST['wdform_'.$i."_element_last".$id]) ? $_POST['wdform_'.$i."_element_last".$id] : "");							
+            $value = (isset($_POST['wdform_'.$i."_element_first".$id]) ? esc_html($_POST['wdform_'.$i."_element_first".$id]) : "") . ' ' . (isset($_POST['wdform_'.$i."_element_last".$id]) ? esc_html($_POST['wdform_'.$i."_element_last".$id]) : "");							
             break;
           }		
           case "type_name": {				
-            $element_title = isset($_POST['wdform_'.$i."_element_title".$id]) ? $_POST['wdform_'.$i."_element_title".$id] : NULL;
+            $element_title = isset($_POST['wdform_'.$i."_element_title".$id]) ? esc_html($_POST['wdform_'.$i."_element_title".$id]) : NULL;
             if(isset($element_title)) {
-              $value = (isset($_POST['wdform_'.$i."_element_title".$id]) ? $_POST['wdform_'.$i."_element_title".$id] : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_first".$id]) ? $_POST['wdform_'.$i."_element_first".$id] : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_last".$id]) ? $_POST['wdform_'.$i."_element_last".$id] : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_middle".$id]) ? $_POST['wdform_'.$i."_element_middle".$id] : "");
+              $value = (isset($_POST['wdform_'.$i."_element_title".$id]) ? esc_html($_POST['wdform_'.$i."_element_title".$id]) : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_first".$id]) ? esc_html($_POST['wdform_'.$i."_element_first".$id]) : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_last".$id]) ? esc_html($_POST['wdform_'.$i."_element_last".$id]) : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_middle".$id]) ? esc_html($_POST['wdform_'.$i."_element_middle".$id]) : "");
             }
             else {
-              $value = (isset($_POST['wdform_'.$i."_element_first".$id]) ? $_POST['wdform_'.$i."_element_first".$id] : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_last".$id]) ? $_POST['wdform_'.$i."_element_last".$id] : "");
+              $value = (isset($_POST['wdform_'.$i."_element_first".$id]) ? esc_html($_POST['wdform_'.$i."_element_first".$id]) : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_last".$id]) ? esc_html($_POST['wdform_'.$i."_element_last".$id]) : "");
             }
             break;
           }		
           case 'type_address': {
             $value = '*#*#*#';
-            $element = isset($_POST['wdform_'.$i."_street1".$id]) ? $_POST['wdform_'.$i."_street1".$id] : NULL;
+            $element = isset($_POST['wdform_'.$i."_street1".$id]) ? esc_html($_POST['wdform_'.$i."_street1".$id]) : NULL;
+            if (isset($element)) {
+              $value = $element;
+              break;
+            }
+            
+            $element = isset($_POST['wdform_'.$i."_street2".$id]) ? esc_html($_POST['wdform_'.$i."_street2".$id]) : NULL;
+            if (isset($element)) {
+              $value = $element;
+              break;
+            }
+            
+            $element = isset($_POST['wdform_'.$i."_city".$id]) ? esc_html($_POST['wdform_'.$i."_city".$id]) : NULL;
             if(isset($element)) {
               $value = $element;
               break;
             }
             
-            $element = isset($_POST['wdform_'.$i."_street2".$id]) ? $_POST['wdform_'.$i."_street2".$id] : NULL;
+            $element = isset($_POST['wdform_'.$i."_state".$id]) ? esc_html($_POST['wdform_'.$i."_state".$id]) : NULL;
             if(isset($element)) {
               $value = $element;
               break;
             }
             
-            $element = isset($_POST['wdform_'.$i."_city".$id]) ? $_POST['wdform_'.$i."_city".$id] : NULL;
+            $element = isset($_POST['wdform_'.$i."_postal".$id]) ? esc_html($_POST['wdform_'.$i."_postal".$id]) : NULL;
             if(isset($element)) {
               $value = $element;
               break;
             }
             
-            $element = isset($_POST['wdform_'.$i."_state".$id]) ? $_POST['wdform_'.$i."_state".$id] : NULL;
-            if(isset($element)) {
-              $value = $element;
-              break;
-            }
-            
-            $element = isset($_POST['wdform_'.$i."_postal".$id]) ? $_POST['wdform_'.$i."_postal".$id] : NULL;
-            if(isset($element)) {
-              $value = $element;
-              break;
-            }
-            
-            $element = isset($_POST['wdform_'.$i."_country".$id]) ? $_POST['wdform_'.$i."_country".$id] : NULL;
+            $element = isset($_POST['wdform_'.$i."_country".$id]) ? esc_html($_POST['wdform_'.$i."_country".$id]) : NULL;
             if(isset($element)) {
               $value = $element;
               break;
@@ -220,19 +220,19 @@ class CFMModelForm_maker {
             break;
           }
           case "type_radio": {
-            $element = isset($_POST['wdform_'.$i."_other_input".$id]) ? $_POST['wdform_'.$i."_other_input".$id] : NULL;
+            $element = isset($_POST['wdform_'.$i."_other_input".$id]) ? esc_html($_POST['wdform_'.$i."_other_input".$id]) : NULL;
             if(isset($element)) {
               $value = $element;	
               break;
             }						
-            $value = isset($_POST['wdform_'.$i."_element".$id]) ? $_POST['wdform_'.$i."_element".$id] : "";
+            $value = isset($_POST['wdform_'.$i."_element".$id]) ? esc_html($_POST['wdform_'.$i."_element".$id]) : "";
             break;
           }
           case "type_checkbox": {
             $start = -1;
             $value = '';
             for($j = 0; $j < 100; $j++) {						
-              $element = isset($_POST['wdform_'.$i."_element".$id.$j]) ? $_POST['wdform_'.$i."_element".$id.$j] : NULL;
+              $element = isset($_POST['wdform_'.$i."_element".$id.$j]) ? esc_html($_POST['wdform_'.$i."_element".$id.$j]) : NULL;
               if(isset($element)) {
                 $start = $j;
                 break;
@@ -240,20 +240,20 @@ class CFMModelForm_maker {
             }
               
             $other_element_id = -1;
-            $is_other = isset($_POST['wdform_'.$i."_allow_other".$id]) ? $_POST['wdform_'.$i."_allow_other".$id] : "";
+            $is_other = isset($_POST['wdform_'.$i."_allow_other".$id]) ? esc_html($_POST['wdform_'.$i."_allow_other".$id]) : "";
             if($is_other == "yes") {
-              $other_element_id = isset($_POST['wdform_'.$i."_allow_other_num".$id]) ? $_POST['wdform_'.$i."_allow_other_num".$id] : "";
+              $other_element_id = isset($_POST['wdform_'.$i."_allow_other_num".$id]) ? esc_html($_POST['wdform_'.$i."_allow_other_num".$id]) : "";
             }
             
             if($start != -1) {
               for($j = $start; $j < 100; $j++) {
-                $element = isset($_POST['wdform_'.$i."_element".$id.$j]) ? $_POST['wdform_'.$i."_element".$id.$j] : NULL;
+                $element = isset($_POST['wdform_'.$i."_element".$id.$j]) ? esc_html($_POST['wdform_'.$i."_element".$id.$j]) : NULL;
                 if(isset($element)) {
                   if($j == $other_element_id) {
-                    $value = $value . (isset($_POST['wdform_'.$i."_other_input".$id]) ? $_POST['wdform_'.$i."_other_input".$id] : "") . '***br***';
+                    $value = $value . (isset($_POST['wdform_'.$i."_other_input".$id]) ? esc_html($_POST['wdform_'.$i."_other_input".$id]) : "") . '***br***';
                   }
                   else {								
-                    $value = $value . (isset($_POST['wdform_'.$i."_element".$id.$j]) ? $_POST['wdform_'.$i."_element".$id.$j] : "") . '***br***';
+                    $value = $value . (isset($_POST['wdform_'.$i."_element".$id.$j]) ? esc_html($_POST['wdform_'.$i."_element".$id.$j]) : "") . '***br***';
                   }
                 }
               }
