@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: contact_form_maker\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-19 10:26+0400\n"
+"PO-Revision-Date: 2014-06-19 10:26+0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress3.5\\wp-content\\plugins"
+"\\contact-forms\n"
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:78
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:93
+msgid "Error, incorrect Security code."
+msgstr "Fehler, falschen Sicherheitscode eingeben."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:105
+msgid "Your ip is blacklisted. Please contact the website administrator."
+msgstr ""
+"Ihre IP wird die schwarze Liste gesetzt. Bitte kontaktieren Sie die Website-"
+"Administrator. "
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:277
+#, php-format
+msgid ""
+"This field %s requires a unique entry and this value was already submitted."
+msgstr ""
+"Dieses Feld %s benötigt einen eindeutigen Eintrag und dieser Wert wurde "
+"bereits eingereicht."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:308
+msgid "Nothing was submitted."
+msgstr "Nichts wurde eingereicht."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:870
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:883
+msgid "Your form was successfully submitted."
+msgstr "Das Formular wurde erfolgreich übermittelt."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:878
+msgid "Error, email was not sent."
+msgstr "Fehler, E-Mail wurde nicht gesendet."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:201
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:240
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:282
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:322
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:364
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:413
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:474
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:566
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:578
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:675
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:734
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:822
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:898
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:961
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:996
+msgid "field is required."
+msgstr "Feld ist erforderlich."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:747
+msgid "This is not a valid email address."
+msgstr "Dies ist keine gültige E-Mail-Adresse."
+
+#~ msgid "Street Address"
+#~ msgstr "Postanschrift"
+
+#~ msgid "Street Address Line 2"
+#~ msgstr "Zusatz"
+
+#~ msgid "City"
+#~ msgstr "Stadt"
+
+#~ msgid "State / Province / Region"
+#~ msgstr "Staat / Provinz / Region"
+
+#~ msgid "Postal / Zip Code"
+#~ msgstr "Postleitzahl"
+
+#~ msgid "Country"
+#~ msgstr "Land"
+
+#~ msgid "January"
+#~ msgstr "Januar"
+
+#~ msgid "February"
+#~ msgstr "Februar"
+
+#~ msgid "March"
+#~ msgstr "März"
+
+#~ msgid "April"
+#~ msgstr "April"
+
+#~ msgid "May"
+#~ msgstr "Mai"
+
+#~ msgid "June"
+#~ msgstr "Juni"
+
+#~ msgid "July"
+#~ msgstr "Juli"
+
+#~ msgid "August"
+#~ msgstr "August"
+
+#~ msgid "September"
+#~ msgstr "September"
+
+#~ msgid "October"
+#~ msgstr "Oktober"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "December"
+#~ msgstr "Dezember"
+
+#~ msgid "Quantity"
+#~ msgstr "Menge "
+
+#~ msgid "The file exceeds the allowed size of"
+#~ msgstr "Die Datei überschreitet die zulässige Größe von"
+
+#~ msgid "Sorry, you are not allowed to upload this type of file."
+#~ msgstr "Leider sind Sie nicht berechtigt, diese Art von Datei hochzuladen."
+
+#~ msgid "Error, file cannot be moved."
+#~ msgstr "Fehler, kann Datei nicht verschoben werden."
+
+#, fuzzy
+#~ msgid "Error, file destination does not exist."
+#~ msgstr "Fehler, E-Mail wurde nicht gesendet."
+
+#~ msgid "The"
+#~ msgstr "die "
+
+#~ msgid "value must be between"
+#~ msgstr "Wert muss zwischen "
+
+#~ msgid "Your score should be less than"
+#~ msgstr "Ihr Ergebnis sollte kleiner sein als "
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "First"
+#~ msgstr "Vorname "
+
+#~ msgid "Last"
+#~ msgstr "Nachname"
+
+#~ msgid "Middle"
+#~ msgstr "Zweiter Vorname"
+
+#~ msgid "Area Code"
+#~ msgstr "Vorwahl"
+
+#~ msgid "Phone Number"
+#~ msgstr "Telefonnummer"
+
+#~ msgid "Dollars"
+#~ msgstr "Dollar "
+
+#~ msgid "Cents"
+#~ msgstr "cents "
+
+#~ msgid "From"
+#~ msgstr "aus "
+
+#~ msgid "To"
+#~ msgstr "zu"
