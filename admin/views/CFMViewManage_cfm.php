@@ -36,6 +36,7 @@ class CFMViewManage_cfm {
       <div style="float: left; font-size: 14px; font-weight: bold;">
         This section allows you to edit forms.
         <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-2.html">Read More in User Manual</a>
+        <p>There is no possibility of adding new form fields, whereas you can edit, enable/disable the current fields included in each form.</p>
       </div>
       <div style="float: right; text-align: right;">
         <a style="text-decoration: none;" target="_blank" href="http://web-dorado.com/files/fromContactFormBuilder.php">
@@ -296,6 +297,9 @@ class CFMViewManage_cfm {
                     w_choices_price = new Array();
                     if (document.getElementById(id+'_element_labelform_id_temp').innerHTML) {
                       w_field_label = document.getElementById(id + '_element_labelform_id_temp').innerHTML.replace(/(\r\n|\n|\r)/gm," ");
+                    }
+                    else {
+                      w_field_label = " ";
                     }
                     if (document.getElementById(id + '_label_sectionform_id_temp')) {
                       if (document.getElementById(id + '_label_sectionform_id_temp').style.display == "block") {

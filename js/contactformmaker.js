@@ -10262,15 +10262,13 @@ function call(i,key)
 }
 
 
-function edit(id)
-{
-	if(need_enable)
+function edit(id) {
+	if (need_enable) {
 		enable2();
-	
+  }
 	document.getElementById('editing_id').value=id;
 	type=document.getElementById("wdform_field"+id).getAttribute('type');
-	
-	
+
 	/*parameter take*/
 	k=0;
 	
@@ -10286,10 +10284,12 @@ function edit(id)
 	t=0;
 	
 	/*shat handipox*/
-	
-	if(document.getElementById(id+'_element_labelform_id_temp').innerHTML)
-		w_field_label=document.getElementById(id+'_element_labelform_id_temp').innerHTML;
-		
+	if (document.getElementById(id+'_element_labelform_id_temp').innerHTML) {
+		w_field_label = document.getElementById(id+'_element_labelform_id_temp').innerHTML;
+  }
+  else {
+    w_field_label = " ";
+  }
 	if(document.getElementById(id+'_label_sectionform_id_temp'))
 	if(document.getElementById(id+'_label_sectionform_id_temp').style.display=="block")
 		w_field_label_pos="top";
