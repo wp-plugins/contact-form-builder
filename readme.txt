@@ -35,7 +35,7 @@ After submitting the form, the users might get a custom text and even receive an
 *   Possibility of deactivating and arranging fields   
 *   Support for additional attributes for each fields    
 *   Blocking IPs and word verification possibilities    
-
+*   No possibility of adding new form fields, possibility to edit and enable/disable the large number of existing fields.
 
 Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
