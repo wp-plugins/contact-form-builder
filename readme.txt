@@ -46,7 +46,7 @@ Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordp
    
 ### Supported languages Of Contact Form Builder    
 
- *If you need language of Contact Form Builder which is not included in this list, please contact us and we will do the translation of Contact Form Builder within 3 days. If you find some mistakes in the translation of Contact Form Builder, please contact  us and we will correct it within 3 days.*  
+ *If you need language of Contact Form Builder which is not included in this list, please contact us and we will do the translation of Contact Form Builder within 3 days. If you find any mistakes in the translation of Contact Form Builder, please contact us and we will make relevant corrections within 3 days.*  
 
 Afrikaans (af)  
 Albanian (sq)  
