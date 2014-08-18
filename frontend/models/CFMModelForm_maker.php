@@ -559,11 +559,11 @@ class CFMModelForm_maker {
         }
         foreach ($label_order_original as $key => $label_each) {
           $type = $label_type[$key];
-          if (strpos($row->script_mail_user, "%" . $label_each . "%") !== FALSE) {
+          if (strpos($row->script_mail_user, "%" . $label_each . "%") !== FALSE && !in_array($key,$disabled_fields)) {
             $new_value = $this->custom_fields_mail($type, $key, $id);
             $new_script = str_replace("%" . $label_each . "%", $new_value, $new_script);
           }
-          if (strpos($fromname, "%" . $label_each . "%") > -1) {
+          if (strpos($fromname, "%" . $label_each . "%") !== FALSE && !in_array($key,$disabled_fields)) {
             $new_value = str_replace('<br>', ', ', $this->custom_fields_mail($type, $key, $id));
             if (substr($new_value, -2) == ', ') {
               $new_value = substr($new_value, 0, -2);
@@ -649,7 +649,7 @@ class CFMModelForm_maker {
           $fromname = $row->mail_from_name;
         }
         else {
-          $fromname = $row->mail_from;
+          $fromname = '';
         }
         if ($row->mail_mode) {
           $content_type = "text/html";
@@ -664,11 +664,11 @@ class CFMModelForm_maker {
         }
         foreach ($label_order_original as $key => $label_each) {
           $type = $label_type[$key];
-          if (strpos($row->script_mail, "%" . $label_each . "%") !== FALSE) {
+          if (strpos($row->script_mail, "%" . $label_each . "%") !== FALSE && !in_array($key,$disabled_fields)) {
             $new_value = $this->custom_fields_mail($type, $key, $id);
             $new_script = str_replace("%" . $label_each . "%", $new_value, $new_script);
           }
-          if (strpos($fromname, "%" . $label_each . "%") > -1) {
+          if (strpos($fromname, "%" . $label_each . "%") !== FALSE && !in_array($key,$disabled_fields)) {
             $new_value = str_replace('<br>',', ',$this->custom_fields_mail($type, $key, $id));
             if (substr($new_value, -2) == ', ') {
               $new_value = substr($new_value, 0, -2);

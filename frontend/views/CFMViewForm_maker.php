@@ -1121,18 +1121,10 @@ class CFMViewForm_maker {
         <?php echo $onload_js; ?>
       }
 
-      function contactformAddToOnload<?php echo $id ?>() {
-        if (contactformOldFunctionOnLoad<?php echo $id ?>) {
-          contactformOldFunctionOnLoad<?php echo $id ?>();
-        }
+      jQuery(window).load(function () {
         contactformOnload<?php echo $id ?>();
-      }
-      function contactformLoadBody<?php echo $id ?>() {
-        contactformOldFunctionOnLoad<?php echo $id ?> = window.onload;
-        window.onload = contactformAddToOnload<?php echo $id ?>;
-      }
-      var contactformOldFunctionOnLoad<?php echo $id ?> = null;
-      contactformLoadBody<?php echo $id ?>();
+      });
+
       form_view_count<?php echo $id ?> = 0;
       jQuery(document).ready(function () {
         if (document.getElementById(<?php echo $id ?>+'contactform_view1')) {

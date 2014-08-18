@@ -932,23 +932,28 @@ class CFMViewManage_cfm {
               <td class="fm_options_value">
                 <?php 
                 $is_other = TRUE;
+                $field_disabled = TRUE;
                 for ($i = 0; $i < $fields_count - 1; $i++) {
-                  ?>
+                  $field_id = substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*') + 15, strlen($fields[$i]));
+                  if (!in_array($field_id, $disabled_fields)) {
+                    $field_disabled = FALSE;
+                    ?>
                   <div>
-                    <input type="radio" name="mail_from" id="mail_from<?php echo $i; ?>" value="<?php echo substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*')+15, strlen($fields[$i])); ?>"  <?php echo (substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*')+15, strlen($fields[$i])) == $row->mail_from ? 'checked="checked"' : '' ); ?> onclick="wdhide('mail_from_other')" />
+                    <input type="radio" name="mail_from" id="mail_from<?php echo $i; ?>" value="<?php echo $field_id; ?>"  <?php echo ($field_id == $row->mail_from ? 'checked="checked"' : '' ); ?> onclick="wdhide('mail_from_other')" />
                     <label for="mail_from<?php echo $i; ?>"><?php echo substr($fields[$i + 1], 0, strpos($fields[$i + 1], '*:*w_field_label*:*')); ?></label>
                   </div>
-                  <?php
-                  if (substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*') + 15, strlen($fields[$i])) == $row->mail_from) {
-                    $is_other = FALSE;
+                    <?php
+                    if ($field_id == $row->mail_from) {
+                      $is_other = FALSE;
+                    }
                   }
                 }
                 ?>
-                <div style="<?php echo ($fields_count == 1) ? 'display:none;' : ''; ?>">
+                <div style="<?php echo ($fields_count == 1 || $field_disabled) ? 'display:none;' : ''; ?>">
                   <input type="radio" id="other" name="mail_from" value="other" <?php echo ($is_other) ? 'checked="checked"' : ''; ?> onclick="wdshow('mail_from_other')" />
                   <label for="other">Other</label>
                 </div>
-								<input type="text" style="width: <?php echo ($fields_count == 1) ? '250px' : '235px; margin-left: 15px' ?>; display: <?php echo ($is_other) ? 'block;' : 'none;'; ?>" id="mail_from_other" name="mail_from_other" value="<?php echo ($is_other) ? $row->mail_from : ''; ?>" />
+								<input type="text" style="width: <?php echo ($fields_count == 1 || $field_disabled) ? '250px' : '235px; margin-left: 15px' ?>; display: <?php echo ($is_other) ? 'block;' : 'none;'; ?>" id="mail_from_other" name="mail_from_other" value="<?php echo ($is_other && !$field_disabled) ? $row->mail_from : ''; ?>" />
               </td>
             </tr>
             <tr valign="top">
@@ -989,23 +994,28 @@ class CFMViewManage_cfm {
               <td class="fm_options_value">
                 <?php 
                 $is_other = TRUE;
+                $field_disabled = TRUE;
                 for ($i = 0; $i < $fields_count - 1; $i++) {
-									?>
+                  $field_id = substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*') + 15, strlen($fields[$i]));
+                  if (!in_array($field_id, $disabled_fields)) {
+                    $field_disabled = FALSE;
+                    ?>
                   <div>
-                    <input type="radio" name="reply_to" id="reply_to<?php echo $i; ?>" value="<?php echo substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*') + 15, strlen($fields[$i])); ?>"  <?php echo (substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*') + 15, strlen($fields[$i])) == $row->reply_to ? 'checked="checked"' : ''); ?> onclick="wdhide('reply_to_other')" />
+                    <input type="radio" name="reply_to" id="reply_to<?php echo $i; ?>" value="<?php echo $field_id; ?>"  <?php echo ($field_id == $row->reply_to ? 'checked="checked"' : ''); ?> onclick="wdhide('reply_to_other')" />
                     <label for="reply_to<?php echo $i; ?>"><?php echo substr($fields[$i + 1], 0, strpos($fields[$i + 1], '*:*w_field_label*:*')); ?></label>
                   </div>
                   <?php
-                  if (substr($fields[$i], strrpos($fields[$i], '*:*new_field*:*') + 15, strlen($fields[$i])) == $row->reply_to) {
-                    $is_other = FALSE;
+                    if ($field_id == $row->reply_to) {
+                      $is_other = FALSE;
+                    }
                   }
 								}
 								?>
-								<div style="<?php echo ($fields_count == 1) ? 'display: none;' : ''; ?>">
+								<div style="<?php echo ($fields_count == 1 || $field_disabled) ? 'display: none;' : ''; ?>">
                   <input type="radio" id="other1" name="reply_to" value="other" <?php echo ($is_other) ? 'checked="checked"' : ''; ?> onclick="wdshow('reply_to_other')" />
                   <label for="other1">Other</label>
                 </div>
-								<input type="text" style="width: <?php echo ($fields_count == 1) ? '250px' : '235px; margin-left: 15px'; ?>; display: <?php echo ($is_other) ? 'block;' : 'none;'; ?>" id="reply_to_other" name="reply_to_other" value="<?php echo ($is_other && $row->reply_to) ? $row->reply_to : ''; ?>" />
+								<input type="text" style="width: <?php echo ($fields_count == 1 || $field_disabled) ? '250px' : '235px; margin-left: 15px'; ?>; display: <?php echo ($is_other) ? 'block;' : 'none;'; ?>" id="reply_to_other" name="reply_to_other" value="<?php echo ($is_other && $row->reply_to && !$field_disabled) ? $row->reply_to : ''; ?>" />
               </td>
             </tr>
             <tr valign="top">
@@ -1166,7 +1176,7 @@ class CFMViewManage_cfm {
             </tr>
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="reply_to_user">Reply to<br />(if different from "Email Form")</label>
+                <label for="reply_to_user">Reply to<br />(if different from "Email From")</label>
               </td>
               <td class="fm_options_value">
                 <input type="text" id="reply_to_user" name="reply_to_user" value="<?php echo $row->reply_to_user; ?>" style="width: 250px;" />
