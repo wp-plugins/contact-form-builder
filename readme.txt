@@ -37,7 +37,8 @@ After submitting the form, the users might get a custom text and even receive an
 *   Blocking IPs and word verification possibilities    
 *   No possibility of adding new form fields, possibility to edit and enable/disable the large number of existing fields.   
 *   Detailed Email Options both for the Administrator and User for receiving the submitted data.   
-
+*   Emailing option to the administrator upon submitting a form  
+  
 Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
 *   37 themes based on various color schemes  
