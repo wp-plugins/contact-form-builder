@@ -3,7 +3,7 @@ Contributors: webdorado
 Donate link: http://web-dorado.com/products/wordpress-contact-form-builder.html
 Tags:  form,  forms,  contact form, contact forms,  contact form plugin,contact forms plugin, forms plugin, Contact Form Builder, contact form manager, multiple contac forms, custom  form,Contact Form Builder with recaptcha, contact form with google map, feedback form, feedback forms, contact us, wordpress contact form, email form, feedback, web form, contact me, email, contact manager, contact us form 
 Requires at least: 3.0
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,8 +12,8 @@ Contact Form Builder is an intuitive tool for creating contact forms.
 
 == Description ==
 
-### [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html)    
-
+[WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html)  
+ 
 Contact Form Builder is the best tool for quickly arranging a contact form for your clients and visitors. The form includes all of the form field types necessary to create a complete contact form, where is those can be activated and deactivated, as well as rearranged.
 The responsiveness of the product allows you to become available for contacting using various gadgets.
 Using the CSS files of the themes you can achieve the best design of the contact form, applying changes in colors, dimensions and other features.
