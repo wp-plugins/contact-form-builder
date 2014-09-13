@@ -1043,13 +1043,13 @@ class CFMViewForm_maker {
               $param['w_lat']	= explode('***', $param['w_lat']);
               $param['w_info'] = explode('***', $param['w_info']);
               foreach ($param['w_long'] as $key => $w_long ) {
-                $marker .= 'long'.$key.'="'.$w_long.'" lat'.$key.'="'.$param['w_lat'][$key].'" info'.$key.'="'.$param['w_info'][$key].'"';
+                $marker .= 'long'.$key.'="'.$w_long.'" lat'.$key.'="'.$param['w_lat'][$key].'" info'.$key.'="'.str_replace(array("\r\n", "\n", "\r"), '<br />', $param['w_info'][$key]).'"';
               }
 
               $rep ='<div type="type_map" class="wdform-field"  style="width:'.($param['w_width']).'px"><div class="wdform-label-section" style="display: table-cell;"><span id="wdform_'.$id1.'_element_label'.$form_id.'" style="display: none;">'.$label.'</span></div><div class="wdform-element-section '.$param['w_class'].'" style="width: '.$param['w_width'].'px;"><div id="wdform_'.$id1.'_element'.$form_id.'" zoom="'.$param['w_zoom'].'" center_x="'.$param['w_center_x'].'" center_y="'.$param['w_center_y'].'" style="width: 100%; height: '.$param['w_height'].'px;" '.$marker.' '.$param['attributes'].'></div></div></div>';
               $onload_js .= 'if_gmap_init("wdform_' . $id1 . '", ' . $form_id . ');';
               foreach ($param['w_long'] as $key => $w_long) {
-                $onload_js .= 'add_marker_on_map("wdform_'.$id1.'",'.$key.', "'.$w_long.'", "'.$param['w_lat'][$key].'", "'.$param['w_info'][$key].'", '.$form_id.',false);';
+                $onload_js .= 'add_marker_on_map("wdform_'.$id1.'",'.$key.', "'.$w_long.'", "'.$param['w_lat'][$key].'", "'.str_replace(array("\r\n", "\n", "\r"), '<br />', $param['w_info'][$key]).'", '.$form_id.',false);';
               }
               break;
             }

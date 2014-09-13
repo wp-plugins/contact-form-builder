@@ -44,7 +44,7 @@ function contact_form_maker_insert() {
     `mail_mode` tinyint(4) NOT NULL DEFAULT '1',
     `mail_mode_user` tinyint(4) NOT NULL DEFAULT '1',
     PRIMARY KEY (`id`)
-  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
+  ) DEFAULT CHARSET=utf8;";
   $wpdb->query($contactformmaker);
   $contact_form_maker_row = $wpdb->get_var("SELECT * FROM " . $wpdb->prefix . "contactformmaker");
   if (!$contact_form_maker_row) {
@@ -67,7 +67,7 @@ function contact_form_maker_insert() {
     `group_id` int(11) NOT NULL,
     `date` datetime NOT NULL,
     `ip` varchar(32) NOT NULL,
-    PRIMARY KEY (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
+    PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;";
   $wpdb->query($contactformmaker_submits);
   $contactformmaker_themes = "CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "contactformmaker_themes` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -75,7 +75,7 @@ function contact_form_maker_insert() {
     `css` text NOT NULL,
     `default` tinyint(4) NOT NULL,
     PRIMARY KEY (`id`)
-    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
+    ) DEFAULT CHARSET=utf8;";
   $wpdb->query($contactformmaker_themes);
   $contact_form_maker_theme_row = $wpdb->get_var("SELECT * FROM `" . $wpdb->prefix . "contactformmaker_themes`");
   if (!$contact_form_maker_theme_row) {
@@ -121,7 +121,7 @@ function contact_form_maker_insert() {
     `form_id` int(11) NOT NULL,
     `views` int(50) NOT NULL,
     PRIMARY KEY (`form_id`)
-  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
+  ) DEFAULT CHARSET=utf8;";
   $wpdb->query($contactformmaker_views);
   $contactformmaker_blocked = "CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "contactformmaker_blocked` (
     `id` int(11) NOT NULL AUTO_INCREMENT,

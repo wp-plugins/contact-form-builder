@@ -1,3 +1,7 @@
+.wdform_map img {
+  max-width: none !important;
+}
+
 .wdform-page-and-images {
   box-sizing: border-box;
 }
