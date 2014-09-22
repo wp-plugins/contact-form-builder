@@ -668,7 +668,7 @@ class CFMViewForm_maker {
               }
               if (isset($w_disabled_fields[5]) && $w_disabled_fields[5] == 'no') {
                 $g++;
-                $address_fields .= '<span style="float: '.(($g % 2 == 0) ? 'right' : 'left').'; width: 48%; padding-bottom: 8px;display: inline-block;"><select type="text" id="wdform_'.$id1.'_country'.$form_id.'" name="wdform_'.($id1+5).'_country'.$form_id.'" style="width:100%" '.$param['attributes'].'>'.$w_options.'</select><label class="mini_label">'.$w_mini_labels[5].'</span>';
+                $address_fields .= '<span style="float: '.(($g % 2 == 0) ? 'right' : 'left').'; width: 48%; padding-bottom: 8px;display: inline-block;"><select type="text" id="wdform_'.$id1.'_country'.$form_id.'" name="wdform_'.($id1+5).'_country'.$form_id.'" style="width:100%" '.$param['attributes'].'>'.$w_options.'</select><label class="mini_label">'.$w_mini_labels[5].'</label></span>';
               }				
               $rep .= '</div><div class="wdform-element-section '.$param['w_class'].'" style="'.$param['w_field_label_pos2'].' width: '.$param['w_size'].'px;"><div>
               '.$address_fields.'</div></div></div>';
