@@ -28,25 +28,25 @@ After submitting the form, the users might get a custom text and even receive an
 
 ###Features of Contact Form Builder 
 
-*   Responsiveness   
-*   10 default form templates included    
-*   Possibility of creating new forms based on the default templates    
-*   Possibility of changing the labels, content and options for each form    
-*   Possibility of deactivating and arranging fields   
-*   Support for additional attributes for each fields    
-*   Blocking IPs and word verification possibilities    
+*   Responsiveness.   
+*   10 default form templates included.    
+*   Possibility of creating new forms based on the default templates.    
+*   Possibility of changing the labels, content and options for each form.    
+*   Possibility of deactivating and arranging fields.   
+*   Support for additional attributes for each fields.    
+*   Blocking IPs and word verification possibilities.    
 *   No possibility of adding new form fields, possibility to edit and enable/disable the large number of existing fields.   
 *   Detailed Email Options both for the Administrator and User for receiving the submitted data.   
-*   Emailing option to the administrator upon submitting a form  
-*   Google Maps integration  
-*   Possibility of sending the copy of the submitted data to the user   
-*   Google ReCaptcha support for avoiding spam   
+*   Emailing option to the administrator upon submitting a form.  
+*   Google Maps integration.  
+*   Possibility of sending the copy of the submitted data to the user.   
+*   Google ReCaptcha support for avoiding spam.   
 
 Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
-*   37 themes based on various color schemes  
-*   Submissions section        
-*   Possibility of exporting the received data both in CSV and XML formats   
+*   37 themes based on various color schemes.  
+*   Submissions section.        
+*   Possibility of exporting the received data both in CSV and XML formats.   
 
    
 ### Supported languages Of Contact Form Builder    
