@@ -41,6 +41,7 @@ After submitting the form, the users might get a custom text and even receive an
 *   Google Maps integration.  
 *   Possibility of sending the copy of the submitted data to the user.   
 *   Google ReCaptcha support for avoiding spam.   
+*   Possibility to change the form layout using the corresponding section.  
 
 Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
