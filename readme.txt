@@ -126,6 +126,36 @@ After downloading the ZIP file,
 If any problem occurs, please contact us at  [info@web-dorado.com](mailto:info@web-dorado.com).  
 
 == Changelog ==
+= 1.0.11 =
+bug address field structure fixed
+= 1.0.10 =
+bug fixed in update
+
+= 1.0.9 =
+submitter information by IP in popup
+
+= 1.0.8 =
+bug fixed in map
+
+= 1.0.7 =
+email form name bug fixed
+
+= 1.0.6 =
+address fields in submissions
+
+= 1.0.5 =
+space in filed label
+
+= 1.0.4 =
+custom html iframe problem fixed
+
+= 1.0.3 =
+responsive textarea
+
+= 1.0.2 =
+translations fixed
+= 1.0.1 =
+conflict with jetpack fixed
 
 = 1.0.0 =
 *  Initial version   
