@@ -3,8 +3,9 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.11
- * Author: http://web-dorado.com/
+ * Version: 1.0.12
+ * Author: WebDorado
+ * Author URI: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 define('WD_CFM_DIR', WP_PLUGIN_DIR . "/" . plugin_basename(dirname(__FILE__)));
@@ -27,9 +28,9 @@ function contact_form_maker_options_panel() {
   $themes_page = add_submenu_page('manage_cfm', 'Themes', 'Themes', 'manage_options', 'themes_cfm', 'contact_form_maker');
 
   $licensing_plugins_page = add_submenu_page('manage_cfm', 'Licensing/Donation', 'Licensing/Donation', 'manage_options', 'licensing_cfm', 'contact_form_maker');
+  add_action('admin_print_styles-' . $licensing_plugins_page, 'contact_form_maker_licensing_styles');
 
-  $featured_plugins_page = add_submenu_page('manage_cfm', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'featured_plugins_cfm', 'contact_form_maker');
-  add_action('admin_print_styles-' . $featured_plugins_page, 'contact_form_maker_featured_plugins_styles');
+  $featured_plugins_page = add_submenu_page('manage_cfm', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'featured_plugins_cfm', 'cfm_featured');
 
   $uninstall_page = add_submenu_page('manage_cfm', 'Uninstall', 'Uninstall', 'manage_options', 'uninstall_cfm', 'contact_form_maker');
   add_action('admin_print_styles-' . $uninstall_page, 'contact_form_maker_styles');
@@ -40,12 +41,19 @@ add_action('admin_menu', 'contact_form_maker_options_panel');
 function contact_form_maker() {
   require_once(WD_CFM_DIR . '/framework/WDW_CFM_Library.php');
   $page = WDW_CFM_Library::get('page');
-  if (($page != '') && (($page == 'manage_cfm') || ($page == 'submissions_cfm') || ($page == 'blocked_ips_cfm') || ($page == 'themes_cfm') || ($page == 'licensing_cfm') || ($page == 'featured_plugins_cfm') || ($page == 'uninstall_cfm') || ($page == 'CFMShortcode'))) {
+  if (($page != '') && (($page == 'manage_cfm') || ($page == 'submissions_cfm') || ($page == 'blocked_ips_cfm') || ($page == 'themes_cfm') || ($page == 'licensing_cfm') || ($page == 'uninstall_cfm') || ($page == 'CFMShortcode'))) {
     require_once (WD_CFM_DIR . '/admin/controllers/CFMController' . ucfirst(strtolower($page)) . '.php');
     $controller_class = 'CFMController' . ucfirst(strtolower($page));
     $controller = new $controller_class();
     $controller->execute();
   }
+}
+
+function cfm_featured() {
+  require_once(WD_CFM_DIR . '/featured/featured.php');
+  wp_register_style('cfm_featured', WD_CFM_URL . '/featured/style.css', array(), get_option("wd_contact_form_maker_version"));
+  wp_print_styles('cfm_featured');
+  spider_featured('contact-form-builder');
 }
 
 add_action('wp_ajax_ContactFormMakerPreview', 'contact_form_maker_ajax');
@@ -149,7 +157,7 @@ if (class_exists('WP_Widget')) {
 // Activate plugin.
 function contact_form_maker_activate() {
   $version = get_option("wd_contact_form_maker_version");
-  $new_version = '1.0.10';
+  $new_version = '1.0.12';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_CFM_DIR . "/contact-form-builder-update.php";
     contact_form_maker_update($version);
@@ -203,16 +211,15 @@ function contact_form_maker_manage_scripts() {
   wp_enqueue_script('contact_form_maker_htmlmixed', WD_CFM_URL . '/js/layout/htmlmixed.js', array(), '1.0.0');
 }
 
-// Contact Form Builder Featured plugins page styles.
-function contact_form_maker_featured_plugins_styles() {
-  wp_enqueue_style('Featured_Plugins', WD_CFM_URL . '/css/contact_form_maker_featured_plugins.css');
-}
-
 function contact_form_maker_styles() {
   wp_enqueue_style('contact_form_maker_tables', WD_CFM_URL . '/css/contact_form_maker_tables.css', array(), get_option("wd_contact_form_maker_version"));
 }
 function contact_form_maker_scripts() {
   wp_enqueue_script('contact_form_maker_admin', WD_CFM_URL . '/js/contact_form_maker_admin.js', array(), get_option("wd_contact_form_maker_version"));
+}
+
+function contact_form_maker_licensing_styles() {
+  wp_enqueue_style('ontact_form_maker_licensing', WD_CFM_URL . '/css/contact_form_maker_licensing.css');
 }
 
 function contact_form_maker_front_end_scripts() {
