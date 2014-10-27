@@ -43,6 +43,7 @@ After submitting the form, the users might get a custom text and even receive an
 *   Google ReCaptcha support for avoiding spam.   
 *   Possibility to change the form layout using the corresponding section.  
 *   Preview possibility for each form at the Manager Section.   
+*   Possibility to create required fields.   
 
 Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
