@@ -90,7 +90,7 @@ class CFMViewForm_maker {
       $body_or_classes_implode[$i] = implode('}', $body_or_classes[$i]);
     }
     $form_theme = implode('{', $body_or_classes_implode);
-    $form_maker_front_end .= '<style>' . str_replace('[SITE_ROOT]', WD_CFM_URL, $form_theme) . '</style>';
+    $form_maker_front_end .= '<style class="cfm_style">' . str_replace('[SITE_ROOT]', WD_CFM_URL, $form_theme) . '</style>';
     $check_js = '';
     $onload_js = '';
     $onsubmit_js = '';
@@ -1118,6 +1118,9 @@ class CFMViewForm_maker {
             jQuery(this).parent().css('width','');
           }
         });
+        if (jQuery(".cfm_style").parent().prop("tagName") == "P") {
+          jQuery(".cfm_style").parent().css({padding: 0, margin: 0});
+        }
         <?php echo $onload_js; ?>
       }
 

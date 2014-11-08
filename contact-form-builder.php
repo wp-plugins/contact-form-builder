@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.12
+ * Version: 1.0.13
  * Author: WebDorado
  * Author URI: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -30,7 +30,7 @@ function contact_form_maker_options_panel() {
   $licensing_plugins_page = add_submenu_page('manage_cfm', 'Licensing/Donation', 'Licensing/Donation', 'manage_options', 'licensing_cfm', 'contact_form_maker');
   add_action('admin_print_styles-' . $licensing_plugins_page, 'contact_form_maker_licensing_styles');
 
-  $featured_plugins_page = add_submenu_page('manage_cfm', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'featured_plugins_cfm', 'cfm_featured');
+  add_submenu_page('manage_cfm', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'featured_plugins_cfm', 'cfm_featured');
 
   $uninstall_page = add_submenu_page('manage_cfm', 'Uninstall', 'Uninstall', 'manage_options', 'uninstall_cfm', 'contact_form_maker');
   add_action('admin_print_styles-' . $uninstall_page, 'contact_form_maker_styles');
@@ -39,6 +39,14 @@ function contact_form_maker_options_panel() {
 add_action('admin_menu', 'contact_form_maker_options_panel');
 
 function contact_form_maker() {
+  if (function_exists('current_user_can')) {
+    if (!current_user_can('manage_options')) {
+      die('Access Denied');
+    }
+  }
+  else {
+    die('Access Denied');
+  }
   require_once(WD_CFM_DIR . '/framework/WDW_CFM_Library.php');
   $page = WDW_CFM_Library::get('page');
   if (($page != '') && (($page == 'manage_cfm') || ($page == 'submissions_cfm') || ($page == 'blocked_ips_cfm') || ($page == 'themes_cfm') || ($page == 'licensing_cfm') || ($page == 'uninstall_cfm') || ($page == 'CFMShortcode'))) {
@@ -50,6 +58,14 @@ function contact_form_maker() {
 }
 
 function cfm_featured() {
+  if (function_exists('current_user_can')) {
+    if (!current_user_can('manage_options')) {
+      die('Access Denied');
+    }
+  }
+  else {
+    die('Access Denied');
+  }
   require_once(WD_CFM_DIR . '/featured/featured.php');
   wp_register_style('cfm_featured', WD_CFM_URL . '/featured/style.css', array(), get_option("wd_contact_form_maker_version"));
   wp_print_styles('cfm_featured');
@@ -140,14 +156,6 @@ add_action('wp_ajax_CFMShortcode', 'contact_form_maker_ajax');
 add_filter('mce_external_plugins', 'contact_form_maker_register');
 add_filter('mce_buttons', 'contact_form_maker_add_button', 0);
 
-for ($ii = 0; $ii < 100; $ii++) {
-  remove_filter('the_content', 'do_shortcode', $ii);
-  remove_filter('the_content', 'wpautop', $ii);
-}
-add_filter('the_content', 'wpautop', 10);
-add_filter('the_content', 'do_shortcode', 11);
-
-
 // Contact Form Builder Widget.
 if (class_exists('WP_Widget')) {
   require_once(WD_CFM_DIR . '/admin/controllers/CFMControllerWidget.php');
@@ -157,7 +165,7 @@ if (class_exists('WP_Widget')) {
 // Activate plugin.
 function contact_form_maker_activate() {
   $version = get_option("wd_contact_form_maker_version");
-  $new_version = '1.0.12';
+  $new_version = '1.0.13';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_CFM_DIR . "/contact-form-builder-update.php";
     contact_form_maker_update($version);
