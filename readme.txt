@@ -130,8 +130,16 @@ After downloading the ZIP file,
 If any problem occurs, please contact us at  [info@web-dorado.com](mailto:info@web-dorado.com).  
 
 == Changelog ==
+
+= 1.0.13 =
+remove spacing on the top of the form
+
+= 1.0.12 =
+bug fixed in address field
+
 = 1.0.11 =
 bug address field structure fixed
+
 = 1.0.10 =
 bug fixed in update
 
