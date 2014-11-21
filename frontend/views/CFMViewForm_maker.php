@@ -1087,7 +1087,8 @@ class CFMViewForm_maker {
     ?>
     <script type="text/javascript">
       function contactformOnload<?php echo $id; ?>() {
-        if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 8) {
+        /*if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 8) {*/
+        if (navigator.userAgent.toLowerCase().indexOf('msie') != -1 && parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) === 8) {
           jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']")).click(function() {jQuery("input[type='radio']+label").removeClass('if-ie-div-label'); jQuery("input[type='radio']:checked+label").addClass('if-ie-div-label')});	
           jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']:checked+label")).addClass('if-ie-div-label');
           jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='checkbox']")).click(function() {jQuery("input[type='checkbox']+label").removeClass('if-ie-div-label'); jQuery("input[type='checkbox']:checked+label").addClass('if-ie-div-label')});	
