@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.14
+ * Version: 1.0.15
  * Author: WebDorado
  * Author URI: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -128,14 +128,14 @@ add_action('init', 'cfm_do_output_buffer');
 function contact_form_maker_frontend_main($content) {
   global $cfm_generate_action;
   if ($cfm_generate_action) {
-    $pattern = '[\[Contact_Form_Builder id=("|&#8221;)([0-9]*)("|&#8243;)\]]';
+    $pattern = '[\[Contact_Form_Builder id="([0-9]*)"\]]';
     $count_forms_in_post = preg_match_all($pattern, $content, $matches_form);
     if ($count_forms_in_post) {
       require_once (WD_CFM_DIR . '/frontend/controllers/CFMControllerForm_maker.php');
       $controller = new CFMControllerForm_maker();
       for ($jj = 0; $jj < $count_forms_in_post; $jj++) {
         $padron = $matches_form[0][$jj];
-        $replacment = $controller->execute($matches_form[2][$jj]);
+        $replacment = $controller->execute($matches_form[1][$jj]);
         $content = str_replace($padron, $replacment, $content);
       }
     }
@@ -143,6 +143,17 @@ function contact_form_maker_frontend_main($content) {
   return $content;
 }
 add_filter('the_content', 'contact_form_maker_frontend_main', 5000);
+
+function cfm_shortcode($attrs) {
+  $new_shortcode = '[Contact_Form_Builder';
+  foreach ($attrs as $key=>$value) {
+    $new_shortcode .= ' ' . $key . '="' . $value . '"';
+  }
+  $new_shortcode .= ']';
+  return $new_shortcode;
+}
+add_shortcode('Contact_Form_Builder', 'cfm_shortcode');
+
 
 $cfm_generate_action = 0;
 function cfm_generate_action() {
@@ -165,7 +176,7 @@ if (class_exists('WP_Widget')) {
 // Activate plugin.
 function contact_form_maker_activate() {
   $version = get_option("wd_contact_form_maker_version");
-  $new_version = '1.0.13';
+  $new_version = '1.0.15';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_CFM_DIR . "/contact-form-builder-update.php";
     contact_form_maker_update($version);
