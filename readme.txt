@@ -132,6 +132,8 @@ After downloading the ZIP file,
 If any problem occurs, please contact us at  [info@web-dorado.com](mailto:info@web-dorado.com).  
 
 == Changelog ==
+= 1.0.15 =
+wp 4.0.1 shortcode issue fixed
 
 = 1.0.13 =
 remove spacing on the top of the form
