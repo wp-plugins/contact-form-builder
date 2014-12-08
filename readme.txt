@@ -54,7 +54,7 @@ Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordp
 *   37 themes based on various color schemes.  
 *   Submissions section.        
 *   Possibility of exporting the received data both in CSV and XML formats.   
-
+*   Statistical data for the multi-option form fields   
    
 ### Supported languages Of Contact Form Builder    
 
