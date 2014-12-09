@@ -1018,9 +1018,8 @@ class CFMViewForm_maker {
               $publickey = $row->public_key ? $row->public_key : '0';
               $error = NULL;
               require_once(WD_CFM_DIR . '/recaptchalib.php');
-              $rep = '<div type="type_recaptcha" class="wdform-field"><div class="wdform-label-section" style="'.$param['w_field_label_pos1'].'; width: '.$param['w_field_label_size'].'px;"><span class="wdform-label">'.$label.'</span></div><div class="wdform-element-section '.$param['w_class'].'" style="'.$param['w_field_label_pos2'].';">
-              <div id="wd_recaptcha'.$form_id.'" '.$param['attributes'].'>'.recaptcha_get_html($publickey, $error).'</div></div></div>
-              <script>var RecaptchaOptions = {theme: "'.$param['w_theme'].'"};</script>';
+              $rep = '<script>var RecaptchaOptions = {theme: "'.$param['w_theme'].'"};</script><div type="type_recaptcha" class="wdform-field"><div class="wdform-label-section" style="'.$param['w_field_label_pos1'].'; width: '.$param['w_field_label_size'].'px;"><span class="wdform-label">'.$label.'</span></div><div class="wdform-element-section '.$param['w_class'].'" style="'.$param['w_field_label_pos2'].';">
+              <div id="wd_recaptcha'.$form_id.'" '.$param['attributes'].'>'.recaptcha_get_html($publickey, $error).'</div></div></div>';
               break;
             }
             case 'type_map': {
