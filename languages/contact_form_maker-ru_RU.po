@@ -1,0 +1,179 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: contact_form_maker\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-19 10:20+0400\n"
+"PO-Revision-Date: 2014-06-19 10:22+0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\wordpress3.5\\wp-content\\plugins"
+"\\contact-forms\n"
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:78
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:93
+msgid "Error, incorrect Security code."
+msgstr "Ошибка, неверный код безопасности."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:105
+msgid "Your ip is blacklisted. Please contact the website administrator."
+msgstr ""
+"Ваш IP занесен в черный список. Пожалуйста, обратитесь к администратору "
+"сайта."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:277
+#, php-format
+msgid ""
+"This field %s requires a unique entry and this value was already submitted."
+msgstr ""
+"Это поле %s требует уникальную запись, и эта величина уже представленa."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:308
+msgid "Nothing was submitted."
+msgstr "Ничего не было представлено."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:870
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:883
+msgid "Your form was successfully submitted."
+msgstr "Ваша форма была успешно представлена."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/models/CFMModelForm_maker.php:878
+msgid "Error, email was not sent."
+msgstr "Ошибка, электронное письмо не отправлен."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:201
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:240
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:282
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:322
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:364
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:413
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:474
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:566
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:578
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:675
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:734
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:822
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:898
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:961
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:996
+msgid "field is required."
+msgstr "поле обязательно для заполнения."
+
+#: C:\wamp\www\wordpress3.5\wp-content\plugins\contact-forms/frontend/views/CFMViewForm_maker.php:747
+msgid "This is not a valid email address."
+msgstr "Это не адрес электронной почты."
+
+#~ msgid "Street Address"
+#~ msgstr "Улица"
+
+#~ msgid "Street Address Line 2"
+#~ msgstr "Адрес строка 2"
+
+#~ msgid "City"
+#~ msgstr "Город"
+
+#~ msgid "State / Province / Region"
+#~ msgstr "Штат / Область / регион"
+
+#~ msgid "Postal / Zip Code"
+#~ msgstr "Почтовый / Индекс"
+
+#~ msgid "Country"
+#~ msgstr "СТРАНА"
+
+#~ msgid "January"
+#~ msgstr "Январь"
+
+#~ msgid "February"
+#~ msgstr "Февраль"
+
+#~ msgid "March"
+#~ msgstr "Марта"
+
+#~ msgid "April"
+#~ msgstr "Апреля"
+
+#~ msgid "May"
+#~ msgstr "Май"
+
+#~ msgid "June"
+#~ msgstr "Июнь"
+
+#~ msgid "July"
+#~ msgstr "Июля"
+
+#~ msgid "August"
+#~ msgstr "Августа"
+
+#~ msgid "September"
+#~ msgstr "Сентября"
+
+#~ msgid "October"
+#~ msgstr "Oктябрь"
+
+#~ msgid "November"
+#~ msgstr "Ноябрь"
+
+#~ msgid "December"
+#~ msgstr "Декабрь"
+
+#~ msgid "Quantity"
+#~ msgstr "Количество"
+
+#~ msgid "The file exceeds the allowed size of"
+#~ msgstr "Файл превышает допустимый размер"
+
+#~ msgid "Sorry, you are not allowed to upload this type of file."
+#~ msgstr "К сожалению, вы не можете загрузить этот тип файла."
+
+#~ msgid "Error, file cannot be moved."
+#~ msgstr "Ошибка, файл не может быть перемещен."
+
+#, fuzzy
+#~ msgid "Error, file destination does not exist."
+#~ msgstr "Ошибка, адрес электронной почты не был отправлен."
+
+#~ msgid "The"
+#~ msgstr "The"
+
+#~ msgid "value must be between"
+#~ msgstr "Значение должно быть между"
+
+#~ msgid "Your score should be less than"
+#~ msgstr "Ваша оценка должна быть не менее"
+
+#~ msgid "Title"
+#~ msgstr "Тема исследования"
+
+#~ msgid "First"
+#~ msgstr "первый"
+
+#~ msgid "Last"
+#~ msgstr "Последний"
+
+#~ msgid "Middle"
+#~ msgstr "Середина урока"
+
+#~ msgid "Area Code"
+#~ msgstr "код города"
+
+#~ msgid "Phone Number"
+#~ msgstr "Номер телефона"
+
+#~ msgid "Dollars"
+#~ msgstr "Долларов"
+
+#~ msgid "Cents"
+#~ msgstr "Центов"
+
+#~ msgid "From"
+#~ msgstr "От"
+
+#~ msgid "To"
+#~ msgstr "До"
