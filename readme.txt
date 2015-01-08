@@ -152,7 +152,7 @@ bug address field structure fixed
 bug fixed in update
 
 = 1.0.9 =
-submitter information by IP in popup
+show submitter information by IP in popup
 
 = 1.0.8 =
 bug fixed in map
