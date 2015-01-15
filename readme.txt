@@ -122,14 +122,14 @@ Vietnamese (vi)
 After downloading the ZIP file,  
 
 1. Log in to the administrator panel.  
-1. Go to Plugins Add > New > Upload.  
-1. Click “Choose file” (“Browse”) and select the downloaded zip file.  
+2. Go to Plugins Add > New > Upload.  
+3. Click “Choose file” (“Browse”) and select the downloaded zip file.  
 *For Mac Users*  
 *Go to your Downloads folder and locate the folder with the plugin. Right-click on the folder and select Compress. Now you have a newly created .zip file which can be installed as described here.*  
 1. Click “Install Now” button.  
-1. Click “Activate Plugin” button for activating the plugin.  
-
-If any problem occurs, please contact us at  [info@web-dorado.com](mailto:info@web-dorado.com).  
+2. Click “Activate Plugin” button for activating the plugin.  
+3. If the installation does not succeed, please contact us at info@web-dorado.com.
+ 
 
 == Changelog ==
 
@@ -207,8 +207,9 @@ Step 1: Installing the [WordPress Contact Form Builder](http://web-dorado.com/pr
 For Mac Users 
 Go to your Downloads folder and locate the folder with the plugin. Right-click on the folder and select Compress. Now you have a newly created .zip file which can be installed as described here.
 4.	Click “Install Now” button.
-5.	If the installation does not succeed, please contact us at info@web-dorado.com.
-6.	Click “Activate Plugin” button for activating the Contact Form Builder plugin.
+5.	Click “Activate Plugin” button for activating the Contact Form Builder plugin.
+6.	If the installation does not succeed, please contact us at info@web-dorado.com.
+
 
 = Step 2: Editing and adjusting Contact Form Builder. =
 
