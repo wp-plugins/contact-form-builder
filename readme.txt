@@ -213,47 +213,47 @@ Go to your Downloads folder and locate the folder with the plugin. Right-click o
 
 = Step 2: Editing and adjusting Contact Form Builder. =
 
-2.1 Go to Contact Form Builder > Manager.
-2.2 Select the Contact Form you want to make the relevant changes. Click on the title to open the specified contact form.
-Here you will see three sets of buttons- navigation buttons, “pencil” button for editing the contact form fields and checkbox. Let’s discuss each button separately:
-2.3 Navigation Buttons. 4 navigation arrows are displayed next to each contact form field. You can use those arrows to move the contact form fields up, down, left or right. Note: for larger contact form fields to get the idea of the contact form display in the front-end you should press Collapse menu on the lowest left corner.
+2.1 Go to Contact Form Builder > Manager.   
+2.2 Select the Contact Form you want to make the relevant changes. Click on the title to open the specified contact form.    
+Here you will see three sets of buttons- navigation buttons, “pencil” button for editing the contact form fields and checkbox. Let’s discuss each button separately:    
+2.3 Navigation Buttons. 4 navigation arrows are displayed next to each contact form field. You can use those arrows to move the contact form fields up, down, left or right. Note: for larger contact form fields to get the idea of the contact form display in the front-end you should press Collapse menu on the lowest left corner.     
 
-2.4 Edit button. Using edit button, you will be able to apply specific changes in the contact form field, including titles, labels, dimensions and etc.
-2.5 Checkbox. Using the checkboxes next to the contact form fields you can enable or disable the provided field. 
+2.4 Edit button. Using edit button, you will be able to apply specific changes in the contact form field, including titles, labels, dimensions and etc.   
+2.5 Checkbox. Using the checkboxes next to the contact form fields you can enable or disable the provided field.     
 
 
 = Step 3: Configuring Form Options of the Contact Form Builder. =
-The contact form options for each contact form can be adjusted. Go to the Contact Form Builder>Manager, select the contact form and then get to the Form Options. It uses three sections. General options, Email options for the emails to the Administrator and User and Action after Submission for specifying the action once the contact form is submitted.
+The contact form options for each contact form can be adjusted. Go to the Contact Form Builder>Manager, select the contact form and then get to the Form Options. It uses three sections. General options, Email options for the emails to the Administrator and User and Action after Submission for specifying the action once the contact form is submitted.   
 
-3.1 General Options of the Contact Form Builder
+3.1 General Options of the Contact Form Builder  
 
-3.1.1 Published. Choose whether to publish the created contact form or leave it unpublished for the further publishing. 
-3.1.2 Save data (to database). Choose whether to save the data (filled in contact form) in the database (submissions section) or to have email sent out only. IMPORTANT: Please make sure to set up the email options properly in the Email options section of the Contact Form Builder and test it out. Disabling this option is only applicable when you prefer to receive contact form submissions only via email. 
-3.1.3 Theme. The theme of the contact form can be changed to fit the theme of your website. It can be applied to each new contact form. The contact form comes with 37 default themes. The themes can be edited; there is a possibility of adding new themes to use for contact forms of the other pages (Go to Contact Form Builder>Themes>Add new.) 
-3.1.4 Preview. This option will allow viewing the contact form appearance within the selected theme. 
-3.1.5 Edit CSS. This options allows you to make changes in the contact form theme CSS without the need of leaving the form page. You can press Save and use Preview button to view the changes. 
-3.1.6 Required fields mark. Here you can change the symbol of the indicator used for the required contact form fields. By default it is asterisk and will be displayed at the end of the contact form field (*).
-3.2 Email Options 
-3.2.1 Send Email. Choose whether to send emails containing the contact form entries to administrator(s)/submitter or not. 
-3.2.2 Email to Administrator • Email to send submissions to. Here you provide e-mails to which submitted contact form information is sent. If you need more than one e-mail address, you should press + button to add the new one. 
-Email From. Here you specify the email address from which the administrator(s) receives the submission email (sender’s email). If you have an email address field in your form, you can use this user-submitted email address. 
-•  From Name. Here you specify the sender’s name which is shown in submission email. 
-•  Reply to:(if different from "Email From"). Here you can specify the email address the administrator can reply to. If you have an email address field in your contact form, you can use this user-submitted email address. 
-•  CC. Provide additional email/emails to send the submissions of the contact form. The receiver will be able to view all the emails receiving the submissions. 
-•  BCC. Provide additional email/emails to send the submissions of the contact form. The receiver will not be able to view the emails receiving the submissions. 
-•  Subject. You can provide a text to be used as a subject for the email. In addition using + button you can select any of the contact form fields to be set as a separate subject for the email or use it with additional text, e.g. Submission of + %Name%. 
-•  Mode. Specify the mode of the email to the administrator- HTML or text. HTML will display the contact form within a box, whereas text will display the content of the filled contact form only.
-•  Custom Text in Email For Administrator. Here you can add custom texts, images, and custom HTML to the e-mail message that is sent to the administrator (filled in contact form), as well as choose which fields of the submitted form are included in the e-mail (set to ‘all’ by default).
-3.2.3 Email to User 
-•  Send to. By checking the box the submitters will receive their copy of the filled contact form. 
-•  Email From. Here you specify the email address from which the users receive the submission email. 
-•  From Name. Here you specify the sender’s name which is shown in submission email which the users receive. 
-•  Reply to:(if different from "Email From"). Here you can specify the email address the user can reply to. 
-•  CC. Provide additional email/emails to send the submissions of the contact form. The receiver will be able to view all the emails receiving the submissions.
- •  BCC. Provide additional email/emails to send the submissions of the contact form. The receiver will not be able to view the emails receiving the submissions. 
-•  Subject. You can provide a text to be used as a subject for the email. In addition using + button you can select any of the contact form fields to be set as a separate subject for the email or use it with additional text, e.g. Submission of + %Name%. 
-•  Mode. Specify the mode of the email (filled in contact form) to the administrator- HTML or text. HTML will display the contact form within a box, whereas text will display the content of the filled contact form only.
-•  Custom Text in Email For User. Here you can add custom texts, images, and custom HTML to the e-mail message that is sent to the administrator, as well as choose which fields of the submitted form are included in the e-mail (set to ‘all’ by default).
+3.1.1 Published. Choose whether to publish the created contact form or leave it unpublished for the further publishing.   
+3.1.2 Save data (to database). Choose whether to save the data (filled in contact form) in the database (submissions section) or to have email sent out only. IMPORTANT: Please make sure to set up the email options properly in the Email options section of the Contact Form Builder and test it out. Disabling this option is only applicable when you prefer to receive contact form submissions only via email.     
+3.1.3 Theme. The theme of the contact form can be changed to fit the theme of your website. It can be applied to each new contact form. The contact form comes with 37 default themes. The themes can be edited; there is a possibility of adding new themes to use for contact forms of the other pages (Go to Contact Form Builder>Themes>Add new.)     
+3.1.4 Preview. This option will allow viewing the contact form appearance within the selected theme.   
+3.1.5 Edit CSS. This options allows you to make changes in the contact form theme CSS without the need of leaving the form page. You can press Save and use Preview button to view the changes.    
+3.1.6 Required fields mark. Here you can change the symbol of the indicator used for the required contact form fields. By default it is asterisk and will be displayed at the end of the contact form field (*).   
+3.2 Email Options    
+3.2.1 Send Email. Choose whether to send emails containing the contact form entries to administrator(s)/submitter or not.    
+3.2.2 Email to Administrator • Email to send submissions to. Here you provide e-mails to which submitted contact form information is sent. If you need more than one e-mail address, you should press + button to add the new one.    
+Email From. Here you specify the email address from which the administrator(s) receives the submission email (sender’s email). If you have an email address field in your form, you can use this user-submitted email address.      
+•  From Name. Here you specify the sender’s name which is shown in submission email.     
+•  Reply to:(if different from "Email From"). Here you can specify the email address the administrator can reply to. If you have an email address field in your contact form, you can use this user-submitted email address.   
+•  CC. Provide additional email/emails to send the submissions of the contact form. The receiver will be able to view all the emails receiving the submissions.   
+•  BCC. Provide additional email/emails to send the submissions of the contact form. The receiver will not be able to view the emails receiving the submissions.   
+•  Subject. You can provide a text to be used as a subject for the email. In addition using + button you can select any of the contact form fields to be set as a separate subject for the email or use it with additional text, e.g. Submission of + %Name%.   
+•  Mode. Specify the mode of the email to the administrator- HTML or text. HTML will display the contact form within a box, whereas text will display the content of the filled contact form only.   
+•  Custom Text in Email For Administrator. Here you can add custom texts, images, and custom HTML to the e-mail message that is sent to the administrator (filled in contact form), as well as choose which fields of the submitted form are included in the e-mail (set to ‘all’ by default).   
+3.2.3 Email to User   
+•  Send to. By checking the box the submitters will receive their copy of the filled contact form.   
+•  Email From. Here you specify the email address from which the users receive the submission email.    
+•  From Name. Here you specify the sender’s name which is shown in submission email which the users receive.   
+•  Reply to:(if different from "Email From"). Here you can specify the email address the user can reply to.   
+•  CC. Provide additional email/emails to send the submissions of the contact form. The receiver will be able to view all the emails receiving the submissions.   
+ •  BCC. Provide additional email/emails to send the submissions of the contact form. The receiver will not be able to view the emails receiving the submissions.   
+•  Subject. You can provide a text to be used as a subject for the email. In addition using + button you can select any of the contact form fields to be set as a separate subject for the email or use it with additional text, e.g. Submission of + %Name%.    
+•  Mode. Specify the mode of the email (filled in contact form) to the administrator- HTML or text. HTML will display the contact form within a box, whereas text will display the content of the filled contact form only.   
+•  Custom Text in Email For User. Here you can add custom texts, images, and custom HTML to the e-mail message that is sent to the administrator, as well as choose which fields of the submitted form are included in the e-mail (set to ‘all’ by default).   
 
 
 
