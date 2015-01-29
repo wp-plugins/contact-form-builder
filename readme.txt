@@ -47,7 +47,6 @@ After submitting the form, the users might get a custom text and even receive an
 *   Preview possibility for each form at the Manager Section.   
 *   Possibility to create required fields.   
 *   Support for displaying custom text after hitting submit button, as well as redirection to a custom page.   
-*   Support for displaying the submitter information within the Submissions section IP pop-up.   
 
 Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
@@ -55,6 +54,7 @@ Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordp
 *   Submissions section.        
 *   Possibility of exporting the received data both in CSV and XML formats.   
 *   Statistical data for the multi-option form fields   
+*   Support for displaying the submitter information within the Submissions section IP pop-up.   
    
 ### Supported languages Of Contact Form Builder    
 
