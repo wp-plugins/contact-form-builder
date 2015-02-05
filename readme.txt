@@ -42,7 +42,7 @@ After submitting the form, the users might get a custom text and even receive an
 *   Emailing option to the administrator upon submitting a form.  
 *   Google Maps integration.  
 *   Possibility of sending the copy of the submitted data to the user.   
-*   Google ReCaptcha support for avoiding spam.   
+*   Google ReCaptcha and simple captcha support for avoiding spam.   
 *   Possibility to change the form layout using the corresponding section.  
 *   Preview possibility for each form at the Manager Section.   
 *   Possibility to create required fields.   
