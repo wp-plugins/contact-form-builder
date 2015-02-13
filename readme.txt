@@ -134,48 +134,49 @@ After downloading the ZIP file,
 == Changelog ==
 
 = 1.0.16 =
-bug in ReCaptcha fixed
+*  bug in ReCaptcha fixed
 
 = 1.0.15 =
-wp 4.0.1 shortcode issue fixed
+*  wp 4.0.1 shortcode issue fixed
 
 = 1.0.13 =
-remove spacing on the top of the form
+*  remove spacing on the top of the form
 
 = 1.0.12 =
-bug fixed in address field
+*  bug fixed in address field
 
 = 1.0.11 =
-bug address field structure fixed
+*  bug address field structure fixed
 
 = 1.0.10 =
-bug fixed in update
+*  bug fixed in update
 
 = 1.0.9 =
-show submitter information by IP in popup
+*  show submitter information by IP in popup
 
 = 1.0.8 =
-bug fixed in map
+*  bug fixed in map
 
 = 1.0.7 =
-email form name bug fixed
+*  email form name bug fixed
 
 = 1.0.6 =
-address fields in submissions
+*  address fields in submissions
 
 = 1.0.5 =
-space in filed label
+*  space in filed label
 
 = 1.0.4 =
-custom html iframe problem fixed
+*  custom html iframe problem fixed
 
 = 1.0.3 =
-responsive textarea
+*  responsive textarea
 
 = 1.0.2 =
-translations fixed
+*  translations fixed
+
 = 1.0.1 =
-conflict with jetpack fixed
+*  conflict with jetpack fixed
 
 = 1.0.0 =
 *  Initial version   
