@@ -46,7 +46,7 @@ After submitting the form, the users might get a custom text and even receive an
 *   Possibility to change the form layout using the corresponding section.  
 *   Preview possibility for each form at the Manager Section.   
 *   Possibility to create required fields.   
-*   Support for displaying custom text after hitting submit button, as well as redirection to a custom page.   
+*   Support for displaying custom text after hitting submit button, as well as redirection to a custom page or url.   
 
 Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
