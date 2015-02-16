@@ -78,6 +78,7 @@ class CFMViewManage_cfm {
               <span>Email to send submissions to</span><span class="sorting-indicator"></span></a>
           </th>
           <th class="table_xxl_col">Shortcode</th>
+          <th class="table_large_col">PHP function</th>
           <th class="table_big_col">Preview</th>
           <th class="table_big_col">Edit</th>
           <th class="table_big_col"><a title="Delete selected items" href="" onclick="if (confirm('Do you want to delete selected items?')) {
@@ -110,6 +111,9 @@ class CFMViewManage_cfm {
                 <td><?php echo $row_data->mail; ?></td>
                 <td class="table_xxl_col" style="padding-left: 0; padding-right: 0;">
                   <input type="text" value='[Contact_Form_Builder id="<?php echo $row_data->id; ?>"]' onclick="spider_select_value(this)" size="29" readonly="readonly" style="padding-left: 1px; padding-right: 1px;"/>
+                </td>
+                <td class="table_large_col" style="padding-left: 0; padding-right: 0;">
+                 <input type="text" value='&#60;?php wd_contact_form_builder(<?php echo $row_data->id; ?>); ?&#62;' onclick="spider_select_value(this)"  readonly="readonly" style="padding-left: 1px; padding-right: 1px;" />
                 </td>
                 <td class="table_big_col">
                   <a href="<?php echo add_query_arg(array('action' => 'ContactFormMakerPreview', 'form_id' => $row_data->id, 'test_theme' => $row_data->theme, 'width' => '1000', 'height' => '500', 'TB_iframe' => '1'), admin_url('admin-ajax.php')); ?>" class="thickbox thickbox-preview" title="Form Preview" onclick="return false;">

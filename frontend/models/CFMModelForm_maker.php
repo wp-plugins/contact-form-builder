@@ -595,7 +595,9 @@ class CFMModelForm_maker {
         }
 
         $headers = "MIME-Version: 1.0\n" . $from . " Content-Type: " . $content_type . "; charset=\"" . get_option('blog_charset') . "\"\n";
-        $headers .= "Reply-To: <" . $replyto . ">\r\n";
+        if ($replyto) {
+          $headers .= "Reply-To: <" . $replyto . ">\r\n";
+        }
         if ($cca) {
           $headers .= "Cc: <" . $cca . ">\r\n";
         }
@@ -694,7 +696,9 @@ class CFMModelForm_maker {
           $from = "";
         }
         $headers = "MIME-Version: 1.0\n" . $from . " Content-Type: " . $content_type . "; charset=\"" . get_option('blog_charset') . "\"\n";
-        $headers .= "Reply-To: <" . $replyto . ">\r\n";
+        if ($replyto) {
+          $headers .= "Reply-To: <" . $replyto . ">\r\n";
+        }
         $cca = $row->mail_cc;
         $bcc = $row->mail_bcc;
         if ($cca) {
