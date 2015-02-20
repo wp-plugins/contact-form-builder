@@ -133,6 +133,10 @@ After downloading the ZIP file,
 
 == Changelog ==
 
+= 1.0.17 =
+*  add ability to call form with php function
+*  bug fixed in captcha
+ 
 = 1.0.16 =
 *  bug in ReCaptcha fixed
 
