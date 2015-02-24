@@ -12,7 +12,7 @@ Contact Form Builder is an intuitive tool for creating contact forms.
 
 == Description ==
 
-### If you have updated to WordPress 4.0.1 or got an automatic update to the mentioned version, please also update the Contact Form Builder plugin to the latest version.
+### If you have updated to WordPress 4.0.1 or got an automatic update to the mentioned version, please also update the Contact Form Builder plugin to the 1.0.15 or higher version.
 
 [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html)  
  
