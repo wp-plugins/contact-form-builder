@@ -193,6 +193,43 @@ After downloading the ZIP file,
 4.  Contact Form Builder - Email Option 
 
 
+== Frequently Asked Questions ==
+
+= 1. Can I add more fields to Contact Form Builder? =
+There is no possibility of adding additional fields, but instead there is an option of activating/deactivating fields or modifying the available fields. By default the package includes 10 forms. 
+
+= 2. Where are the submitted entries stored? =
+The entries are being emailed to the Administrator based on the providing email in the Email Options (located within Form Options). 
+
+= 3. Are there any limitations on the number of forms or entries to be used within a single website? =
+There are no limitations on the number of entries per form. You can use unlimited number of forms within each website.
+
+= 4. What can I use to avoid Spam entries? =
+The Contact Form Builder has a possibility of adding two type of word verifications- Standard Captcha and Google ReCaptcha protection. If you are receiving spam entries from a single or a few IPs, you can use Blocking IPs option.  
+
+= 5. Is it possible to translate the Contact Form Builder into another language? =
+It is only possible to translate the front end of the plugin. To do so, you should set define('WPLANG','[lang_code]') to the desired language code in wp_config.php file of your website. This way the plugin should be translated automatically. Please be informed, that you can modify the translations from wp-content/plugins/contact_form_maker/languages/ (you will need POEdit http://www.poedit.net/download.php). 
+
+= 6. What to do if Administrator and/or user do not receive submissions in their email? =
+There are a few options to try out first: 
+Check whether the entries are filtered into spam/junk folders or not.
+Try using standard emails (Gmail/Yahoo/Hotmail and etc.) or an email which uses the same domain as the website
+Check with your hosting provider whether you have your PHP mail activated or not.
+If these options do not work, please install STMP plugin (e.g. http://wordpress.org/plugins/webriti-smtp-mail/). The authentication details for the Gmail are the following:
+Mailer: smtp
+SMTP Authentication: yes
+SMTP Security: SSL
+SMTP Port: 465
+SMTP Username: your gmail full address
+SMTP Password: your gmail password
+SMTP Host: smtp.gmail.com 
+
+After installation please use the test option. If the test email failed contact your hosting provider to fix the issue.  
+
+= 7. Is the Contact Form Builder fully responsive? =
+Yes, the Contact Form Builder is fully responsive and works with various smartphones and tablets. 
+
+
 ==Wordpress Contact Form Builder Step by step guide==    
 
 Step 1: Installing the [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html). 
