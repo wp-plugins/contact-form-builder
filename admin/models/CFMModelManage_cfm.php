@@ -717,6 +717,7 @@ class CFMModelManage_cfm {
       $row->mail_subject_user = '';
       $row->mail_mode = 1;
       $row->mail_mode_user = 1;
+      $row->wpmail = 1;
     }
     return $row;
   }

@@ -1115,11 +1115,13 @@ function close_window() {
 }
 
 function change_label(id, label) {
+  label = label.replace(/(<([^>]+)>)/ig, "");
 	document.getElementById(id).innerHTML = label;
 	document.getElementById(id).value = label;
 }
 
 function change_in_value(id, label) {
+  label = label.replace(/(<([^>]+)>)/ig, "");
   label = label.replace(/"/g, "&quot;");
 	document.getElementById(id).setAttribute("value", label);
 }

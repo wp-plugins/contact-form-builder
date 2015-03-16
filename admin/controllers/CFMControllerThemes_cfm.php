@@ -24,6 +24,7 @@ class CFMControllerThemes_cfm {
     $message = WDW_CFM_Library::get('message');
     echo WDW_CFM_Library::message_id($message);
     if (method_exists($this, $task)) {
+      check_admin_referer('nonce_cfm', 'nonce_cfm');
       $this->$task($id);
     }
     else {

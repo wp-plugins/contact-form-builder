@@ -21,6 +21,7 @@ class CFMControllerUninstall_cfm {
   public function execute() {
     $task = ((isset($_POST['task'])) ? esc_html(stripslashes($_POST['task'])) : '');
     if (method_exists($this, $task)) {
+      check_admin_referer('nonce_cfm', 'nonce_cfm');
       $this->$task();
     }
     else {

@@ -24,6 +24,7 @@ class CFMControllerManage_cfm {
     $message = WDW_CFM_Library::get('message');
     echo WDW_CFM_Library::message_id($message);
     if (method_exists($this, $task)) {
+      check_admin_referer('nonce_cfm', 'nonce_cfm');
       $this->$task($id);
     }
     else {
@@ -166,6 +167,7 @@ class CFMControllerManage_cfm {
     $mail_from = (isset($_POST['mail_from']) ? esc_html(stripslashes($_POST['mail_from'])) : '');
     $mail_from_name = (isset($_POST['mail_from_name']) ? esc_html(stripslashes($_POST['mail_from_name'])) : '');
     $reply_to = (isset($_POST['reply_to']) ? esc_html(stripslashes($_POST['reply_to'])) : '');
+    $wpmail = (isset($_POST['wpmail']) ? esc_html(stripslashes($_POST['wpmail'])) : 1);
     if ($mail_from == "other") {
       $mail_from = (isset($_POST['mail_from_other']) ? esc_html(stripslashes($_POST['mail_from_other'])) : '');
     }
@@ -229,6 +231,7 @@ class CFMControllerManage_cfm {
       'mail_subject_user' => $mail_subject_user,
       'mail_mode' => $mail_mode,
       'mail_mode_user' => $mail_mode_user,
+      'wpmail' => $wpmail,
     ), array('id' => $id));
     if ($save !== FALSE) {
       return 8;
@@ -354,6 +357,7 @@ class CFMControllerManage_cfm {
         'mail_subject_user' => '',
         'mail_mode' => 1,
         'mail_mode_user' => 1,
+        'wpmail' => 1,
       ), array(
 				'%s',
         '%s',
@@ -391,6 +395,7 @@ class CFMControllerManage_cfm {
         '%s',
         '%s',
         '%s',
+        '%d',
         '%d',
         '%d',
       ));
@@ -466,6 +471,7 @@ class CFMControllerManage_cfm {
       'mail_subject_user' => $row->mail_subject_user,
       'mail_mode' => $row->mail_mode,
       'mail_mode_user' => $row->mail_mode_user,
+      'wpmail' => $row->wpmail,
     ), array(
       '%s',
       '%s',
@@ -504,6 +510,7 @@ class CFMControllerManage_cfm {
       '%s',
       '%s',
       '%s',
+      '%d',
       '%d',
       '%d',
     ));

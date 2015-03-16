@@ -172,7 +172,7 @@ class CFMModelForm_maker {
           }		
           case "type_name": {				
             $element_title = isset($_POST['wdform_'.$i."_element_title".$id]) ? esc_html($_POST['wdform_'.$i."_element_title".$id]) : NULL;
-            if(isset($element_title)) {
+            if (isset($element_title)) {
               $value = (isset($_POST['wdform_'.$i."_element_title".$id]) ? esc_html($_POST['wdform_'.$i."_element_title".$id]) : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_first".$id]) ? esc_html($_POST['wdform_'.$i."_element_first".$id]) : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_last".$id]) ? esc_html($_POST['wdform_'.$i."_element_last".$id]) : "") . '@@@' . (isset($_POST['wdform_'.$i."_element_middle".$id]) ? esc_html($_POST['wdform_'.$i."_element_middle".$id]) : "");
             }
             else {
@@ -351,15 +351,13 @@ class CFMModelForm_maker {
   }
 
   public function gen_mail($counter, $all_files, $id) {
-    // if (session_id() == '' || (function_exists('session_status') && (session_status() == PHP_SESSION_NONE))) {
-      // @session_start();
-    // }
     global $wpdb;
     $row = $wpdb->get_row($wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "contactformmaker WHERE id=%d", $id));
     if (!$row->form_front) {
       $id = '';
     }
     $ip = $_SERVER['REMOTE_ADDR'];
+    $replyto = '';
     $label_order_original = array();
     $label_order_ids = array();
     $label_label = array();
@@ -527,7 +525,7 @@ class CFMModelForm_maker {
     }
     $list = $list . '</table>';
     // $list = wordwrap($list, 70, "\n", TRUE);
-    $attachment[] = array();
+   
 
     if ($row->sendemail) {
       if ($row->send_to) {
@@ -584,17 +582,20 @@ class CFMModelForm_maker {
         $send_tos = explode('**', $row->send_to);
         if ($row->mail_from_user != '') {
           if ($row->mail_from_name_user != '') {
-            $from = "From: " . $row->mail_from_name_user . " <" . $row->mail_from_user . ">" . "\r\n";
+            $from = "From: '" . $row->mail_from_name_user . "' <" . $row->mail_from_user . ">" . "\r\n";
           }
           else {
-            $from = "From: " . $row->mail_from_user . " <" . $row->mail_from_user . ">" . "\r\n";
+            $from = "From: '" . $row->mail_from_user . "' <" . $row->mail_from_user . ">" . "\r\n";
           }
         }
         else {
           $from = '';
         }
 
-        $headers = "MIME-Version: 1.0\n" . $from . " Content-Type: " . $content_type . "; charset=\"" . get_option('blog_charset') . "\"\n";
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= $from;
+        $headers .= 'Content-type: ' . $content_type . '; charset="' . get_option('blog_charset') . '"' . "\r\n";
+
         if ($replyto) {
           $headers .= "Reply-To: <" . $replyto . ">\r\n";
         }
@@ -619,7 +620,12 @@ class CFMModelForm_maker {
           foreach ($send_tos as $send_to) {
             $recipient = isset($_POST['wdform_'.str_replace('*', '', $send_to)."_element".$id]) ? $_POST['wdform_'.str_replace('*', '', $send_to)."_element".$id] : NULL;
             if ($recipient) {
-              $send = wp_mail(str_replace(' ', '', $recipient), $subject, stripslashes($body), $headers, $attachment);
+              if ($row->wpmail) {
+                $send = wp_mail(str_replace(' ', '', $recipient), $subject, stripslashes($body), $headers);
+              }
+              else {
+                $send = mail(str_replace(' ', '', $recipient), $subject, stripslashes($body), $headers);
+              }
             }
           }
         }
@@ -690,12 +696,16 @@ class CFMModelForm_maker {
           if (!isset($from)) {
             $from = $row->mail_from;
           }
-          $from = "From: " . $fromname . " <" . $from . ">" . "\r\n";
+          $from = "From: '" . $fromname . "' <" . $from . ">" . "\r\n";
         }
         else {
           $from = "";
         }
-        $headers = "MIME-Version: 1.0\n" . $from . " Content-Type: " . $content_type . "; charset=\"" . get_option('blog_charset') . "\"\n";
+
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= $from;
+        $headers .= 'Content-type: ' . $content_type . '; charset="' . get_option('blog_charset') . '"' . "\r\n";
+
         if ($replyto) {
           $headers .= "Reply-To: <" . $replyto . ">\r\n";
         }
@@ -715,7 +725,12 @@ class CFMModelForm_maker {
         }
         $body = $new_script;
         if ($row->sendemail) {
-          $send = wp_mail(str_replace(' ', '', $recipient), $subject, stripslashes($body), $headers, $attachment);
+          if ($row->wpmail) {
+            $send = wp_mail(str_replace(' ', '', $recipient), $subject, stripslashes($body), $headers);
+          }
+          else {
+            $send = mail(str_replace(' ', '', $recipient), $subject, stripslashes($body), $headers);
+          }
         }
       }
     }
@@ -788,119 +803,117 @@ class CFMModelForm_maker {
   public function custom_fields_mail($type, $key, $id) {
     $new_value = "";
     if ($type != "type_submit_reset" or $type != "type_map" or $type != "type_editor" or  $type != "type_captcha" or  $type != "type_recaptcha" or  $type != "type_button") {
-      if (!in_array($key, $disabled_fields)) {
-        switch ($type) {
-          case 'type_text':
-          case 'type_password':
-          case 'type_textarea':
-          case 'type_own_select':
-          case 'type_number': {
-            if (isset($_POST['wdform_' . $key . "_element" . $id])) {
-              $new_value = $_POST['wdform_'.$key."_element".$id];					
+      switch ($type) {
+        case 'type_text':
+        case 'type_password':
+        case 'type_textarea':
+        case 'type_own_select':
+        case 'type_number': {
+          if (isset($_POST['wdform_' . $key . "_element" . $id])) {
+            $new_value = $_POST['wdform_'.$key."_element".$id];					
+          }
+          break;
+        }
+        case "type_submitter_mail": {
+          if (isset($_POST['wdform_' . $key . "_element" . $id])) {
+            $new_value = $_POST['wdform_' . $key . "_element" . $id];
+          }
+          break;		
+        }
+        case "type_phone": {
+          if (isset($_POST['wdform_' . $key . "_element_first" . $id])) {
+            $new_value = $_POST['wdform_'.$key."_element_first".$id] . ' ' . (isset($_POST['wdform_'.$key."_element_last".$id]) ? $_POST['wdform_'.$key."_element_last".$id] : "");
+          }	
+          break;
+        }								
+        case "type_name": {
+          $element_first = isset($_POST['wdform_'.$key."_element_first".$id]) ? $_POST['wdform_'.$key."_element_first".$id] : NULL;
+          if (isset($element_first)) {
+            $element_title = isset($_POST['wdform_'.$key."_element_title".$id]) ? $_POST['wdform_'.$key."_element_title".$id] : NULL;
+            if (isset($element_title)) {
+              $new_value = $element_title . ' ' . $element_first . ' ' . (isset($_POST['wdform_'.$key."_element_last".$id]) ? $_POST['wdform_'.$key."_element_last".$id] : "") . ' ' . (isset($_POST['wdform_'.$key."_element_middle".$id]) ? $_POST['wdform_'.$key."_element_middle".$id] : "");
             }
+            else {
+              $new_value = $element_first . ' ' . (isset($_POST['wdform_'.$key."_element_last".$id]) ? $_POST['wdform_'.$key."_element_last".$id] : "");
+            }
+          }	   
+          break;		
+        }								
+        case "type_address": {
+          $street1 = isset($_POST['wdform_'.$key."_street1".$id]) ? $_POST['wdform_'.$key."_street1".$id] : NULL;
+          if (isset($street1)) {
+            $new_value = $street1;
+            break;
+          }                  
+          $street2 = isset($_POST['wdform_'.$key."_street2".$id]) ? $_POST['wdform_'.$key."_street2".$id] : NULL;
+          if (isset($street2)) {
+            $new_value = $street2;
             break;
           }
-          case "type_submitter_mail": {
-            if (isset($_POST['wdform_' . $key . "_element" . $id])) {
-              $new_value = $_POST['wdform_' . $key . "_element" . $id];
-            }
-            break;		
-          }
-          case "type_phone": {
-            if (isset($_POST['wdform_' . $key . "_element_first" . $id])) {
-              $new_value = $_POST['wdform_'.$key."_element_first".$id] . ' ' . (isset($_POST['wdform_'.$key."_element_last".$id]) ? $_POST['wdform_'.$key."_element_last".$id] : "");
-            }	
+          $city = isset($_POST['wdform_'.$key."_city".$id]) ? $_POST['wdform_'.$key."_city".$id] : NULL;
+          if (isset($city)) {
+            $new_value = $city;
             break;
-          }								
-          case "type_name": {
-            $element_first = isset($_POST['wdform_'.$key."_element_first".$id]) ? $_POST['wdform_'.$key."_element_first".$id] : NULL;
-            if (isset($element_first)) {
-              $element_title = isset($_POST['wdform_'.$key."_element_title".$id]) ? $_POST['wdform_'.$key."_element_title".$id] : NULL;
-              if (isset($element_title)) {
-                $new_value = $element_title . ' ' . $element_first . ' ' . (isset($_POST['wdform_'.$key."_element_last".$id]) ? $_POST['wdform_'.$key."_element_last".$id] : "") . ' ' . (isset($_POST['wdform_'.$key."_element_middle".$id]) ? $_POST['wdform_'.$key."_element_middle".$id] : "");
-              }
-              else {
-                $new_value = $element_first . ' ' . (isset($_POST['wdform_'.$key."_element_last".$id]) ? $_POST['wdform_'.$key."_element_last".$id] : "");
-              }
-            }	   
-            break;		
-          }								
-          case "type_address": {
-            $street1 = isset($_POST['wdform_'.$key."_street1".$id]) ? $_POST['wdform_'.$key."_street1".$id] : NULL;
-            if (isset($street1)) {
-              $new_value = $street1;
-              break;
-            }                  
-            $street2 = isset($_POST['wdform_'.$key."_street2".$id]) ? $_POST['wdform_'.$key."_street2".$id] : NULL;
-            if (isset($street2)) {
-              $new_value = $street2;
-              break;
-            }
-            $city = isset($_POST['wdform_'.$key."_city".$id]) ? $_POST['wdform_'.$key."_city".$id] : NULL;
-            if (isset($city)) {
-              $new_value = $city;
-              break;
-            }                  
-            $state = isset($_POST['wdform_'.$key."_state".$id]) ? $_POST['wdform_'.$key."_state".$id] : NULL;
-            if (isset($state)) {
-              $new_value = $state;
-              break;
-            }
-            $postal = isset($_POST['wdform_'.$key."_postal".$id]) ? $_POST['wdform_'.$key."_postal".$id] : NULL;
-            if (isset($postal)) {
-              $new_value = $postal;
-              break;
-            }
-            $country = isset($_POST['wdform_'.$key."_country".$id]) ? $_POST['wdform_'.$key."_country".$id] : NULL;
-            if (isset($country)) {
-              $new_value = $country;
-              break;
-            }
+          }                  
+          $state = isset($_POST['wdform_'.$key."_state".$id]) ? $_POST['wdform_'.$key."_state".$id] : NULL;
+          if (isset($state)) {
+            $new_value = $state;
             break;
           }
-          case "type_radio": {
-            $element = isset($_POST['wdform_'.$key."_other_input".$id]) ? $_POST['wdform_'.$key."_other_input".$id] : NULL;
+          $postal = isset($_POST['wdform_'.$key."_postal".$id]) ? $_POST['wdform_'.$key."_postal".$id] : NULL;
+          if (isset($postal)) {
+            $new_value = $postal;
+            break;
+          }
+          $country = isset($_POST['wdform_'.$key."_country".$id]) ? $_POST['wdform_'.$key."_country".$id] : NULL;
+          if (isset($country)) {
+            $new_value = $country;
+            break;
+          }
+          break;
+        }
+        case "type_radio": {
+          $element = isset($_POST['wdform_'.$key."_other_input".$id]) ? $_POST['wdform_'.$key."_other_input".$id] : NULL;
+          if (isset($element)) {
+            $new_value = $element;
+            break;
+          }									
+          $element = isset($_POST['wdform_'.$key."_element".$id]) ? $_POST['wdform_'.$key."_element".$id] : NULL;
+          if(isset($element)) {
+            $new_value = $element;					
+          }
+          break;	
+        }								
+        case "type_checkbox": {
+          $start = -1;
+          for ($j = 0; $j < 100; $j++) {
+            $element = isset($_POST['wdform_'.$key."_element".$id.$j]) ? $_POST['wdform_'.$key."_element".$id.$j] : NULL;
             if (isset($element)) {
-              $new_value = $element;
+              $start = $j;
               break;
-            }									
-            $element = isset($_POST['wdform_'.$key."_element".$id]) ? $_POST['wdform_'.$key."_element".$id] : NULL;
-            if(isset($element)) {
-              $new_value = $element;					
             }
-            break;	
-          }								
-          case "type_checkbox": {
-            $start = -1;
-            for ($j = 0; $j < 100; $j++) {
+          }									
+          $other_element_id = -1;
+          $is_other = isset($_POST['wdform_'.$key."_allow_other".$id]) ? $_POST['wdform_'.$key."_allow_other".$id] : "";
+          if ($is_other == "yes") {
+            $other_element_id = isset($_POST['wdform_'.$key."_allow_other_num".$id]) ? $_POST['wdform_'.$key."_allow_other_num".$id] : "";
+          }
+          if ($start != -1) {
+            for ($j = $start; $j < 100; $j++) {											
               $element = isset($_POST['wdform_'.$key."_element".$id.$j]) ? $_POST['wdform_'.$key."_element".$id.$j] : NULL;
               if (isset($element)) {
-                $start = $j;
-                break;
-              }
-            }									
-            $other_element_id = -1;
-            $is_other = isset($_POST['wdform_'.$key."_allow_other".$id]) ? $_POST['wdform_'.$key."_allow_other".$id] : "";
-            if ($is_other == "yes") {
-              $other_element_id = isset($_POST['wdform_'.$key."_allow_other_num".$id]) ? $_POST['wdform_'.$key."_allow_other_num".$id] : "";
-            }
-            if ($start != -1) {
-              for ($j = $start; $j < 100; $j++) {											
-                $element = isset($_POST['wdform_'.$key."_element".$id.$j]) ? $_POST['wdform_'.$key."_element".$id.$j] : NULL;
-                if (isset($element)) {
-                  if ($j == $other_element_id) {
-                    $new_value = $new_value . (isset($_POST['wdform_'.$key."_other_input".$id]) ? $_POST['wdform_'.$key."_other_input".$id] : "") . '<br>';
-                  }
-                  else {											
-                    $new_value = $new_value . $element . '<br>';
-                  }
+                if ($j == $other_element_id) {
+                  $new_value = $new_value . (isset($_POST['wdform_'.$key."_other_input".$id]) ? $_POST['wdform_'.$key."_other_input".$id] : "") . '<br>';
                 }
-              }										
-            }
-            break;
+                else {											
+                  $new_value = $new_value . $element . '<br>';
+                }
+              }
+            }										
           }
-          default: break;
+          break;
         }
+        default: break;
       }
     }
     return $new_value;

@@ -24,6 +24,7 @@ class CFMControllerBlocked_ips_cfm {
     $message = WDW_CFM_Library::get('message');
     echo WDW_CFM_Library::message_id($message);
     if (method_exists($this, $task)) {
+      check_admin_referer('nonce_cfm', 'nonce_cfm');
       $this->$task($id);
     }
     else {
@@ -90,6 +91,9 @@ class CFMControllerBlocked_ips_cfm {
     }
     if ($flag) {
       $message = 1;
+    }
+    else {
+      $message = 0;
     }
     $page = WDW_CFM_Library::get('page');
     WDW_CFM_Library::spider_redirect(add_query_arg(array('page' => $page, 'task' => 'display', 'message' => $message), admin_url('admin.php')));

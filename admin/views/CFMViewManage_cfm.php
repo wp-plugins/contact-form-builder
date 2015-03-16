@@ -45,6 +45,7 @@ class CFMViewManage_cfm {
       </div>
     </div>
     <form onkeypress="spider_doNothing(event)" class="wrap" id="manage_form" method="post" action="admin.php?page=manage_cfm" style="float: left; width: 99%;">
+      <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
       <span class="form_maker_icon"></span>
       <h2>Contact Form Builder</h2>
       <div class="tablenav top">
@@ -110,7 +111,7 @@ class CFMViewManage_cfm {
                 </td>
                 <td><?php echo $row_data->mail; ?></td>
                 <td class="table_xxl_col" style="padding-left: 0; padding-right: 0;">
-                  <input type="text" value='[Contact_Form_Builder id="<?php echo $row_data->id; ?>"]' onclick="spider_select_value(this)" size="29" readonly="readonly" style="padding-left: 1px; padding-right: 1px;"/>
+                  <input type="text" value='[Contact_Form_Builder id="<?php echo $row_data->id; ?>"]' onclick="spider_select_value(this)" size="29" readonly="readonly" style="padding-left: 1px; padding-right: 1px;" />
                 </td>
                 <td class="table_large_col" style="padding-left: 0; padding-right: 0;">
                  <input type="text" value='&#60;?php wd_contact_form_builder(<?php echo $row_data->id; ?>); ?&#62;' onclick="spider_select_value(this)"  readonly="readonly" style="padding-left: 1px; padding-right: 1px;" />
@@ -408,6 +409,7 @@ class CFMViewManage_cfm {
       </div>
     </div>
     <form class="wrap" id="manage_form" method="post" action="admin.php?page=manage_cfm" style="float: left; width: 99%;">
+      <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
       <h2><?php echo $page_title; ?></h2>
       <div style="float: right; margin: 0 5px 0 0;">
         <input class="button-primary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'form_options');" value="Form Options"/>
@@ -790,6 +792,7 @@ class CFMViewManage_cfm {
       <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-3.html">Read More in User Manual</a>
     </div>
     <form class="wrap" method="post" action="admin.php?page=manage_cfm" style="width: 99%;" name="adminForm" id="adminForm">
+      <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
       <h2><?php echo $page_title; ?></h2>
       <div style="float: right; margin: 0 5px 0 0;">
         <input class="button-secondary" type="submit" onclick="if (spider_check_email('mailToAdd') ||
@@ -895,6 +898,15 @@ class CFMViewManage_cfm {
             <td style="padding: 15px;">
               <input type="radio" name="sendemail" id="sendemail_yes" value="1" <?php echo ($row->sendemail) ? 'checked="checked"' : ''; ?> /><label for="sendemail_yes">Yes</label>
               <input type="radio" name="sendemail" id="sendemail_no" value="0" <?php echo (!$row->sendemail) ? 'checked="checked"' : ''; ?> /><label for="sendemail_no">No</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 15px;">
+              <label>Mailer</label>
+            </td>
+            <td style="padding: 15px;">
+              <input type="radio" name="wpmail" id="wpmail_yes" value="1" <?php echo ($row->wpmail) ? 'checked="checked"' : ''; ?> /><label for="wpmail_yes">wp_mail() function</label>
+              <input type="radio" name="wpmail" id="wpmail_no" value="0" <?php echo (!$row->wpmail) ? 'checked="checked"' : ''; ?> /><label for="wpmail_no">PHP mail() function</label>
             </td>
           </tr>
         </table>
@@ -1458,6 +1470,7 @@ class CFMViewManage_cfm {
 
     <div class="fm_layout" style="width: 99%;">
       <form action="admin.php?page=manage_cfm" method="post" name="adminForm" enctype="multipart/form-data">
+        <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
         <div class="buttons_div">
           <input class="button-secondary" type="submit" onclick="submitbutton(); spider_set_input_value('task', 'save_layout')" value="Save"/>
           <input class="button-secondary" type="submit" onclick="submitbutton(); spider_set_input_value('task', 'apply_layout')" value="Apply"/>

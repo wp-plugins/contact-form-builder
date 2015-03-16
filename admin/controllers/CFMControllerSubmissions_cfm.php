@@ -23,6 +23,7 @@ class CFMControllerSubmissions_cfm {
     $id = ((isset($_POST['current_id'])) ? esc_html($_POST['current_id']) : 0);
     $form_id = ((isset($_POST['form_id']) && esc_html($_POST['form_id']) != '') ? esc_html($_POST['form_id']) : 0);	
     if (method_exists($this, $task)) {
+      check_admin_referer('nonce_cfm', 'nonce_cfm');
       $this->$task($id); 
     }
     else {

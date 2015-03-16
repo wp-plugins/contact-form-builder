@@ -27,7 +27,7 @@ class CFMViewUninstall_cfm {
     $prefix = $wpdb->prefix;
     ?>
     <form method="post" action="admin.php?page=uninstall_cfm" style="width:95%;">
-      <?php wp_nonce_field('contact_form_maker uninstall');?>
+      <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
       <div class="wrap">
         <span class="uninstall_icon"></span>
         <h2>Uninstall Contact Form Builder</h2>
@@ -87,7 +87,8 @@ class CFMViewUninstall_cfm {
     $this->model->delete_db_tables();
     global $wpdb;
     $prefix = $wpdb->prefix;
-    $deactivate_url = wp_nonce_url('plugins.php?action=deactivate&amp;plugin=contact-form-builder/contact-form-builder.php', 'deactivate-plugin_contact-form-builder/contact-form-builder.php');
+    $deactivate_url = add_query_arg(array('action' => 'deactivate', 'plugin' => 'contact-form-builder/contact-form-builder.php'), admin_url('plugins.php'));
+    $deactivate_url = wp_nonce_url($deactivate_url, 'deactivate-plugin_contact-form-builder/contact-form-builder.php');
     ?>
     <div id="message" class="updated fade">
       <p>The following Database Tables succesfully deleted:</p>
