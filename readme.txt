@@ -25,8 +25,9 @@ After submitting the form, the users might get a custom text and even receive an
 
 
 
-###IMPORTANT: If you think you found a bug in the Contact Form Builder or have any problem or question concerning Contact Form Builder, do not hesitate to contact us at [info@web-dorado.com](mailto:info@web-dorado.com).  
-
+###IMPORTANT: If you think you found a bug in the Contact Form Builder or have any problem or question concerning Contact Form Builder, do not hesitate to contact us at   
+[info@web-dorado.com](mailto:info@web-dorado.com).    
+   
 ###Features of Contact Form Builder 
 
 *   Responsiveness.   
