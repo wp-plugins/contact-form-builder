@@ -134,7 +134,9 @@ After downloading the ZIP file,
 == Changelog ==
 
 = 1.0.18 =
-New: Mailer option (Wordpress or PHP)
+New: Mailer option (Wordpress or PHP)   
+Bug fixed: Delete theme.    
+Bug fixed: Empty From name.  
 
 = 1.0.17 =
 *  add ability to call form with php function
