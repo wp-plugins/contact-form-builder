@@ -28,7 +28,7 @@ After submitting the form, the users might get a custom text and even receive an
 ###IMPORTANT: If you think you found a bug in the Contact Form Builder or have any problem or question concerning Contact Form Builder, do not hesitate to contact us at   
 [info@web-dorado.com](mailto:info@web-dorado.com).    
    
-###Features of Contact Form Builder 
+###Features of [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html)
 
 *   Responsiveness.   
 *   10 default form templates included.    
@@ -48,7 +48,7 @@ After submitting the form, the users might get a custom text and even receive an
 *   Possibility to create required fields.   
 *   Support for displaying custom text after hitting submit button, as well as redirection to a custom page or url.   
 
-Upgrade to [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
+Upgrade to [WordPress Contact Form Builder Pro](http://web-dorado.com/products/wordpress-contact-form-builder.html) to add features: 
     
 *   37 themes based on various color schemes.  
 *   Submissions section.        
