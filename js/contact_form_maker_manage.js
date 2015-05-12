@@ -108,7 +108,7 @@ function spider_check_email(id) {
     for (var email_id = 0; email_id < email_array.length; email_id++) {
       var email = email_array[email_id].replace(/^\s+|\s+$/g, '');
       if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
-        alert('This is not a valid email address.');
+        alert(fmc_objectL10n.fmc_not_valid_email_address);
         jQuery('#' + id).css('border', '1px solid #FF0000');
         jQuery('#' + id).focus();
         jQuery('html, body').animate({
@@ -124,7 +124,7 @@ function spider_check_email(id) {
 function spider_edit_ip(id) {
   var ip = jQuery("#ip" + id).html();
   jQuery("#td_ip_" + id).html('<input id="ip' + id + '" class="input_th' + id + '" type="text" onkeypress="return spider_check_isnum(event)" value="' + ip + '" name="ip' + id + '" />');
-  jQuery("#td_edit_" + id).html('<a class="button-primary button button-small" onclick="if (spider_check_required(\'ip' + id + '\', \'IP\')) {return false;} spider_set_input_value(\'task\', \'save\'); spider_set_input_value(\'current_id\', ' + id + '); spider_save_ip(' + id + ')">Save IP</a>');
+  jQuery("#td_edit_" + id).html('<a class="button-primary button button-small" onclick="if (spider_check_required(\'ip' + id + '\', \'IP\')) {return false;} spider_set_input_value(\'task\', \'save\'); spider_set_input_value(\'current_id\', ' + id + '); spider_save_ip(' + id + ')">' + fmc_objectL10n.fmc_SaveIP + '</a>');
 }
 
 function spider_save_ip(id) {
@@ -137,12 +137,12 @@ function spider_save_ip(id) {
     jQuery("#blocked_ips").attr("action"),
     post_data,
     function (data) {
-      jQuery("#td_ip_" + id).html('<a id="ip' + id + '" class="pointer" title="Edit" onclick="spider_edit_ip(' + id + ')">' + ip + '</a>');
-      jQuery("#td_edit_" + id).html('<a onclick="spider_edit_ip(' + id + ')">Edit</a>');
+      jQuery("#td_ip_" + id).html('<a id="ip' + id + '" class="pointer" title="' + fmc_objectL10n.fmc_Edit + '" onclick="spider_edit_ip(' + id + ')">' + ip + '</a>');
+      jQuery("#td_edit_" + id).html('<a onclick="spider_edit_ip(' + id + ')">' + fmc_objectL10n.fmc_Edit + '</a>');
     }
   ).success(function (data, textStatus, errorThrown) {
     jQuery(".update, .error").hide();
-    jQuery("#fm_blocked_ips_message").html("<div class='updated'><strong><p>Items Succesfully Saved.</p></strong></div>");
+    jQuery("#fm_blocked_ips_message").html("<div class='updated'><strong><p>" + fmc_objectL10n.fmc_Items_succesfully_saved + "</p></strong></div>");
     jQuery("#fm_blocked_ips_message").show();
   });
 }
@@ -160,7 +160,7 @@ function cfm_create_input(toAdd_id, value_id, parent_id, cfm_url) {
   if (value) {
     jQuery("#" + value_id).attr("style", "width: 250px;");
     var mail_div = jQuery("<div>").attr("class", "fm_mail_div").prependTo("#" + parent_id).text(value);
-    jQuery("<img>").attr("src", cfm_url + "/images/delete.png").attr("class", "fm_delete_img").attr("onclick", "fm_delete_mail(this, '" + value + "')").attr("title", "Delete Email").appendTo(mail_div);
+    jQuery("<img>").attr("src", cfm_url + "/images/delete.png").attr("class", "fm_delete_img").attr("onclick", "fm_delete_mail(this, '" + value + "')").attr("title", fmc_objectL10n.fmc_Delete_email).appendTo(mail_div);
     jQuery("#" + value_id).val("");
     jQuery("#" + toAdd_id).val(jQuery("#" + toAdd_id).val() + value + ",");
   }

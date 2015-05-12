@@ -136,7 +136,7 @@ function spider_form_submit(event, form_id, task, id) {
 // Check if required field is empty.
 function spider_check_required(id, name) {
   if (jQuery('#' + id).val() == '') {
-    alert(name + '* field is required.');
+    alert(name + fmc_objectL10n.fmc_field_required);
     jQuery('#' + id).attr('style', 'border-color: #FF0000; border-style: solid; border-width: 1px;');
     jQuery('#' + id).focus();
     jQuery('html, body').animate({

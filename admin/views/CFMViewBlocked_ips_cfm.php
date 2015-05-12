@@ -34,8 +34,8 @@ class CFMViewBlocked_ips_cfm {
     <div id="fm_blocked_ips_message" style="width: 99%; display: none;"></div>
     <div style="clear: both; float: left; width: 99%;">
       <div style="float: left; font-size: 14px; font-weight: bold;">
-        This section allows you to block IPs.
-        <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-6.html">Read More in User Manual</a>
+      <?php echo __("This section allows you to block IPs.", "contact_form_maker"); ?>
+        <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-6.html"><?php echo __("Read More in User Manual", "contact_form_maker"); ?></a>
       </div>
       <div style="float: right; text-align: right;">
         <a style="text-decoration: none;" target="_blank" href="http://web-dorado.com/files/fromContactFormBuilder.php">
@@ -46,10 +46,10 @@ class CFMViewBlocked_ips_cfm {
     <form onkeypress="spider_doNothing(event)" class="wrap" id="blocked_ips" method="post" action="admin.php?page=blocked_ips_cfm" style="float: left; width: 99%;">
       <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
       <span class="block_icon"></span>
-      <h2>Blocked IPs</h2>
+      <h2><?php echo __("Blocked IPs", "contact_form_maker"); ?></h2>
       <div class="buttons_div">
-        <input class="button-primary" type="submit" value="Save" onclick="spider_set_input_value('task', 'save_all');" />
-        <input class="button-secondary" type="submit" value="Delete" onclick="if (confirm('Do you want to unblock selected IPs?')) {
+        <input class="button-primary" type="submit" value="<?php echo __("Save", "contact_form_maker"); ?>" onclick="spider_set_input_value('task', 'save_all');" />
+        <input class="button-secondary" type="submit" value="<?php echo __("Delete", "contact_form_maker"); ?>" onclick="if (confirm('<?php echo __('Do you want to unblock selected IPs?', 'contact_form_maker'); ?>')) {
                                                                       spider_set_input_value('task', 'delete_all');
                                                                     } else {
                                                                       return false;
@@ -80,8 +80,8 @@ class CFMViewBlocked_ips_cfm {
                 <span>IP</span><span class="sorting-indicator"></span>
               </a>
             </th>
-            <th class="table_big_col">Edit</th>
-            <th class="table_big_col">Delete</th>
+            <th class="table_big_col"><?php echo __("Edit", "contact_form_maker"); ?></th>
+            <th class="table_big_col"><?php echo __("Delete", "contact_form_maker"); ?></th>
           </tr>		  
           <tr id="tr">
             <th></th>
@@ -91,7 +91,7 @@ class CFMViewBlocked_ips_cfm {
               <a class="add_tag_th button-primary button button-small" onclick="if (spider_check_required('ip', 'IP')) {return false;}
                                                                                 spider_set_input_value('task', 'save');
                                                                                 spider_set_input_value('current_id', '');
-                                                                                spider_form_submit(event, 'blocked_ips')" href="">Add IP</a>
+                                                                                spider_form_submit(event, 'blocked_ips')" href=""><?php echo __("Add IP", "contact_form_maker"); ?></a>
             </th>
             <th></th>
           </tr>
@@ -113,12 +113,12 @@ class CFMViewBlocked_ips_cfm {
                      title="Edit"><?php echo $row_data->ip; ?></a>
                 </td>
                 <td class="table_big_col" id="td_edit_<?php echo $row_data->id; ?>">
-                  <a onclick="spider_edit_ip(<?php echo $row_data->id; ?>)">Edit</a>
+                  <a onclick="spider_edit_ip(<?php echo $row_data->id; ?>)"><?php echo __("Edit", "contact_form_maker"); ?></a>
                 </td>
                 <td class="table_big_col" id="td_delete_<?php echo $row_data->id; ?>">
                   <a onclick="spider_set_input_value('task', 'delete');
                               spider_set_input_value('current_id', <?php echo $row_data->id; ?>);
-                              spider_form_submit(event, 'blocked_ips')" href="">Delete</a>
+                              spider_form_submit(event, 'blocked_ips')" href=""><?php echo __("Delete", "contact_form_maker"); ?></a>
                 </td>
               </tr>
               <?php

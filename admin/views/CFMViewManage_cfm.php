@@ -34,9 +34,9 @@ class CFMViewManage_cfm {
     ?>
     <div style="clear: both; float: left; width: 99%;">
       <div style="float: left; font-size: 14px; font-weight: bold;">
-        This section allows you to edit forms.
-        <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-2.html">Read More in User Manual</a>
-        <p>There is no possibility of adding new form fields, whereas you can edit, enable/disable the current fields included in each form.</p>
+        <?php echo __("This section allows you to edit forms", "contact_form_maker"); ?>.
+        <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-2.html"><?php echo __("Read More in User Manual","contact_form_maker"); ?></a>
+        <p><?php echo __("There is no possibility of adding new form fields, whereas you can edit, enable/disable the current fields included in each form","contact_form_maker"); ?>.</p>
       </div>
       <div style="float: right; text-align: right;">
         <a style="text-decoration: none;" target="_blank" href="http://web-dorado.com/files/fromContactFormBuilder.php">
@@ -50,7 +50,7 @@ class CFMViewManage_cfm {
       <h2>Contact Form Builder</h2>
       <div class="tablenav top">
         <?php
-        WDW_CFM_Library::search('Title', $search_value, 'manage_form');
+        WDW_CFM_Library::search(__("Title", "contact_form_maker"), $search_value, 'manage_form');
         WDW_CFM_Library::html_page_nav($page_nav['total'], $page_nav['limit'], 'manage_form');
         ?>
       </div>
@@ -69,25 +69,25 @@ class CFMViewManage_cfm {
               spider_set_input_value('order_by', 'title');
               spider_set_input_value('asc_or_desc', '<?php echo ((isset($_POST['asc_or_desc']) && isset($_POST['order_by']) && (esc_html($_POST['order_by']) == 'title') && esc_html($_POST['asc_or_desc']) == 'asc') ? 'desc' : 'asc'); ?>');
               spider_form_submit(event, 'manage_form')" href="">
-              <span>Title</span><span class="sorting-indicator"></span></a>
+              <span><?php echo __("Title", "contact_form_maker"); ?></span><span class="sorting-indicator"></span></a>
           </th>
           <th class="<?php if ($order_by == 'mail') { echo $order_class; } ?>">
             <a onclick="spider_set_input_value('task', '');
               spider_set_input_value('order_by', 'mail');
               spider_set_input_value('asc_or_desc', '<?php echo ((isset($_POST['asc_or_desc']) && isset($_POST['order_by']) && (esc_html($_POST['order_by']) == 'mail') && esc_html($_POST['asc_or_desc']) == 'asc') ? 'desc' : 'asc'); ?>');
               spider_form_submit(event, 'manage_form')" href="">
-              <span>Email to send submissions to</span><span class="sorting-indicator"></span></a>
+              <span><?php echo __("Email to send submissions to", "contact_form_maker"); ?></span><span class="sorting-indicator"></span></a>
           </th>
-          <th class="table_xxl_col">Shortcode</th>
-          <th class="table_large_col">PHP function</th>
-          <th class="table_big_col">Preview</th>
-          <th class="table_big_col">Edit</th>
-          <th class="table_big_col"><a title="Delete selected items" href="" onclick="if (confirm('Do you want to delete selected items?')) {
+          <th class="table_xxl_col"><?php echo __("Shortcode", "contact_form_maker"); ?></th>
+          <th class="table_xxl_col">PHP <?php echo __("function", "contact_form_maker"); ?></th>
+          <th class="table_medium_col"><?php echo __("Preview", "contact_form_maker"); ?></th>
+          <th class="table_medium_col"><?php echo __("Edit", "contact_form_maker"); ?></th>
+          <th class="table_medium_col"><a title="<?php echo __("Delete selected items", "contact_form_maker"); ?>" href="" onclick="if (confirm('<?php echo __("Do you want to delete selected items?", "contact_form_maker"); ?>')) {
                                                        spider_set_input_value('task', 'delete_all');
                                                        spider_form_submit(event, 'manage_form');
                                                      } else {
                                                        return false;
-                                                     }">Delete</a></th>
+                                                     }"><?php echo __("Delete", "contact_form_maker"); ?></a></th>
         </thead>
         <tbody id="tbody_arr">
           <?php
@@ -107,29 +107,29 @@ class CFMViewManage_cfm {
                 <td>
                   <a onclick="spider_set_input_value('task', 'edit<?php echo $old; ?>');
                               spider_set_input_value('current_id', '<?php echo $row_data->id; ?>');
-                              spider_form_submit(event, 'manage_form')" href="" title="Edit"><?php echo $row_data->title; ?></a>
+                              spider_form_submit(event, 'manage_form')" href="" title="<?php echo __("Edit", "contact_form_maker"); ?>"><?php echo $row_data->title; ?></a>
                 </td>
                 <td><?php echo $row_data->mail; ?></td>
-                <td class="table_xxl_col" style="padding-left: 0; padding-right: 0;">
-                  <input type="text" value='[Contact_Form_Builder id="<?php echo $row_data->id; ?>"]' onclick="spider_select_value(this)" size="29" readonly="readonly" style="padding-left: 1px; padding-right: 1px;" />
+                <td class="table_xxl_col">
+                  <input type="text" value='[Contact_Form_Builder id="<?php echo $row_data->id; ?>"]' onclick="spider_select_value(this)" readonly="readonly" />
                 </td>
-                <td class="table_large_col" style="padding-left: 0; padding-right: 0;">
-                 <input type="text" value='&#60;?php wd_contact_form_builder(<?php echo $row_data->id; ?>); ?&#62;' onclick="spider_select_value(this)"  readonly="readonly" style="padding-left: 1px; padding-right: 1px;" />
+                <td class="table_xxl_col">
+                 <input type="text" value='&#60;?php wd_contact_form_builder(<?php echo $row_data->id; ?>); ?&#62;' onclick="spider_select_value(this)"  readonly="readonly" />
                 </td>
-                <td class="table_big_col">
-                  <a href="<?php echo add_query_arg(array('action' => 'ContactFormMakerPreview', 'form_id' => $row_data->id, 'test_theme' => $row_data->theme, 'width' => '1000', 'height' => '500', 'TB_iframe' => '1'), admin_url('admin-ajax.php')); ?>" class="thickbox thickbox-preview" title="Form Preview" onclick="return false;">
-                    Preview
+                <td class="table_medium_col">
+                  <a href="<?php echo add_query_arg(array('action' => 'ContactFormMakerPreview', 'form_id' => $row_data->id, 'test_theme' => $row_data->theme, 'width' => '1000', 'height' => '500', 'TB_iframe' => '1'), admin_url('admin-ajax.php')); ?>" class="thickbox thickbox-preview" title="<?php echo __("Form Preview", "contact_form_maker"); ?>" onclick="return false;">
+                    <?php echo __("Preview", "contact_form_maker"); ?>
                   </a>
                 </td>
-                <td class="table_big_col">
+                <td class="table_medium_col">
                   <a onclick="spider_set_input_value('task', 'edit<?php echo $old; ?>');
                               spider_set_input_value('current_id', '<?php echo $row_data->id; ?>');
-                              spider_form_submit(event, 'manage_form')" href="">Edit</a>
+                              spider_form_submit(event, 'manage_form')" href=""><?php echo __("Edit", "contact_form_maker"); ?></a>
                 </td>
-                <td class="table_big_col">
+                <td class="table_medium_col">
                   <a onclick="spider_set_input_value('task', 'delete');
                               spider_set_input_value('current_id', '<?php echo $row_data->id; ?>');
-                              spider_form_submit(event, 'manage_form')" href="">Delete</a>
+                              spider_form_submit(event, 'manage_form')" href=""><?php echo __("Delete", "contact_form_maker"); ?></a>
                 </td>
               </tr>
               <?php
@@ -166,7 +166,7 @@ class CFMViewManage_cfm {
     $labels['id'] = '"' . implode('","', $label_id) . '"';
     $labels['label'] = '"' . implode('","', $label_order_original) . '"';
     $labels['type'] = '"' . implode('","', $label_type) . '"';
-    $page_title = (($id != 0) ? 'Edit form ' . $row->title : 'Create new form');
+    $page_title = (($id != 0) ? __('Edit form ', 'contact_form_maker') . $row->title : __('Create new form', 'contact_form_maker'));
     ?>
     <script type="text/javascript">
       var contact_form_maker_plugin_url = "<?php echo WD_CFM_URL; ?>";
@@ -180,7 +180,7 @@ class CFMViewManage_cfm {
         if ($id) {
         ?>
         if (!document.getElementById('araqel') || (document.getElementById('araqel').value == '0')) {
-          alert('Please wait while page loading.');
+          alert('<?php echo __("Please wait while page loading", "contact_form_maker"); ?>.');
           return false;
         }
         <?php
@@ -399,8 +399,8 @@ class CFMViewManage_cfm {
     </script>
     <div style="clear: both; float: left; width: 99%;">
       <div style="float: left; font-size: 14px; font-weight: bold;">
-        This section allows you to enable/disable fields in your form.
-        <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-4.html">Read More in User Manual</a>
+      <?php echo __("This section allows you to enable/disable fields in your form", "contact_form_maker"); ?>.
+      <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-4.html"><?php echo __("Read More in User Manual", "contact_form_maker"); ?></a>
       </div>
       <div style="float: right; text-align: right;">
         <a style="text-decoration: none;" target="_blank" href="http://web-dorado.com/files/fromContactFormBuilder.php">
@@ -412,18 +412,18 @@ class CFMViewManage_cfm {
       <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
       <h2><?php echo $page_title; ?></h2>
       <div style="float: right; margin: 0 5px 0 0;">
-        <input class="button-primary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'form_options');" value="Form Options"/>
-        <input class="button-primary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'form_layout');" value="Form Layout"/>
+        <input class="button-primary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'form_options');" value="<?php echo __("Form Options", "contact_form_maker"); ?>"/>
+        <input class="button-primary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'form_layout');" value="<?php echo __("Form Layout", "contact_form_maker"); ?>"/>
         <?php
         if ($id) {
           ?>
-          <input class="button-secondary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'save_as_copy')" value="Save as Copy"/>
+          <input class="button-secondary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'save_as_copy')" value="<?php echo __("Save as Copy", "contact_form_maker"); ?>"/>
           <?php
         }
         ?>
-        <input class="button-secondary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'save')" value="Save"/>
-        <input class="button-secondary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'apply');" value="Apply"/>
-        <input class="button-secondary" type="submit" onclick="spider_set_input_value('task', 'cancel')" value="Cancel"/>
+        <input class="button-secondary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'save')" value="<?php echo __("Save", "contact_form_maker"); ?>"/>
+        <input class="button-secondary" type="submit" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'apply');" value="<?php echo __("Apply", "contact_form_maker"); ?>"/>
+        <input class="button-secondary" type="submit" onclick="spider_set_input_value('task', 'cancel')" value="<?php echo __("Cancel", "contact_form_maker"); ?>"/>
       </div>
 
       <div class="formmaker_table">
@@ -432,7 +432,7 @@ class CFMViewManage_cfm {
           <img src="<?php echo WD_CFM_URL . '/images/contact_form_maker_logo48.png'; ?>" />
         </div>
         <div style="float: right;">
-          <span style="font-size: 16.76pt; font-family: tahoma; color: #FFFFFF; vertical-align: middle;">Form title:&nbsp;&nbsp;</span>
+          <span style="font-size: 16.76pt; font-family: tahoma; color: #FFFFFF; vertical-align: middle;"><?php echo __("Form title", "contact_form_maker"); ?>:&nbsp;&nbsp;</span>
           <input id="title" name="title" class="form_maker_title" value="<?php echo $row->title; ?>" />
           <br /><br />
           <img src="<?php echo WD_CFM_URL . '/images/formoptions.png'; ?>" onclick="if (spider_check_required('title', 'Form title') || !submitbutton()) {return false;}; spider_set_input_value('task', 'form_options'); spider_form_submit(event, 'manage_form');" style="cursor: pointer; margin: 10px 0 10px 10px; float: right;"/>
@@ -454,8 +454,8 @@ class CFMViewManage_cfm {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
                       <tr>
                         <td align="right">
-                          <img alt="ADD" title="add" style="cursor:pointer; vertical-align:middle; margin:5px" src="<?php echo WD_CFM_URL . '/images/save.png'; ?>" onClick="add(0)"/>
-                          <img alt="CANCEL" title="cancel" style="cursor: pointer; vertical-align:middle; margin:5px" src="<?php echo WD_CFM_URL . '/images/cancel_but.png'; ?>" onClick="close_window()"/>
+                          <img alt="ADD" title="<?php echo __("add", "contact_form_maker"); ?>" style="cursor:pointer; vertical-align:middle; margin:5px" src="<?php echo WD_CFM_URL . '/images/save.png'; ?>" onClick="add(0)"/>
+                          <img alt="CANCEL" title="<?php echo __("cancel", "contact_form_maker"); ?>" style="cursor: pointer; vertical-align:middle; margin:5px" src="<?php echo WD_CFM_URL . '/images/cancel_but.png'; ?>" onClick="close_window()"/>
                           <hr style=" margin-bottom:10px" />
                         </td>
                       </tr>
@@ -496,9 +496,9 @@ class CFMViewManage_cfm {
       ?>
       <br /><br />
       <fieldset>
-        <legend><h2 style="color: #00aeef;">Form</h2></legend>
+        <legend><h2 style="color: #00aeef;"><?php echo __("Form", "contact_form_maker"); ?></h2></legend>
         <div id="saving" style="display: none;">
-          <div id="saving_text">Saving</div>
+          <div id="saving_text"><?php echo __("Saving", "contact_form_maker"); ?></div>
           <div id="fadingBarsG">
             <div id="fadingBarsG_1" class="fadingBarsG"></div>
             <div id="fadingBarsG_2" class="fadingBarsG"></div>
@@ -749,7 +749,7 @@ class CFMViewManage_cfm {
   public function form_options($id) {
     $row = $this->model->get_row_data($id);
     $themes = $this->model->get_theme_rows_data();
-    $page_title = $row->title . ' form options';
+    $page_title = $row->title . __(' form options', 'contact_form_maker');
     $label_id = array();
     $label_label = array();
     $label_type = array();
@@ -788,8 +788,8 @@ class CFMViewManage_cfm {
       }
     </script>
     <div style="font-size: 14px; font-weight: bold;">
-      This section allows you to edit form options.
-      <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-3.html">Read More in User Manual</a>
+      <?php echo __("This section allows you to edit form options", "contact_form_maker"); ?>.
+      <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-3.html"><?php echo __("Read More in User Manual", "contact_form_maker"); ?></a>
     </div>
     <form class="wrap" method="post" action="admin.php?page=manage_cfm" style="width: 99%;" name="adminForm" id="adminForm">
       <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
@@ -805,7 +805,7 @@ class CFMViewManage_cfm {
                                                                    spider_check_email('mail_cc_user') ||
                                                                    spider_check_email('mail_bcc_user') ||
                                                                    spider_check_email('mail_from') ||
-                                                                   spider_check_email('reply_to')) { return false; }; spider_set_input_value('task', 'save_options')" value="Save"/>
+                                                                   spider_check_email('reply_to')) { return false; }; spider_set_input_value('task', 'save_options')" value="<?php echo __("Save", "contact_form_maker"); ?>"/>
         <input class="button-secondary" type="submit" onclick="if (spider_check_email('mailToAdd') ||
                                                                    spider_check_email('mail_from_other') ||
                                                                    spider_check_email('reply_to_other') ||
@@ -816,48 +816,48 @@ class CFMViewManage_cfm {
                                                                    spider_check_email('mail_cc_user') ||
                                                                    spider_check_email('mail_bcc_user') ||
                                                                    spider_check_email('mail_from') ||
-                                                                   spider_check_email('reply_to')) { return false; }; spider_set_input_value('task', 'apply_options')" value="Apply"/>
-        <input class="button-secondary" type="submit" onclick="spider_set_input_value('task', 'cancel_options')" value="Cancel"/>
+                                                                   spider_check_email('reply_to')) { return false; }; spider_set_input_value('task', 'apply_options')" value="<?php echo __("Apply", "contact_form_maker"); ?>"/>
+        <input class="button-secondary" type="submit" onclick="spider_set_input_value('task', 'cancel_options')" value="<?php echo __("Cancel", "contact_form_maker"); ?>"/>
       </div>
       <div class="submenu-box" style="width: 99%; float: left; margin: 15px 0 0 0;">
         <div class="submenu-pad">
           <ul id="submenu" class="configuration">
             <li>
-              <a id="general" class="fm_fieldset_tab" onclick="form_maker_options_tabs('general')" href="#">General Options</a>
+              <a id="general" class="fm_fieldset_tab" onclick="form_maker_options_tabs('general')" href="#"><?php echo __("General Options", "contact_form_maker"); ?></a>
             </li>
             <li>
-              <a id="custom" class="fm_fieldset_tab" onclick="form_maker_options_tabs('custom')" href="#">Email Options</a>
+              <a id="custom" class="fm_fieldset_tab" onclick="form_maker_options_tabs('custom')" href="#"><?php echo __("Email Options", "contact_form_maker"); ?></a>
             </li>
             <li>
-              <a id="actions" class="fm_fieldset_tab" onclick="form_maker_options_tabs('actions')" href="#">Actions after Submission</a>
+              <a id="actions" class="fm_fieldset_tab" onclick="form_maker_options_tabs('actions')" href="#"><?php echo __("Actions after Submission", "contact_form_maker"); ?></a>
             </li>
           </ul>
         </div>
       </div>
       <fieldset id="general_fieldset" class="adminform fm_fieldset_deactive">
-        <legend style="color: #0B55C4; font-weight: bold;">General Options</legend>
+        <legend style="color: #0B55C4; font-weight: bold;"><?php echo __("General Options", "contact_form_maker"); ?></legend>
         <table class="admintable" style="float: left;">
           <tr valign="top">
             <td class="fm_options_label">
-              <label>Published</label>
+              <label><?php echo __("Published", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
-              <input type="radio" name="published" id="published_yes" value="1" <?php echo ($row->published) ? 'checked="checked"' : ''; ?> /><label for="published_yes">Yes</label>
-              <input type="radio" name="published" id="published_no" value="0" <?php echo (!$row->published) ? 'checked="checked"' : ''; ?> /><label for="published_no">No</label>
+              <input type="radio" name="published" id="published_yes" value="1" <?php echo ($row->published) ? 'checked="checked"' : ''; ?> /><label for="published_yes"><?php echo __("Yes", "contact_form_maker"); ?></label>
+              <input type="radio" name="published" id="published_no" value="0" <?php echo (!$row->published) ? 'checked="checked"' : ''; ?> /><label for="published_no"><?php echo __("No", "contact_form_maker"); ?></label>
             </td>
           </tr>
           <tr valign="top">
             <td class="fm_options_label">
-              <label>Save data(to database)</label>
+              <label><?php echo __("Save data(to database)", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
-              <input type="radio" name="savedb" id="savedb_yes" value="1" <?php echo ($row->savedb) ? 'checked="checked"' : ''; ?> /><label for="savedb_yes">Yes</label>
-              <input type="radio" name="savedb" id="savedb_no" value="0" <?php echo (!$row->savedb) ? 'checked="checked"' : ''; ?> /><label for="savedb_no">No</label>
+              <input type="radio" name="savedb" id="savedb_yes" value="1" <?php echo ($row->savedb) ? 'checked="checked"' : ''; ?> /><label for="savedb_yes"><?php echo __("Yes", "contact_form_maker"); ?></label>
+              <input type="radio" name="savedb" id="savedb_no" value="0" <?php echo (!$row->savedb) ? 'checked="checked"' : ''; ?> /><label for="savedb_no"><?php echo __("No", "contact_form_maker"); ?></label>
             </td>
           </tr>
           <tr valign="top">
             <td class="fm_options_label">
-              <label for="theme">Theme</label>
+              <label for="theme"><?php echo __("Theme", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
               <select id="theme" name="theme" style="width:260px;" onChange="set_preview()">
@@ -869,18 +869,18 @@ class CFMViewManage_cfm {
                 }
                 ?>
               </select>
-              <a href="<?php echo add_query_arg(array('action' => 'ContactFormMakerPreview', 'form_id' => $row->id, 'test_theme' => $row->theme, 'width' => '1000', 'height' => '500', 'TB_iframe' => '1'), admin_url('admin-ajax.php')); ?>" class="button-primary thickbox thickbox-preview" id="preview_form" title="Form Preview" onclick="return false;">
-                Preview
+              <a href="<?php echo add_query_arg(array('action' => 'ContactFormMakerPreview', 'form_id' => $row->id, 'test_theme' => $row->theme, 'width' => '1000', 'height' => '500', 'TB_iframe' => '1'), admin_url('admin-ajax.php')); ?>" class="button-primary thickbox thickbox-preview" id="preview_form" title="<?php echo __("Form Preview", "contact_form_maker"); ?>" onclick="return false;">
+                <?php echo __("Preview", "contact_form_maker"); ?>
               </a>
               <a onclick="alert('This option is disabled in free version.'); return false;" href="#" class="button-secondary" id="edit_css" title="Edit CSS">
-                Edit CSS
+                <?php echo __("Edit CSS", "contact_form_maker"); ?>
               </a>
-              <div class="spider_description spider_free_desc">Themes are disabled in free version.</div>
+              <div class="spider_description spider_free_desc"><?php echo __("Themes are disabled in free version.","contact_form_maker"); ?></div>
             </td>
           </tr>
           <tr valign="top">
             <td class="fm_options_label">
-              <label for="requiredmark">Required fields mark</label>
+              <label for="requiredmark"><?php echo __("Required fields mark", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
               <input type="text" id="requiredmark" name="requiredmark" value="<?php echo $row->requiredmark; ?>" style="width: 250px;" />
@@ -889,40 +889,40 @@ class CFMViewManage_cfm {
         </table>
       </fieldset>
       <fieldset id="custom_fieldset" class="adminform fm_fieldset_deactive">
-        <legend style="color: #0B55C4; font-weight: bold;">Email Options</legend>
+        <legend style="color: #0B55C4; font-weight: bold;"><?php echo __("Email Options", "contact_form_maker"); ?></legend>
         <table class="admintable">
           <tr valign="top">
             <td style="padding: 15px;">
-              <label>Send E-mail</label>
+              <label><?php echo __("Send E-mail", "contact_form_maker"); ?></label>
             </td>
             <td style="padding: 15px;">
-              <input type="radio" name="sendemail" id="sendemail_yes" value="1" <?php echo ($row->sendemail) ? 'checked="checked"' : ''; ?> /><label for="sendemail_yes">Yes</label>
-              <input type="radio" name="sendemail" id="sendemail_no" value="0" <?php echo (!$row->sendemail) ? 'checked="checked"' : ''; ?> /><label for="sendemail_no">No</label>
+              <input type="radio" name="sendemail" id="sendemail_yes" value="1" <?php echo ($row->sendemail) ? 'checked="checked"' : ''; ?> /><label for="sendemail_yes"><?php echo __("Yes", "contact_form_maker"); ?></label>
+              <input type="radio" name="sendemail" id="sendemail_no" value="0" <?php echo (!$row->sendemail) ? 'checked="checked"' : ''; ?> /><label for="sendemail_no"><?php echo __("No", "contact_form_maker"); ?></label>
             </td>
           </tr>
           <tr>
             <td style="padding: 15px;">
-              <label>Mailer</label>
+              <label><?php echo __("Mailer", "contact_form_maker"); ?></label>
             </td>
             <td style="padding: 15px;">
-              <input type="radio" name="wpmail" id="wpmail_yes" value="1" <?php echo ($row->wpmail) ? 'checked="checked"' : ''; ?> /><label for="wpmail_yes">wp_mail() function</label>
-              <input type="radio" name="wpmail" id="wpmail_no" value="0" <?php echo (!$row->wpmail) ? 'checked="checked"' : ''; ?> /><label for="wpmail_no">PHP mail() function</label>
+              <input type="radio" name="wpmail" id="wpmail_yes" value="1" <?php echo ($row->wpmail) ? 'checked="checked"' : ''; ?> /><label for="wpmail_yes">wp_mail() <?php echo __('function', 'contact_form_maker'); ?></label>
+              <input type="radio" name="wpmail" id="wpmail_no" value="0" <?php echo (!$row->wpmail) ? 'checked="checked"' : ''; ?> /><label for="wpmail_no">PHP mail() <?php echo __('function', 'contact_form_maker'); ?></label>
             </td>
           </tr>
         </table>
         <fieldset class="fm_mail_options">
-          <legend style="color: #0B55C4; font-weight: bold;">Email to Administrator</legend>
+          <legend style="color: #0B55C4; font-weight: bold;"><?php echo __("Email to Administrator", "contact_form_maker"); ?></legend>
           <table class="admintable">
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="mailToAdd">Email to send submissions to</label>
+                <label for="mailToAdd"><?php echo __("Email to send submissions to", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <input type="text" id="mailToAdd" name="mailToAdd" style="width: 250px;" />
                 <input type="hidden" id="mail" name="mail" value="<?php echo $row->mail; ?>" />
                 <img src="<?php echo WD_CFM_URL . '/images/add.png'; ?>"
                      style="vertical-align: middle; cursor: pointer;"
-                     title="Add more emails"
+                     title="<?php echo __("Add more emails", "contact_form_maker"); ?>"
                      onclick="if (spider_check_email('mailToAdd')) {return false;};cfm_create_input('mail', 'mailToAdd', 'cfm_mail_div', '<?php echo WD_CFM_URL; ?>')" />
                 <div id="cfm_mail_div">
                   <?php
@@ -932,7 +932,7 @@ class CFMViewManage_cfm {
                       ?>
                       <div class="fm_mail_input">
                         <?php echo $mail; ?>
-                        <img src="<?php echo WD_CFM_URL; ?>/images/delete.png" class="fm_delete_img" onclick="fm_delete_mail(this, '<?php echo $mail; ?>')" title="Delete Email" />
+                        <img src="<?php echo WD_CFM_URL; ?>/images/delete.png" class="fm_delete_img" onclick="fm_delete_mail(this, '<?php echo $mail; ?>')" title="<?php echo __("Delete Email", "contact_form_maker"); ?>" />
                       </div>
                       <?php
                     }
@@ -943,7 +943,7 @@ class CFMViewManage_cfm {
             </tr>
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="mail_from">Email From</label>
+                <label for="mail_from"><?php echo __("Email From", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <?php 
@@ -974,7 +974,7 @@ class CFMViewManage_cfm {
             </tr>
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="mail_from_name">From Name</label>
+                <label for="mail_from_name"><?php echo __("From Name", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <input type="text" id="mail_from_name" name="mail_from_name" value="<?php echo $row->mail_from_name; ?>" style="width: 250px;" />
@@ -1005,7 +1005,7 @@ class CFMViewManage_cfm {
             </tr>
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="reply_to">Reply to<br/>(if different from "Email From") </label>
+                <label for="reply_to"><?php echo __("Reply to", "contact_form_maker"); ?><br/>(<?php echo __("if different from 'Email From'", "contact_form_maker"); ?>) </label>
               </td>
               <td class="fm_options_value">
                 <?php 
@@ -1029,7 +1029,7 @@ class CFMViewManage_cfm {
 								?>
 								<div style="<?php echo ($fields_count == 1 || $field_disabled) ? 'display: none;' : ''; ?>">
                   <input type="radio" id="other1" name="reply_to" value="other" <?php echo ($is_other) ? 'checked="checked"' : ''; ?> onclick="wdshow('reply_to_other')" />
-                  <label for="other1">Other</label>
+                  <label for="other1"><?php echo __("Other","contact_form_maker"); ?></label>
                 </div>
 								<input type="text" style="width: <?php echo ($fields_count == 1 || $field_disabled) ? '250px' : '235px; margin-left: 15px'; ?>; display: <?php echo ($is_other) ? 'block;' : 'none;'; ?>" id="reply_to_other" name="reply_to_other" value="<?php echo ($is_other && $row->reply_to && !$field_disabled) ? $row->reply_to : ''; ?>" />
               </td>
@@ -1052,7 +1052,7 @@ class CFMViewManage_cfm {
 						</tr>
 						<tr valign="top">
 							<td class="fm_options_label">
-								<label for="mail_subject">Subject: </label>
+								<label for="mail_subject"><?php echo __("Subject", "contact_form_maker"); ?>: </label>
 							</td>
 							<td class="fm_options_value">
 								<input type="text" id="mail_subject" name="mail_subject" value="<?php echo (($row->mail_subject == '') && !in_array($label_id[$default_subject], $disabled_fields)) ? '%' . $label_label[$default_subject] . '%' : $row->mail_subject; ?>" style="width: 250px;" />
@@ -1083,16 +1083,16 @@ class CFMViewManage_cfm {
 						</tr>
 						<tr valign="top">
               <td class="fm_options_label" style="vertical-align: middle;">
-                <label>Mode: </label>
+                <label><?php echo __("Mode", "contact_form_maker"); ?>: </label>
               </td>
               <td class="fm_options_value">
                 <input type="radio" name="mail_mode" id="htmlmode" value="1" <?php if ($row->mail_mode == 1 ) echo 'checked="checked"'; ?> /><label for="htmlmode">HTML</label>
-                <input type="radio" name="mail_mode" id="textmode" value="0" <?php if ($row->mail_mode == 0 ) echo 'checked="checked"'; ?> /><label for="textmode">Text</label>
+                <input type="radio" name="mail_mode" id="textmode" value="0" <?php if ($row->mail_mode == 0 ) echo 'checked="checked"'; ?> /><label for="textmode"><?php echo __("Text", "contact_form_maker"); ?></label>
               </td>
             </tr>
             <tr>
               <td class="fm_options_label" valign="top">
-                <label>Custom Text in Email For Administrator</label>
+                <label><?php echo __("Custom Text in Email For Administrator", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <div style="margin-bottom:5px">
@@ -1108,7 +1108,7 @@ class CFMViewManage_cfm {
                     <?php
                   }
                   ?>
-                  <input style="border: 1px solid silver; font-size: 11px; font-weight: bold; display: block;" type="button" value="All fields list" onClick="insertAtCursor(<?php echo $choise; ?>, 'all')" />
+                  <input style="border: 1px solid silver; font-size: 11px; font-weight: bold; display: block;" type="button" value="<?php echo __("All fields list", "contact_form_maker"); ?>" onClick="insertAtCursor(<?php echo $choise; ?>, 'all')" />
                 </div>
                 <?php
                 if (user_can_richedit()) {
@@ -1125,18 +1125,18 @@ class CFMViewManage_cfm {
           </table>
         </fieldset>
         <fieldset class="fm_mail_options">
-          <legend style="color: #0B55C4; font-weight: bold;">Email to User</legend>
+          <legend style="color: #0B55C4; font-weight: bold;"><?php echo __("Email to User", "contact_form_maker"); ?></legend>
           <table class="admintable">
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="mail">Send to</label>
+                <label for="mail"><?php echo __("Send to", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <?php 
 								$fields = explode('*:*id*:*type_submitter_mail*:*type*:*', $row->form_fields);
 								$fields_count = count($fields);
                 if ($fields_count == 1) {
-									?>There is no email field<?php
+									 echo __("There is no email field", "contact_form_maker"); 
                 }
 								else {
                   for ($i = 0; $i < $fields_count - 1; $i++) {
@@ -1153,7 +1153,7 @@ class CFMViewManage_cfm {
             </tr>
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="mail_from_user">Email From</label>
+                <label for="mail_from_user"><?php echo __("Email From", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <input type="text" id="mail_from_user" name="mail_from_user" value="<?php echo $row->mail_from_user; ?>" style="width: 250px;" />
@@ -1161,7 +1161,7 @@ class CFMViewManage_cfm {
             </tr>
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="mail_from_name_user">From Name</label>
+                <label for="mail_from_name_user"><?php echo __("From Name", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <input type="text" id="mail_from_name_user" name="mail_from_name_user" value="<?php echo $row->mail_from_name_user; ?>" style="width: 250px;"/>
@@ -1192,7 +1192,7 @@ class CFMViewManage_cfm {
             </tr>
             <tr valign="top">
               <td class="fm_options_label">
-                <label for="reply_to_user">Reply to<br />(if different from "Email From")</label>
+                <label for="reply_to_user"><?php echo __("Reply to", "contact_form_maker"); ?><br />(<?php echo __("if different from 'Email From'", "contact_form_maker"); ?>)</label>
               </td>
               <td class="fm_options_value">
                 <input type="text" id="reply_to_user" name="reply_to_user" value="<?php echo $row->reply_to_user; ?>" style="width: 250px;" />
@@ -1216,7 +1216,7 @@ class CFMViewManage_cfm {
 						</tr>
 						<tr valign="top">
 							<td class="fm_options_label">
-								<label for="mail_subject_user">Subject: </label>
+								<label for="mail_subject_user"><?php echo __("Subject", "contact_form_maker"); ?>: </label>
 							</td>
 							<td class="fm_options_value">
 								<input type="text" id="mail_subject_user" name="mail_subject_user" value="<?php echo (($row->mail_subject_user == '') && !in_array($label_id[$default_subject], $disabled_fields)) ? '%' . $label_label[$default_subject] . '%' : $row->mail_subject_user; ?>" style="width: 250px;" />
@@ -1247,16 +1247,16 @@ class CFMViewManage_cfm {
 						</tr>
 						<tr valign="top">
               <td class="fm_options_label" style="vertical-align: middle;">
-                <label>Mode: </label>
+                <label><?php echo __("Mode", "contact_form_maker"); ?>: </label>
               </td>
               <td class="fm_options_value">
                 <input type="radio" name="mail_mode_user" id="htmlmode_user" value="1" <?php if ($row->mail_mode_user == 1 ) echo 'checked="checked"'; ?> /><label for="htmlmode_user">HTML</label>
-                <input type="radio" name="mail_mode_user" id="textmode_user" value="0" <?php if ($row->mail_mode_user == 0 ) echo 'checked="checked"'; ?> /><label for="textmode_user">Text</label>
+                <input type="radio" name="mail_mode_user" id="textmode_user" value="0" <?php if ($row->mail_mode_user == 0 ) echo 'checked="checked"'; ?> /><label for="textmode_user"><?php echo __("Text", "contact_form_maker"); ?></label>
               </td>
             </tr>
             <tr>
               <td class="fm_options_label" valign="top">
-                <label>Custom Text in Email For User</label>
+                <label><?php echo __("Custom Text in Email For User", "contact_form_maker"); ?></label>
               </td>
               <td class="fm_options_value">
                 <div style="margin-bottom:5px">
@@ -1290,23 +1290,23 @@ class CFMViewManage_cfm {
         </fieldset>
       </fieldset>
       <fieldset id="actions_fieldset" class="adminform fm_fieldset_deactive">
-        <legend style="color: #0B55C4; font-weight: bold;">Actions after submission</legend>
+        <legend style="color: #0B55C4; font-weight: bold;"><?php echo __("Actions after submission", "contact_form_maker"); ?></legend>
         <table class="admintable">
           <tr valign="top">
             <td class="fm_options_label">
-              <label>Action type</label>
+              <label><?php echo __("Action type", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
-              <div><input type="radio" name="submit_text_type" id="text_type_none" onclick="set_type('none')" value="1" <?php echo ($row->submit_text_type != 2 && $row->submit_text_type != 3 && $row->submit_text_type != 4 && $row->submit_text_type != 5) ? "checked" : ""; ?> /><label for="text_type_none">Stay on Form</label></div>
-              <div><input type="radio" name="submit_text_type" id="text_type_post" onclick="set_type('post')" value="2" <?php echo ($row->submit_text_type == 2) ? "checked" : ""; ?> /><label for="text_type_post">Post</label></label></div>
-              <div><input type="radio" name="submit_text_type" id="text_type_page" onclick="set_type('page')" value="5" <?php echo ($row->submit_text_type == 5) ? "checked" : ""; ?> /><label for="text_type_page">Page</label></label></div>
-              <div><input type="radio" name="submit_text_type" id="text_type_custom_text" onclick="set_type('custom_text')" value="3" <?php echo ($row->submit_text_type == 3 ) ? "checked" : ""; ?> /><label for="text_type_custom_text">Custom Text</label></label></div>
+              <div><input type="radio" name="submit_text_type" id="text_type_none" onclick="set_type('none')" value="1" <?php echo ($row->submit_text_type != 2 && $row->submit_text_type != 3 && $row->submit_text_type != 4 && $row->submit_text_type != 5) ? "checked" : ""; ?> /><label for="text_type_none"><?php echo __("Stay on Form", "contact_form_maker"); ?></label></div>
+              <div><input type="radio" name="submit_text_type" id="text_type_post" onclick="set_type('post')" value="2" <?php echo ($row->submit_text_type == 2) ? "checked" : ""; ?> /><label for="text_type_post"><?php echo __("Post","contact_form_maker"); ?></label></label></div>
+              <div><input type="radio" name="submit_text_type" id="text_type_page" onclick="set_type('page')" value="5" <?php echo ($row->submit_text_type == 5) ? "checked" : ""; ?> /><label for="text_type_page"><?php echo __("Page","contact_form_maker"); ?></label></label></div>
+              <div><input type="radio" name="submit_text_type" id="text_type_custom_text" onclick="set_type('custom_text')" value="3" <?php echo ($row->submit_text_type == 3 ) ? "checked" : ""; ?> /><label for="text_type_custom_text"><?php echo __("Custom Text","contact_form_maker"); ?></label></label></div>
               <div><input type="radio" name="submit_text_type" id="text_type_url" onclick="set_type('url')" value="4" <?php echo ($row->submit_text_type == 4) ? "checked" : ""; ?> /><label for="text_type_url">URL</div>
             </td>
           </tr>
           <tr id="none" <?php echo (($row->submit_text_type == 2 || $row->submit_text_type == 3 || $row->submit_text_type == 4 || $row->submit_text_type == 5) ? 'style="display:none"' : ''); ?>>
             <td class="fm_options_label">
-              <label>Stay on Form</label>
+              <label><?php echo __("Stay on Form", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
               <img src="<?php echo WD_CFM_URL . '/images/tick.png'; ?>" border="0">
@@ -1314,11 +1314,11 @@ class CFMViewManage_cfm {
           </tr>
           <tr id="post" <?php echo (($row->submit_text_type != 2) ? 'style="display: none"' : ''); ?>>
             <td class="fm_options_label">
-              <label for="post_name">Post</label>
+              <label for="post_name"><?php echo __("Post", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
               <select id="post_name" name="post_name" style="width: 153px; font-size: 11px;">
-                <option value="0">- Select Post -</option>
+                <option value="0">- <?php echo __("Select Post", "contact_form_maker"); ?> -</option>
                 <?php
                 // The Query.
                 $args = array('posts_per_page'  => 10000);
@@ -1336,11 +1336,11 @@ class CFMViewManage_cfm {
           </tr>
           <tr id="page" <?php echo (($row->submit_text_type != 5) ? 'style="display: none"' : ''); ?>>
             <td class="fm_options_label">
-              <label for="page_name">Page</label>
+              <label for="page_name"><?php echo __("Page", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
               <select id="page_name" name="page_name" style="width: 153px; font-size: 11px;">
-                <option value="0">- Select Page -</option>
+                <option value="0">- <?php echo __("Select Page", "contact_form_maker"); ?> -</option>
                 <?php
                 // The Query.
                 $pages = get_pages();
@@ -1359,7 +1359,7 @@ class CFMViewManage_cfm {
           </tr>
           <tr id="custom_text" <?php echo (($row->submit_text_type != 3) ? 'style="display: none;"' : ''); ?>>
             <td class="fm_options_label">
-              <label for="submit_text">Text</label>
+              <label for="submit_text"><?php echo __("Text", "contact_form_maker"); ?></label>
             </td>
             <td class="fm_options_value">
               <?php
@@ -1435,7 +1435,7 @@ class CFMViewManage_cfm {
       }
       function insertAtCursor_form(myId, myLabel) {
         if (jQuery('#autogen_layout').is(':checked')) {
-          alert("Uncheck the Auto-Generate Layout box.");
+          alert('<?php echo __("Uncheck the Auto-Generate Layout box.", "contact_form_maker"); ?>');
           return;
         }
         myValue = '<div wdid="' + myId + '" class="wdform_row">%' + myId + ' - ' + myLabel + '%</div>';
@@ -1472,20 +1472,20 @@ class CFMViewManage_cfm {
       <form action="admin.php?page=manage_cfm" method="post" name="adminForm" enctype="multipart/form-data">
         <?php wp_nonce_field('nonce_cfm', 'nonce_cfm'); ?>
         <div class="buttons_div">
-          <input class="button-secondary" type="submit" onclick="submitbutton(); spider_set_input_value('task', 'save_layout')" value="Save"/>
-          <input class="button-secondary" type="submit" onclick="submitbutton(); spider_set_input_value('task', 'apply_layout')" value="Apply"/>
-          <input class="button-secondary" type="submit" onclick="spider_set_input_value('task', 'cancel_options')" value="Cancel"/>
+          <input class="button-secondary" type="submit" onclick="submitbutton(); spider_set_input_value('task', 'save_layout')" value="<?php echo __("Save", "contact_form_maker"); ?>"/>
+          <input class="button-secondary" type="submit" onclick="submitbutton(); spider_set_input_value('task', 'apply_layout')" value="<?php echo __("Apply", "contact_form_maker"); ?>"/>
+          <input class="button-secondary" type="submit" onclick="spider_set_input_value('task', 'cancel_options')" value="<?php echo __("Cancel", "contact_form_maker"); ?>"/>
         </div>
-        <h2 style="clear: both;">Description</h2>
-        <p>To customize the layout of the form fields uncheck the Auto-Generate Layout box and edit the HTML.</p>
-        <p>You can change positioning, add in-line styles and etc. Click on the provided buttons to add the corresponding field.<br /> This will add the following line:
+        <h2 style="clear: both;"><?php echo __("Description", "contact_form_maker"); ?></h2>
+        <p><?php echo __("To customize the layout of the form fields uncheck the Auto-Generate Layout box and edit the HTML", "contact_form_maker"); ?>.</p>
+        <p><?php echo __("You can change positioning, add in-line styles and etc. Click on the provided buttons to add the corresponding field", "contact_form_maker"); ?>.<br /> <?php echo __("This will add the following line", "contact_form_maker"); ?>:
           <b><span class="cm-tag">&lt;div</span> <span class="cm-attribute">wdid</span>=<span class="cm-string">"example_id"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"wdform_row"</span><span class="cm-tag">&gt;</span>%example_id - Example%<span class="cm-tag">&lt;/div&gt;</span></b>
-          , where <b><span class="cm-tag">&lt;div&gt;</span></b> is used to set a row.</p>
-        <p>To return to the default settings you should check Auto-Generate Layout box.</p>
-        <h3 style="color:red">Notice</h3>
-        <p>Make sure not to publish the same field twice. This will cause malfunctioning of the form.</p>
+          , <?php echo __("where", "contact_form_maker"); ?> <b><span class="cm-tag">&lt;div&gt;</span></b> <?php echo __("is used to set a row","contact_form_maker"); ?>.</p>
+        <p><?php echo __("To return to the default settings you should check Auto-Generate Layout box","contact_form_maker"); ?>.</p>
+        <h3 style="color:red"><?php echo __("Notice","contact_form_maker"); ?></h3>
+        <p><?php echo __("Make sure not to publish the same field twice. This will cause malfunctioning of the form","contact_form_maker"); ?>.</p>
         <hr/>
-        <label for="autogen_layout" style="font-size: 20px; line-height: 45px; margin-left: 10px;">Auto Generate Layout? </label>
+        <label for="autogen_layout" style="font-size: 20px; line-height: 45px; margin-left: 10px;"><?php echo __("Auto Generate Layout", "contact_form_maker"); ?>? </label>
         <input type="checkbox" value="1" name="autogen_layout" id="autogen_layout" <?php echo (($row->autogen_layout) ? 'checked="checked"' : ''); ?> />
         <input type="hidden" name="custom_front" id="custom_front" value="" />
 
@@ -1503,7 +1503,7 @@ class CFMViewManage_cfm {
       }
       ?>
       <br /><br />
-      <button class="fm_submit_layout button button-secondary button-hero" onclick="autoFormat()"><strong>Apply Source Formatting</strong>  <em>(ctrl-enter)</em></button>
+      <button class="fm_submit_layout button button-secondary button-hero" onclick="autoFormat()"><strong><?php echo __("Apply Source Formatting", "contact_form_maker"); ?></strong>  <em>(<?php echo __("ctrl-enter", "contact_form_maker"); ?>)</em></button>
       <textarea id="source" name="source" style="display: none;"></textarea>
     </div>
     <script>

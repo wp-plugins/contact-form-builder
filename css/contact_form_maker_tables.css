@@ -242,7 +242,7 @@ div.wd_preview a {
 
 .table_big_col {
   text-align: center !important;
-  width: 80px;
+  width: 100px;
 }
 
 .table_large_col {
@@ -260,7 +260,18 @@ div.wd_preview a {
 }
 
 .table_xxl_col {
-  padding: 4px !important;
+  text-align: center !important;
+  width: 175px !important;
+}
+
+#tbody_arr .table_xxl_col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#tbody_arr .table_xxl_col input {
+  padding-left: 1px !important;
+  padding-right: 1px !important;
   width: 175px !important;
 }
 

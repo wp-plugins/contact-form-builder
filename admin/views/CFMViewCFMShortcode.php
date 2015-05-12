@@ -12,7 +12,6 @@ class CFMViewCFMShortcode {
   ////////////////////////////////////////////////////////////////////////////////////////
   private $model;
 
-
   ////////////////////////////////////////////////////////////////////////////////////////
   // Constructor & Destructor                                                           //
   ////////////////////////////////////////////////////////////////////////////////////////
@@ -57,10 +56,10 @@ class CFMViewCFMShortcode {
           <div id="display_panel" class="panel current">
             <table>
               <tr>
-                <td style="vertical-align: middle; text-align: left;">Select a Form</td>
+                <td style="vertical-align: middle; text-align: left;"><?php echo __("Select a Form", "contact_form_maker"); ?></td>
                 <td style="vertical-align: middle; text-align: left;">
                   <select name="form_maker_id" id="form_maker_id" style="width: 230px; text-align: left;">
-                    <option value="- Select Form -" selected="selected">- Select a Form -</option>
+                    <option value="- Select Form -" selected="selected">-<?php echo __("Select a Form", "contact_form_maker"); ?>-</option>
                     <?php
                     foreach ($rows as $row) {
                       ?>
@@ -76,10 +75,10 @@ class CFMViewCFMShortcode {
         </div>
         <div class="mceActionPanel">
           <div style="float: left;">
-            <input type="button" id="cancel" name="cancel" value="Cancel" onClick="tinyMCEPopup.close();"/>
+            <input type="button" id="cancel" name="cancel" value="<?php echo __('Cancel', 'contact_form_maker'); ?>" onClick="tinyMCEPopup.close();"/>
           </div>
           <div style="float: right;">
-            <input type="submit" id="insert" name="insert" value="Insert" onClick="form_maker_insert_shortcode();"/>
+            <input type="submit" id="insert" name="insert" value="<?php echo __('Insert', 'contact_form_maker'); ?>" onClick="form_maker_insert_shortcode();"/>
           </div>
         </div>
         <script type="text/javascript">

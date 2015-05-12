@@ -140,7 +140,7 @@ function refresh_attr(x,type) {
 					try{input.setAttribute("add_"+document.getElementById("attr_name"+i).value, document.getElementById("attr_value"+i).value)}
 					catch(err)
 					{
-						alert('Only letters, numbers, hyphens and underscores are allowed.');
+						alert(fmc_objectL10n.fmc_Only_letters);
 					}
 				}
 		}
@@ -195,13 +195,13 @@ function change_attribute_value(id, x, type)
 {
 	if(!document.getElementById("attr_name"+x).value)
 	{
-		alert('The name of the attribute is required.');
+		alert(fmc_objectL10n.fmc_name_attribute_required);
 		return
 	}
 	
 	if(document.getElementById("attr_name"+x).value.toLowerCase()=="style")
 	{
-		alert('Sorry, you cannot add a style attribute here. Use "Class name" instead.');
+		alert(fmc_objectL10n.fmc_cannot_add_style_attribute);
 		return
 	}
 	
@@ -213,19 +213,19 @@ function change_attribute_name(id, x, type)
 	value=x.value;
 	if(!value)
 	{
-		alert('The name of the attribute is required.');
+		alert(fmc_objectL10n.fmc_name_attribute_required);
 		return;
 	}
 	
 	if(value.toLowerCase()=="style")
 	{
-		alert('Sorry, you cannot add a style attribute here. Use "Class name" instead.');
+		alert(fmc_objectL10n.fmc_cannot_add_style_attribute);
 		return;
 	}
 	
 	if(value==parseInt(value))
 	{
-		alert('The name of the attribute cannot be a number.');
+		alert(fmc_objectL10n.fmc_name_attribute_cannotbe_number);
 		return;
 	}
 	
@@ -234,7 +234,7 @@ function change_attribute_name(id, x, type)
 		var regExp = /\s+/g;
 		value=value.replace(regExp,''); 
 		x.value=value;
-		alert("The name of the attribute cannot contain a space.");
+		alert(fmc_objectL10n.fmc_name_attribute_cannot_containspace);
 		refresh_attr(id, type);
 		return;
 	}	
@@ -389,7 +389,7 @@ function disable_fields(id,field)
 								option_.innerHTML="";
 							field.appendChild(option_);
 							
-							coutries=["Afghanistan","Albania",	"Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Republic","Chad","Chile","China","Colombi","Comoros","Congo (Brazzaville)","Congo","Costa Rica","Cote d'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","East Timor (Timor Timur)","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia, The","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Korea, North","Korea, South","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepa","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia and Montenegro","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];	
+							coutries=[fmc_objectL10n.fmc_Afghanistan,fmc_objectL10n.fmc_Albania,fmc_objectL10n.Algeria,fmc_objectL10n.Andorra,fmc_objectL10n.Angola,fmc_objectL10n.fmc_AntiguaandBarbuda,fmc_objectL10n.fmc_Argentina,fmc_objectL10n.fmc_Armenia,fmc_objectL10n.fmc_Australia,fmc_objectL10n.fmc_Austria,fmc_objectL10n.fmc_Azerbaijan,fmc_objectL10n.fmc_Bahamas,fmc_objectL10n.fmc_Bahrain,fmc_objectL10n.fmc_Bangladesh,fmc_objectL10n.fmc_Barbados,fmc_objectL10n.fmc_Belarus,fmc_objectL10n.fmc_Belgium,fmc_objectL10n.fmc_Belize,fmc_objectL10n.fmc_Benin,fmc_objectL10n.fmc_Bhutan,fmc_objectL10n.fmc_Bolivia,fmc_objectL10n.fmc_BosniaandHerzegovina,fmc_objectL10n.fmc_Botswana,fmc_objectL10n.fmc_Brazil,fmc_objectL10n.fmc_Brunei,fmc_objectL10n.fmc_Bulgaria,fmc_objectL10n.fmc_BurkinaFaso,fmc_objectL10n.fmc_Burundi,fmc_objectL10n.fmc_Cambodia,fmc_objectL10n.fmc_Cameroon,fmc_objectL10n.fmc_Canada,fmc_objectL10n.fmc_CapeVerde,fmc_objectL10n.fmc_CentralAfricanRepublic,fmc_objectL10n.fmc_Chad,fmc_objectL10n.fmc_Chile,fmc_objectL10n.fmc_China,fmc_objectL10n.fmc_Colombi,fmc_objectL10n.fmc_Comoros,fmc_objectL10n.fmc_CongoBrazzaville,fmc_objectL10n.fmc_Congo,fmc_objectL10n.fmc_CostaRica,fmc_objectL10n.fmc_CotedIvoire,fmc_objectL10n.fmc_Croatia,fmc_objectL10n.fmc_Cuba,fmc_objectL10n.fmc_Cyprus,fmc_objectL10n.fmc_CzechRepublic,fmc_objectL10n.fmc_Denmark,fmc_objectL10n.fmc_Djibouti,fmc_objectL10n.fmc_Dominica,fmc_objectL10n.fmc_DominicanRepublic,fmc_objectL10n.fmc_EastTimorTimorTimur,fmc_objectL10n.fmc_Ecuador,fmc_objectL10n.fmc_Egypt,fmc_objectL10n.fmc_ElSalvador,fmc_objectL10n.fmc_EquatorialGuinea,fmc_objectL10n.fmc_Eritrea,fmc_objectL10n.fmc_Estonia,fmc_objectL10n.fmc_Ethiopia,fmc_objectL10n.fmc_Fiji,fmc_objectL10n.fmc_Finland,fmc_objectL10n.fmc_France,fmc_objectL10n.fmc_Gabon,fmc_objectL10n.fmc_GambiaThe,fmc_objectL10n.fmc_Georgia,fmc_objectL10n.fmc_Germany,fmc_objectL10n.fmc_Ghana,fmc_objectL10n.fmc_Greece,fmc_objectL10n.fmc_Grenada,fmc_objectL10n.fmc_Guatemala,fmc_objectL10n.fmc_Guinea,fmc_objectL10n.fmc_GuineaBissau,fmc_objectL10n.fmc_Guyana,fmc_objectL10n.fmc_Haiti,fmc_objectL10n.fmc_Honduras,fmc_objectL10n.fmc_Hungary,fmc_objectL10n.fmc_Iceland,fmc_objectL10n.fmc_India,fmc_objectL10n.fmc_Indonesia,fmc_objectL10n.fmc_Iran,fmc_objectL10n.fmc_Iraq,fmc_objectL10n.fmc_Ireland,fmc_objectL10n.fmc_Israel,fmc_objectL10n.fmc_Italy,fmc_objectL10n.fmc_Jamaica,fmc_objectL10n.fmc_Japan,fmc_objectL10n.fmc_Jordan,fmc_objectL10n.fmc_Kazakhstan,fmc_objectL10n.fmc_Kenya,fmc_objectL10n.fmc_Kiribati,fmc_objectL10n.fmc_KoreaNorth,fmc_objectL10n.fmc_KoreaSouth,fmc_objectL10n.fmc_Kuwait,fmc_objectL10n.fmc_Kyrgyzstan,fmc_objectL10n.fmc_Laos,fmc_objectL10n.fmc_Latvia,fmc_objectL10n.fmc_Lebanon,fmc_objectL10n.fmc_Lesotho,fmc_objectL10n.fmc_Liberia,fmc_objectL10n.fmc_Libya,fmc_objectL10n.fmc_Liechtenstein,fmc_objectL10n.fmc_Lithuania,fmc_objectL10n.fmc_Luxembourg,fmc_objectL10n.fmc_Macedonia,fmc_objectL10n.fmc_Madagascar,fmc_objectL10n.fmc_Malawi,fmc_objectL10n.fmc_Malaysia,fmc_objectL10n.fmc_Maldives,fmc_objectL10n.fmc_Mali,fmc_objectL10n.fmc_Malta,fmc_objectL10n.fmc_MarshallIslands,fmc_objectL10n.fmc_Mauritania,fmc_objectL10n.fmc_Mauritius,fmc_objectL10n.fmc_Mexico,fmc_objectL10n.fmc_Micronesia,fmc_objectL10n.fmc_Moldova,fmc_objectL10n.fmc_Monaco,fmc_objectL10n.fmc_Mongolia,fmc_objectL10n.fmc_Morocco,fmc_objectL10n.fmc_Mozambique,fmc_objectL10n.fmc_Myanmar,fmc_objectL10n.fmc_Namibia,fmc_objectL10n.fmc_Nauru,fmc_objectL10n.fmc_Nepa,fmc_objectL10n.fmc_Netherlands,fmc_objectL10n.fmc_NewZealand,fmc_objectL10n.fmc_Nicaragua,fmc_objectL10n.fmc_Niger,fmc_objectL10n.fmc_Nigeria,fmc_objectL10n.fmc_Norway,fmc_objectL10n.fmc_Oman,fmc_objectL10n.fmc_Pakistan,fmc_objectL10n.fmc_Palau,fmc_objectL10n.fmc_Panama,fmc_objectL10n.fmc_PapuaNewGuinea,fmc_objectL10n.fmc_Paraguay,fmc_objectL10n.fmc_Peru,fmc_objectL10n.fmc_Philippines,fmc_objectL10n.fmc_Poland,fmc_objectL10n.fmc_Portugal,fmc_objectL10n.fmc_Qatar,fmc_objectL10n.fmc_Romania,fmc_objectL10n.fmc_Russia,fmc_objectL10n.fmc_Rwanda,fmc_objectL10n.fmc_SaintKittsandNevis,fmc_objectL10n.fmc_SaintLucia,fmc_objectL10n.fmc_SaintVincent,fmc_objectL10n.fmc_Samoa,fmc_objectL10n.fmc_SanMarino,fmc_objectL10n.fmc_SaoTomeandPrincipe,fmc_objectL10n.fmc_SaudiArabia,fmc_objectL10n.fmc_Senegal,fmc_objectL10n.fmc_SerbiandMontenegro,fmc_objectL10n.fmc_Seychelles,fmc_objectL10n.fmc_SierraLeone,fmc_objectL10n.fmc_Singapore,fmc_objectL10n.fmc_Slovakia,fmc_objectL10n.fmc_Slovenia,fmc_objectL10n.fmc_SolomonIslands,fmc_objectL10n.fmc_Somalia,fmc_objectL10n.fmc_SouthAfrica,fmc_objectL10n.fmc_Spain,fmc_objectL10n.fmc_SriLanka,fmc_objectL10n.fmc_Sudan,fmc_objectL10n.fmc_Suriname,fmc_objectL10n.fmc_Swaziland,fmc_objectL10n.fmc_Sweden,fmc_objectL10n.fmc_Switzerland,fmc_objectL10n.fmc_Syria,fmc_objectL10n.fmc_Taiwan,fmc_objectL10n.fmc_Tajikistan,fmc_objectL10n.fmc_Tanzania,fmc_objectL10n.fmc_Thailand,fmc_objectL10n.fmc_Togo,fmc_objectL10n.fmc_Tonga,fmc_objectL10n.fmc_TrinidadandTobago,fmc_objectL10n.fmc_Tunisia,fmc_objectL10n.fmc_Turkey,fmc_objectL10n.fmc_Turkmenistan,fmc_objectL10n.fmc_Tuvalu,fmc_objectL10n.fmc_Uganda,fmc_objectL10n.fmc_Ukraine,fmc_objectL10n.fmc_UnitedArabEmirates,fmc_objectL10n.fmc_UnitedKingdom,fmc_objectL10n.fmc_UnitedStates,fmc_objectL10n.fmc_Uruguay,fmc_objectL10n.fmc_Uzbekistan,fmc_objectL10n.fmc_Vanuatu,fmc_objectL10n.fmc_VaticanCity,fmc_objectL10n.fmc_Venezuela,fmc_objectL10n.fmc_Vietnam,fmc_objectL10n.fmc_Yemen,fmc_objectL10n.fmc_Zambia,fmc_objectL10n.fmc_Zimbabwe];	
 							for(r=0;r<coutries.length;r++)
 							{
 							var option_ = document.createElement('option');
@@ -984,7 +984,7 @@ function change_state_input(id,form_id)
 			option_.innerHTML="";
 		state.appendChild(option_);
 		
-		states=["Alabama","Alaska", "Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District Of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];	
+		states=[fmc_objectL10n.fmc_Alabama,fmc_objectL10n.fmc_Alaska,fmc_objectL10n. fmc_Arizona,fmc_objectL10n.fmc_Arkansas,fmc_objectL10n.fmc_California,fmc_objectL10n.fmc_Colorado,fmc_objectL10n.fmc_Connecticut,fmc_objectL10n.fmc_Delaware,fmc_objectL10n.fmc_DistrictOfColumbia,fmc_objectL10n.fmc_Florida,fmc_objectL10n.fmc_Georgia,fmc_objectL10n.fmc_Hawaii,fmc_objectL10n.fmc_Idaho,fmc_objectL10n.fmc_Illinois,fmc_objectL10n.fmc_Indiana,fmc_objectL10n.fmc_Iowa,fmc_objectL10n.fmc_Kansas,fmc_objectL10n.fmc_Kentucky,fmc_objectL10n.fmc_Louisiana,fmc_objectL10n.fmc_Maine,fmc_objectL10n.fmc_Maryland,fmc_objectL10n.fmc_Massachusetts,fmc_objectL10n.fmc_Michigan,fmc_objectL10n.fmc_Minnesota,fmc_objectL10n.fmc_Mississippi,fmc_objectL10n.fmc_Missouri,fmc_objectL10n.fmc_Montana,fmc_objectL10n.fmc_Nebraska,fmc_objectL10n.fmc_Nevada,fmc_objectL10n.fmc_NewHampshire,fmc_objectL10n.fmc_NewJersey,fmc_objectL10n.fmc_NewMexico,fmc_objectL10n.fmc_NewYork,fmc_objectL10n.fmc_NorthCarolina,fmc_objectL10n.fmc_NorthDakota,fmc_objectL10n.fmc_Ohio,fmc_objectL10n.fmc_Oklahoma,fmc_objectL10n.fmc_Oregon,fmc_objectL10n.fmc_Pennsylvania,fmc_objectL10n.fmc_RhodeIsland,fmc_objectL10n.fmc_SouthCarolina,fmc_objectL10n.fmc_SouthDakota,fmc_objectL10n.fmc_Tennessee,fmc_objectL10n.fmc_Texas,fmc_objectL10n.fmc_Utah,fmc_objectL10n.fmc_Vermont,fmc_objectL10n.fmc_Virginia,fmc_objectL10n.fmc_Washington,fmc_objectL10n.fmc_WestVirginia,fmc_objectL10n.fmc_Wisconsin,fmc_objectL10n.fmc_Wyoming];	
 		for(r=0;r<states.length;r++)
 		{
 		var option_ = document.createElement('option');
@@ -1831,7 +1831,7 @@ function type_section_break(i, w_editor){
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -1906,7 +1906,7 @@ function type_editor(i, w_editor){
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -2008,7 +2008,7 @@ function type_submit_reset(i, w_submit_title , w_reset_title , w_class, w_act, w
 	var edit_main_td7_1 = document.createElement('td');
 	var el_submit_title_label = document.createElement('label');
 	                el_submit_title_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-			el_submit_title_label.innerHTML = "Submit button label";
+			el_submit_title_label.innerHTML = fmc_objectL10n.fmc_Submit_button_label;
 	
 	var el_submit_title_textarea = document.createElement('input');
                 el_submit_title_textarea.setAttribute("id", "edit_for_title");
@@ -2018,7 +2018,7 @@ function type_submit_reset(i, w_submit_title , w_reset_title , w_class, w_act, w
 		el_submit_title_textarea.value = w_submit_title;
 	var el_submit_func_label = document.createElement('label');
 	                el_submit_func_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-			el_submit_func_label.innerHTML = "Submit function";
+			el_submit_func_label.innerHTML = fmc_objectL10n.fmc_Submit_function;
 	var el_submit_func_textarea = document.createElement('input');
                 el_submit_func_textarea.setAttribute("type", "text");
                 el_submit_func_textarea.setAttribute("disabled", "disabled");
@@ -2027,7 +2027,7 @@ function type_submit_reset(i, w_submit_title , w_reset_title , w_class, w_act, w
 
 	var el_reset_title_label = document.createElement('label');
 	                el_reset_title_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-			el_reset_title_label.innerHTML = "Reset button label";
+			el_reset_title_label.innerHTML = fmc_objectL10n.fmc_Reset_button_label;
 	
 	var el_reset_title_textarea = document.createElement('input');
                 el_reset_title_textarea.setAttribute("id", "edit_for_title");
@@ -2047,14 +2047,14 @@ function type_submit_reset(i, w_submit_title , w_reset_title , w_class, w_act, w
 				
 	var el_reset_active_label = document.createElement('label');
 	                el_reset_active_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-					el_reset_active_label.innerHTML = "Display Reset button";
+					el_reset_active_label.innerHTML = fmc_objectL10n.fmc_Display_reset_button;
 	
 	
 	
 	
 	var el_reset_func_label = document.createElement('label');
 	                el_reset_func_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-			el_reset_func_label.innerHTML = "Reset function";
+			el_reset_func_label.innerHTML = fmc_objectL10n.fmc_Reset_function;
 	var el_reset_func_textarea = document.createElement('input');
                 el_reset_func_textarea.setAttribute("type", "text");
                 el_reset_func_textarea.setAttribute("disabled", "disabled");
@@ -2063,7 +2063,7 @@ function type_submit_reset(i, w_submit_title , w_reset_title , w_class, w_act, w
 
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -2073,12 +2073,12 @@ function type_submit_reset(i, w_submit_title , w_reset_title , w_class, w_act, w
                 el_style_textarea.setAttribute("onChange", "change_class(this.value,'"+i+"')");
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_submit_reset')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -2094,11 +2094,11 @@ function type_submit_reset(i, w_submit_title , w_reset_title , w_class, w_act, w
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -2350,7 +2350,7 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -2363,7 +2363,7 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
 	
 	var el_label_label = document.createElement('label');
 	    el_label_label.setAttribute("for", "edit_for_label");
-		el_label_label.innerHTML = "Field label";
+		el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
         el_label_textarea.setAttribute("id", "edit_for_label");
@@ -2375,7 +2375,7 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -2385,21 +2385,21 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 		
 	var el_label_position_label = document.createElement('label');
-		el_label_position_label.innerHTML = "Field label position";
+		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
         el_label_position1.setAttribute("id", "edit_for_label_position_top");
         el_label_position1.setAttribute("type", "radio");
 		el_label_position1.setAttribute("name", "edit_for_label_position");
         el_label_position1.setAttribute("onchange", "label_left("+i+")");
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 
 	var el_label_position2 = document.createElement('input');
         el_label_position2.setAttribute("id", "edit_for_label_position_left");
         el_label_position2.setAttribute("type", "radio");
         el_label_position2.setAttribute("name", "edit_for_label_position");
         el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 		el_label_position2.setAttribute("checked", "checked");
@@ -2408,7 +2408,7 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
 
 	var el_required_label = document.createElement('label');
 	    el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 
 	var el_required = document.createElement('input');
         el_required.setAttribute("id", "el_required");
@@ -2418,12 +2418,12 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
         el_required.setAttribute("checked", "checked");
 			
 	var el_attr_label = document.createElement('label');
-		el_attr_label.innerHTML = "Additional Attributes";
+		el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 			
 	var el_attr_add = document.createElement('img');
 		el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
 		el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-		el_attr_add.setAttribute("title", 'add');
+		el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
 		el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_send_copy')");
 		
 	var el_attr_table = document.createElement('table');
@@ -2440,11 +2440,11 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
 		el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 		el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_name_label.innerHTML = "Name";
+		el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	    el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_value_label.innerHTML = "Value";
+		el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -2579,7 +2579,7 @@ function type_send_copy(i, w_field_label, w_field_label_size, w_field_label_pos,
 		var div_for_editable_labels = document.createElement('div');
 			div_for_editable_labels.setAttribute("style", "margin-left:4px; color:red;");
 			
-      	edit_labels = document.createTextNode("Use the field to allow the user to choose whether to receive a copy of the submitted form or not. Do not forget to fill in User Email section in Email Options in advance.");
+      	edit_labels = document.createTextNode(fmc_objectL10n.fmc_Use_field_allow);
 
 		div_for_editable_labels.appendChild(edit_labels);  
 
@@ -2699,7 +2699,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -2712,7 +2712,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 		
 	var el_label_label = document.createElement('label');
 	    el_label_label.setAttribute("for", "edit_for_label");
-		el_label_label.innerHTML = "Field label";
+		el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
         el_label_textarea.setAttribute("id", "edit_for_label");
@@ -2724,7 +2724,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -2734,21 +2734,21 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 		
 	var el_label_position_label = document.createElement('label');
-		el_label_position_label.innerHTML = "Field label position";
+		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
         el_label_position1.setAttribute("id", "edit_for_label_position_top");
         el_label_position1.setAttribute("type", "radio");
 		el_label_position1.setAttribute("name", "edit_for_label_position");
         el_label_position1.setAttribute("onchange", "label_left("+i+")");
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 
 	var el_label_position2 = document.createElement('input');
         el_label_position2.setAttribute("id", "edit_for_label_position_left");
         el_label_position2.setAttribute("type", "radio");
         el_label_position2.setAttribute("name", "edit_for_label_position");
         el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 		el_label_position2.setAttribute("checked", "checked");
@@ -2757,7 +2757,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 
 	var el_size_label = document.createElement('label');
 	    el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Field size(px) ";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 
 	var el_size = document.createElement('input');
 		el_size.setAttribute("id", "edit_for_input_size");
@@ -2768,7 +2768,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 
 	var el_first_value_label = document.createElement('label');
 	    el_first_value_label.setAttribute("for", "el_first_value_input");
-		el_first_value_label.innerHTML = "Value if empty ";
+		el_first_value_label.innerHTML = fmc_objectL10n.fmc_Value_empty;
 	
 	var el_first_value_input = document.createElement('input');
         el_first_value_input.setAttribute("id", "el_first_value_input");
@@ -2779,7 +2779,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 	
 	var el_required_label = document.createElement('label');
 	    el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 
 	var el_required = document.createElement('input');
         el_required.setAttribute("id", "el_required");
@@ -2791,7 +2791,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 	
 	var el_unique_label = document.createElement('label');
 	    el_unique_label.setAttribute("for", "el_unique");
-		el_unique_label.innerHTML = "Allow only unique values";
+		el_unique_label.innerHTML = fmc_objectL10n.fmc_Allow_only_unique_values;
 
 	var el_unique = document.createElement('input');
         el_unique.setAttribute("id", "el_unique");
@@ -2801,7 +2801,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
                 el_unique.setAttribute("checked", "checked");
 				
 	var el_style_label = document.createElement('label');
-		el_style_label.innerHTML = "Deactive Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Deactive_class_name;
 	
 	var el_style_textarea = document.createElement('input');
 		el_style_textarea.setAttribute("type", "text");
@@ -2812,7 +2812,7 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 
 	var el_style_label2 = document.createElement('label');
 	    el_style_label2.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_style_label2.innerHTML = "Active Class name";
+		el_style_label2.innerHTML = fmc_objectL10n.fmc_Active_class_name;
 	
 	var el_style_textarea2 = document.createElement('input');
 		el_style_textarea2.setAttribute("type", "text");
@@ -2822,12 +2822,12 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
         el_style_textarea2.setAttribute("onChange", "change_class(this.value,'"+i+"')");
 
 	var el_attr_label = document.createElement('label');
-		el_attr_label.innerHTML = "Additional Attributes";
+		el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 			
 	var el_attr_add = document.createElement('img');
 		el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
 		el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-		el_attr_add.setAttribute("title", 'add');
+		el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
 		el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_text')");
 		
 	var el_attr_table = document.createElement('table');
@@ -2844,11 +2844,11 @@ function type_text(i, w_field_label, w_field_label_size, w_field_label_pos, w_si
 		el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 		el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_name_label.innerHTML = "Name";
+		el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	    el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_value_label.innerHTML = "Value";
+		el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -3133,7 +3133,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -3146,7 +3146,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 	
 	var el_label_label = document.createElement('label');
 	    el_label_label.setAttribute("for", "edit_for_label");
-		el_label_label.innerHTML = "Field label";
+		el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -3158,7 +3158,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -3168,21 +3168,21 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-	    		el_label_position_label.innerHTML = "Field label position";
+	    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
                 el_label_position1.setAttribute("type", "radio");
 				el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
                 el_label_position2.setAttribute("type", "radio");
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 				el_label_position2.setAttribute("checked", "checked");
@@ -3191,7 +3191,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 
 	var el_size_label = document.createElement('label');
 	    el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Field size(px) ";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 	var el_size = document.createElement('input');
 		el_size.setAttribute("id", "edit_for_input_size");
 		el_size.setAttribute("type", "text");
@@ -3201,7 +3201,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 
 	var el_first_value_label = document.createElement('label');
 	    el_first_value_label.setAttribute("for", "el_first_value_input");
-		el_first_value_label.innerHTML = "Value if empty ";
+		el_first_value_label.innerHTML = fmc_objectL10n.fmc_Value_empty;
 	
 	var el_first_value_input = document.createElement('input');
         el_first_value_input.setAttribute("id", "el_first_value_input");
@@ -3213,7 +3213,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 		
 	var el_required_label = document.createElement('label');
 	    el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
 		el_required.setAttribute("id", "el_required");
@@ -3224,7 +3224,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 	
 	var el_unique_label = document.createElement('label');
 	    el_unique_label.setAttribute("for", "el_unique");
-		el_unique_label.innerHTML = "Allow only unique values";
+		el_unique_label.innerHTML = fmc_objectL10n.fmc_Allow_only_unique_values;
 	
 	var el_unique = document.createElement('input');
 		el_unique.setAttribute("id", "el_unique");
@@ -3235,7 +3235,7 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
 							
 	var el_style_label = document.createElement('label');
 	    el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 
 	var el_style_textarea = document.createElement('input');
         el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -3245,12 +3245,12 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
         el_style_textarea.setAttribute("onChange", "change_class(this.value,'"+i+"')");
 
 	var el_attr_label = document.createElement('label');
-		el_attr_label.innerHTML = "Additional Attributes";
+		el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 			
 	var el_attr_add = document.createElement('img');
       	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
         el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-        el_attr_add.setAttribute("title", 'add');
+        el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
         el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_text')");
 		
 	var el_attr_table = document.createElement('table');
@@ -3268,10 +3268,10 @@ function type_number(i, w_field_label, w_field_label_size, w_field_label_pos, w_
         el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	    el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_name_label.innerHTML = "Name";
+		el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 	var el_attr_value_label = document.createElement('label');
 	    el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_value_label.innerHTML = "Value";
+		el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -3540,7 +3540,7 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -3553,7 +3553,7 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_label = document.createElement('label');
 		el_label_label.setAttribute("for", "edit_for_label");
-		el_label_label.innerHTML = "Field label";
+		el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
         el_label_textarea.setAttribute("id", "edit_for_label");
@@ -3564,7 +3564,7 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -3575,21 +3575,21 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 		
 		
 	var el_label_position_label = document.createElement('label');
-		el_label_position_label.innerHTML = "Field label position";
+		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
         el_label_position1.setAttribute("id", "edit_for_label_position_top");
         el_label_position1.setAttribute("type", "radio");
         el_label_position1.setAttribute("name", "edit_for_label_position");
         el_label_position1.setAttribute("onchange", "label_left("+i+")");
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
         el_label_position2.setAttribute("id", "edit_for_label_position_left");
         el_label_position2.setAttribute("type", "radio");
 		el_label_position2.setAttribute("name", "edit_for_label_position");
 		el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 		el_label_position2.setAttribute("checked", "checked");
@@ -3598,7 +3598,7 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_size_label = document.createElement('label');
 	    el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Field size(px) ";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 	
 	var el_size = document.createElement('input');
 		el_size.setAttribute("id", "edit_for_input_size");
@@ -3609,7 +3609,7 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_required_label = document.createElement('label');
 	    el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
         el_required.setAttribute("id", "el_required");
@@ -3620,7 +3620,7 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 			
 	var el_unique_label = document.createElement('label');
 	    el_unique_label.setAttribute("for", "el_unique");
-		el_unique_label.innerHTML = "Allow only unique values";
+		el_unique_label.innerHTML = fmc_objectL10n.fmc_Allow_only_unique_values;
 	
 	var el_unique = document.createElement('input');
         el_unique.setAttribute("id", "el_unique");
@@ -3631,7 +3631,7 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
 				
 	var el_style_label = document.createElement('label');
 	    el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
         el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -3641,12 +3641,12 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
         el_style_textarea.setAttribute("onChange", "change_class(this.value,'"+i+"')");
 		
 	var el_attr_label = document.createElement('label');
-		el_attr_label.innerHTML = "Additional Attributes";
+		el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 		
 	var el_attr_add = document.createElement('img');
         el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
         el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-        el_attr_add.setAttribute("title", 'add');
+        el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
         el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_text')");
 	var el_attr_table = document.createElement('table');
         el_attr_table.setAttribute("id", 'attributes');
@@ -3662,10 +3662,10 @@ function type_password(i, w_field_label, w_field_label_size, w_field_label_pos, 
       	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	    el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_name_label.innerHTML = "Name";
+		el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 	var el_attr_value_label = document.createElement('label');
 	    el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_value_label.innerHTML = "Value";
+		el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -3912,7 +3912,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -3925,7 +3925,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_label = document.createElement('label');
 		el_label_label.setAttribute("for", "edit_for_label");
-		el_label_label.innerHTML = "Field label";
+		el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
         el_label_textarea.setAttribute("id", "edit_for_label");
@@ -3936,7 +3936,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -3946,21 +3946,21 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-		el_label_position_label.innerHTML = "Field label position";
+		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
         el_label_position1.setAttribute("id", "edit_for_label_position_top");
         el_label_position1.setAttribute("type", "radio");
         el_label_position1.setAttribute("name", "edit_for_label_position");
         el_label_position1.setAttribute("onchange", "label_left("+i+")");
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
         el_label_position2.setAttribute("id", "edit_for_label_position_left");
         el_label_position2.setAttribute("type", "radio");
         el_label_position2.setAttribute("name", "edit_for_label_position");
         el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 		el_label_position2.setAttribute("checked", "checked");
@@ -3969,7 +3969,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_size_label = document.createElement('label');
 	    el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Field size(px) ";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 		
 	var el_size_w = document.createElement('input');
 		el_size_w.setAttribute("id", "edit_for_input_size");
@@ -3991,7 +3991,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 		
 	var el_first_value_label = document.createElement('label');
 	    el_first_value_label.setAttribute("for", "el_first_value_input");
-		el_first_value_label.innerHTML = "Value if empty";
+		el_first_value_label.innerHTML = fmc_objectL10n.fmc_Value_empty;
 	
 	var el_first_value_input = document.createElement('input');
                 el_first_value_input.setAttribute("id", "el_first_value_input");
@@ -4002,7 +4002,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 				
 	var el_required_label = document.createElement('label');
 	    el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -4013,7 +4013,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 		
 	var el_unique_label = document.createElement('label');
 	    el_unique_label.setAttribute("for", "el_unique");
-		el_unique_label.innerHTML = "Allow only unique values";
+		el_unique_label.innerHTML = fmc_objectL10n.fmc_Allow_only_unique_values;
 	
 	var el_unique = document.createElement('input');
                 el_unique.setAttribute("id", "el_unique");
@@ -4024,7 +4024,7 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
 		
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-			el_style_label.innerHTML = "Class name";
+			el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -4034,12 +4034,12 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
                 el_style_textarea.setAttribute("onChange", "change_class(this.value,'"+i+"')");
 
 	var el_attr_label = document.createElement('label');
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 			
 	var el_attr_add = document.createElement('img');
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_text')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -4055,10 +4055,10 @@ function type_textarea(i, w_field_label, w_field_label_size, w_field_label_pos, 
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -4325,7 +4325,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -4338,7 +4338,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 	
 	var el_label_label = document.createElement('label');
 			    el_label_label.setAttribute("for", "edit_for_label");
-				el_label_label.innerHTML = "Field label";
+				el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -4349,7 +4349,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -4360,21 +4360,21 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 
 	
 	var el_label_position_label = document.createElement('label');
-		el_label_position_label.innerHTML = "Field label position";
+		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
                 el_label_position1.setAttribute("type", "radio");
                 el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
-		Left = document.createTextNode("Left");
+		Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
                 el_label_position2.setAttribute("type", "radio");
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-		Top = document.createTextNode("Top");
+		Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 				el_label_position2.setAttribute("checked", "checked");
@@ -4383,7 +4383,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 
 	var el_size_label = document.createElement('label');
 	        el_size_label.setAttribute("for", "edit_for_input_size");
-			el_size_label.innerHTML = "Field size(px) ";
+			el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 	var el_size = document.createElement('input');
 			el_size.setAttribute("id", "edit_for_input_size");
 			el_size.setAttribute("type", "text");
@@ -4394,7 +4394,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 	var gic = document.createTextNode("-");
 
 	var el_first_value_label = document.createElement('label');
-		el_first_value_label.innerHTML = "Value if empty ";
+		el_first_value_label.innerHTML = fmc_objectL10n.fmc_Value_empty;
 	
 	var el_first_value_area = document.createElement('input');
                 el_first_value_area.setAttribute("id", "el_first_value_area");
@@ -4415,7 +4415,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 
 	var el_required_label = document.createElement('label');
 	        el_required_label.setAttribute("for", "el_required");
-			el_required_label.innerHTML = "Required";
+			el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -4426,7 +4426,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 
 	var el_unique_label = document.createElement('label');
 				el_unique_label.setAttribute("for", "el_unique");
-				el_unique_label.innerHTML = "Allow only unique values";
+				el_unique_label.innerHTML = fmc_objectL10n.fmc_Allow_only_unique_values;
 	
 	var el_unique = document.createElement('input');
                 el_unique.setAttribute("id", "el_unique");
@@ -4437,7 +4437,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 				
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-			el_style_label.innerHTML = "Class name";
+			el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -4447,11 +4447,11 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
                 el_style_textarea.setAttribute("onChange", "change_class(this.value,'"+i+"')");
 
 	var el_attr_label = document.createElement('label');
-				el_attr_label.innerHTML = "Additional Attributes";
+				el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
 				el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_name')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -4467,10 +4467,10 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -4628,7 +4628,7 @@ function type_phone(i, w_field_label, w_field_label_size, w_field_label_pos, w_s
 		var div_for_editable_labels = document.createElement('div');
 			div_for_editable_labels.setAttribute("style", "margin-left:4px; color:red; float: left; clear: both;");
 			
-      	edit_labels = document.createTextNode("The labels of the fields are editable. Please, click the label to edit.");
+      	edit_labels = document.createTextNode(fmc_objectL10n.fmc_labels_fields_editable);
 
 		div_for_editable_labels.appendChild(edit_labels);  
 		
@@ -4858,7 +4858,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -4871,7 +4871,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 		
 	var el_label_label = document.createElement('label');
 			        el_label_label.setAttribute("for", "edit_for_label");
-			el_label_label.innerHTML = "Field label";
+			el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -4882,7 +4882,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -4892,21 +4892,21 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-			    		el_label_position_label.innerHTML = "Field label position";
+			    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
                 el_label_position1.setAttribute("type", "radio");
                 el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
-		Left = document.createTextNode("Left");
+		Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
                 el_label_position2.setAttribute("type", "radio");
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-		Top = document.createTextNode("Top");
+		Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 				el_label_position2.setAttribute("checked", "checked");
@@ -4917,7 +4917,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 
 	var el_first_value_label = document.createElement('label');
 	    el_first_value_label.setAttribute("for", "el_first_value_input");
-		el_first_value_label.innerHTML = "Value if empty ";
+		el_first_value_label.innerHTML = fmc_objectL10n.fmc_Value_empty;
 	
 	var el_first_value_first = document.createElement('input');
                 el_first_value_first.setAttribute("id", "el_first_value_first");
@@ -4935,7 +4935,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 
 	var el_size_label = document.createElement('label');
 	        el_size_label.setAttribute("for", "edit_for_input_size");
-			el_size_label.innerHTML = "Field size(px) ";
+			el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 	var el_size = document.createElement('input');
 			el_size.setAttribute("id", "edit_for_input_size");
 			el_size.setAttribute("type", "text");
@@ -4948,7 +4948,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 
 	var el_format_label = document.createElement('label');
 	        el_format_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_format_label.innerHTML = "Name Format";
+		el_format_label.innerHTML = fmc_objectL10n.fmc_Name_format;
 	
 	var el_format_normal = document.createElement('input');
                 el_format_normal.setAttribute("id", "el_format_normal");
@@ -4957,7 +4957,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 		el_format_normal.setAttribute("name", "edit_for_name_format");
                 el_format_normal.setAttribute("onchange", "format_normal("+i+")");
 		el_format_normal.setAttribute("checked", "checked");
-		Normal = document.createTextNode("Normal");
+		Normal = document.createTextNode(fmc_objectL10n.fmc_Normal);
 		
 	var el_format_extended = document.createElement('input');
                 el_format_extended.setAttribute("id", "el_format_extended");
@@ -4965,7 +4965,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
                 el_format_extended.setAttribute("value", "extended");
 		el_format_extended.setAttribute("name", "edit_for_name_format");
                 el_format_extended.setAttribute("onchange", "format_extended("+i+",'','','','')");
-		Extended = document.createTextNode("Extended");
+		Extended = document.createTextNode(fmc_objectL10n.fmc_Extended);
 		
 	if(w_name_format=="normal")
 	
@@ -4975,7 +4975,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 
 	var el_required_label = document.createElement('label');
 	        el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -4987,7 +4987,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 
 	var el_unique_label = document.createElement('label');
 	    el_unique_label.setAttribute("for", "el_unique");
-		el_unique_label.innerHTML = "Allow only unique values";
+		el_unique_label.innerHTML = fmc_objectL10n.fmc_Allow_only_unique_values;
 	
 	var el_unique = document.createElement('input');
                 el_unique.setAttribute("id", "el_unique");
@@ -4999,7 +4999,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 				
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-			el_style_label.innerHTML = "Class name";
+			el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -5010,12 +5010,12 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_name')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -5031,11 +5031,11 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -5212,7 +5212,7 @@ function type_name(i, w_field_label, w_field_label_size, w_field_label_pos, w_fi
 		var div_for_editable_labels = document.createElement('div');
 			div_for_editable_labels.setAttribute("style", "margin-left:4px; color:red; float: left; clear: both;");
 			
-      	edit_labels = document.createTextNode("The labels of the fields are editable. Please, click the label to edit.");
+      	edit_labels = document.createTextNode(fmc_objectL10n.fmc_labels_fields_editable);
 
 		div_for_editable_labels.appendChild(edit_labels);  
 
@@ -5446,7 +5446,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -5459,7 +5459,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 	
 	var el_label_label = document.createElement('label');
 			        el_label_label.setAttribute("for", "edit_for_label");
-			el_label_label.innerHTML = "Field label";
+			el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -5470,7 +5470,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -5480,21 +5480,21 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-			    		el_label_position_label.innerHTML = "Field label position";
+			    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
                 el_label_position1.setAttribute("type", "radio");
                 el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
-		Left = document.createTextNode("Left");
+		Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
                 el_label_position2.setAttribute("type", "radio");
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-		Top = document.createTextNode("Top");
+		Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 				el_label_position2.setAttribute("checked", "checked");
@@ -5503,7 +5503,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 
 	var el_size_label = document.createElement('label');
 	        el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Overall size(px) ";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Overall_size;
 	var el_size = document.createElement('input');
 		   el_size.setAttribute("id", "edit_for_input_size");
 		   el_size.setAttribute("type", "text");
@@ -5516,7 +5516,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 			
 	var el_disable_field_label = document.createElement('label');
 	        el_disable_field_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_disable_field_label.innerHTML = "Disable field(s)";
+		el_disable_field_label.innerHTML = fmc_objectL10n.fmc_Disable_field;
 	
 	
 	var el_disable_address1 = document.createElement('input');
@@ -5572,7 +5572,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 		
 	var el_required_label = document.createElement('label');
 	        el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -5584,7 +5584,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-			el_style_label.innerHTML = "Class name";
+			el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -5595,12 +5595,12 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_address')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -5616,11 +5616,11 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -5676,7 +5676,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 	}
 		var el_us_states_label = document.createElement('label');
 	        el_us_states_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-			el_us_states_label.innerHTML = "Use list for US states";
+			el_us_states_label.innerHTML = fmc_objectL10n.fmc_Use_list_US_states;
 	
 		var el_disable_us_states = document.createElement('input');
             el_disable_us_states.setAttribute("id", "el_us_states");
@@ -5691,7 +5691,7 @@ function type_address(i, w_field_label, w_field_label_size, w_field_label_pos, w
 	var el_street2 = document.createTextNode(w_mini_labels[1]);
 	var el_city = document.createTextNode(w_mini_labels[2]);
 	var el_state = document.createTextNode(w_mini_labels[3]);
-	var el_us_states = document.createTextNode('Use US states');
+	var el_us_states = document.createTextNode(fmc_objectL10n.fmc_Use_US_states);
 	var el_postal = document.createTextNode(w_mini_labels[4]);
 	var el_country = document.createTextNode(w_mini_labels[5]);
 	
@@ -5870,7 +5870,7 @@ edit_main_td8.appendChild(el_disable_field_label);
 		var div_for_editable_labels = document.createElement('div');
 			div_for_editable_labels.setAttribute("style", "margin-left:4px; color:red; float: left; clear: both;");
 			
-      	edit_labels = document.createTextNode("The labels of the fields are editable. Please, click the label to edit.");
+      	edit_labels = document.createTextNode(fmc_objectL10n.fmc_labels_fields_editable);
 
 		div_for_editable_labels.appendChild(edit_labels);  	
 					
@@ -6017,7 +6017,7 @@ edit_main_td8.appendChild(el_disable_field_label);
 			option_.innerHTML="";
 		country.appendChild(option_);
 		
-		coutries=["Afghanistan","Albania",	"Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Republic","Chad","Chile","China","Colombi","Comoros","Congo (Brazzaville)","Congo","Costa Rica","Cote d'Ivoire","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","East Timor (Timor Timur)","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia, The","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Korea, North","Korea, South","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepa","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia and Montenegro","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];	
+		coutries=[fmc_objectL10n.fmc_Afghanistan,fmc_objectL10n.fmc_Albania,fmc_objectL10n.Algeria,fmc_objectL10n.Andorra,fmc_objectL10n.Angola,fmc_objectL10n.fmc_AntiguaandBarbuda,fmc_objectL10n.fmc_Argentina,fmc_objectL10n.fmc_Armenia,fmc_objectL10n.fmc_Australia,fmc_objectL10n.fmc_Austria,fmc_objectL10n.fmc_Azerbaijan,fmc_objectL10n.fmc_Bahamas,fmc_objectL10n.fmc_Bahrain,fmc_objectL10n.fmc_Bangladesh,fmc_objectL10n.fmc_Barbados,fmc_objectL10n.fmc_Belarus,fmc_objectL10n.fmc_Belgium,fmc_objectL10n.fmc_Belize,fmc_objectL10n.fmc_Benin,fmc_objectL10n.fmc_Bhutan,fmc_objectL10n.fmc_Bolivia,fmc_objectL10n.fmc_BosniaandHerzegovina,fmc_objectL10n.fmc_Botswana,fmc_objectL10n.fmc_Brazil,fmc_objectL10n.fmc_Brunei,fmc_objectL10n.fmc_Bulgaria,fmc_objectL10n.fmc_BurkinaFaso,fmc_objectL10n.fmc_Burundi,fmc_objectL10n.fmc_Cambodia,fmc_objectL10n.fmc_Cameroon,fmc_objectL10n.fmc_Canada,fmc_objectL10n.fmc_CapeVerde,fmc_objectL10n.fmc_CentralAfricanRepublic,fmc_objectL10n.fmc_Chad,fmc_objectL10n.fmc_Chile,fmc_objectL10n.fmc_China,fmc_objectL10n.fmc_Colombi,fmc_objectL10n.fmc_Comoros,fmc_objectL10n.fmc_CongoBrazzaville,fmc_objectL10n.fmc_Congo,fmc_objectL10n.fmc_CostaRica,fmc_objectL10n.fmc_CotedIvoire,fmc_objectL10n.fmc_Croatia,fmc_objectL10n.fmc_Cuba,fmc_objectL10n.fmc_Cyprus,fmc_objectL10n.fmc_CzechRepublic,fmc_objectL10n.fmc_Denmark,fmc_objectL10n.fmc_Djibouti,fmc_objectL10n.fmc_Dominica,fmc_objectL10n.fmc_DominicanRepublic,fmc_objectL10n.fmc_EastTimorTimorTimur,fmc_objectL10n.fmc_Ecuador,fmc_objectL10n.fmc_Egypt,fmc_objectL10n.fmc_ElSalvador,fmc_objectL10n.fmc_EquatorialGuinea,fmc_objectL10n.fmc_Eritrea,fmc_objectL10n.fmc_Estonia,fmc_objectL10n.fmc_Ethiopia,fmc_objectL10n.fmc_Fiji,fmc_objectL10n.fmc_Finland,fmc_objectL10n.fmc_France,fmc_objectL10n.fmc_Gabon,fmc_objectL10n.fmc_GambiaThe,fmc_objectL10n.fmc_Georgia,fmc_objectL10n.fmc_Germany,fmc_objectL10n.fmc_Ghana,fmc_objectL10n.fmc_Greece,fmc_objectL10n.fmc_Grenada,fmc_objectL10n.fmc_Guatemala,fmc_objectL10n.fmc_Guinea,fmc_objectL10n.fmc_GuineaBissau,fmc_objectL10n.fmc_Guyana,fmc_objectL10n.fmc_Haiti,fmc_objectL10n.fmc_Honduras,fmc_objectL10n.fmc_Hungary,fmc_objectL10n.fmc_Iceland,fmc_objectL10n.fmc_India,fmc_objectL10n.fmc_Indonesia,fmc_objectL10n.fmc_Iran,fmc_objectL10n.fmc_Iraq,fmc_objectL10n.fmc_Ireland,fmc_objectL10n.fmc_Israel,fmc_objectL10n.fmc_Italy,fmc_objectL10n.fmc_Jamaica,fmc_objectL10n.fmc_Japan,fmc_objectL10n.fmc_Jordan,fmc_objectL10n.fmc_Kazakhstan,fmc_objectL10n.fmc_Kenya,fmc_objectL10n.fmc_Kiribati,fmc_objectL10n.fmc_KoreaNorth,fmc_objectL10n.fmc_KoreaSouth,fmc_objectL10n.fmc_Kuwait,fmc_objectL10n.fmc_Kyrgyzstan,fmc_objectL10n.fmc_Laos,fmc_objectL10n.fmc_Latvia,fmc_objectL10n.fmc_Lebanon,fmc_objectL10n.fmc_Lesotho,fmc_objectL10n.fmc_Liberia,fmc_objectL10n.fmc_Libya,fmc_objectL10n.fmc_Liechtenstein,fmc_objectL10n.fmc_Lithuania,fmc_objectL10n.fmc_Luxembourg,fmc_objectL10n.fmc_Macedonia,fmc_objectL10n.fmc_Madagascar,fmc_objectL10n.fmc_Malawi,fmc_objectL10n.fmc_Malaysia,fmc_objectL10n.fmc_Maldives,fmc_objectL10n.fmc_Mali,fmc_objectL10n.fmc_Malta,fmc_objectL10n.fmc_MarshallIslands,fmc_objectL10n.fmc_Mauritania,fmc_objectL10n.fmc_Mauritius,fmc_objectL10n.fmc_Mexico,fmc_objectL10n.fmc_Micronesia,fmc_objectL10n.fmc_Moldova,fmc_objectL10n.fmc_Monaco,fmc_objectL10n.fmc_Mongolia,fmc_objectL10n.fmc_Morocco,fmc_objectL10n.fmc_Mozambique,fmc_objectL10n.fmc_Myanmar,fmc_objectL10n.fmc_Namibia,fmc_objectL10n.fmc_Nauru,fmc_objectL10n.fmc_Nepa,fmc_objectL10n.fmc_Netherlands,fmc_objectL10n.fmc_NewZealand,fmc_objectL10n.fmc_Nicaragua,fmc_objectL10n.fmc_Niger,fmc_objectL10n.fmc_Nigeria,fmc_objectL10n.fmc_Norway,fmc_objectL10n.fmc_Oman,fmc_objectL10n.fmc_Pakistan,fmc_objectL10n.fmc_Palau,fmc_objectL10n.fmc_Panama,fmc_objectL10n.fmc_PapuaNewGuinea,fmc_objectL10n.fmc_Paraguay,fmc_objectL10n.fmc_Peru,fmc_objectL10n.fmc_Philippines,fmc_objectL10n.fmc_Poland,fmc_objectL10n.fmc_Portugal,fmc_objectL10n.fmc_Qatar,fmc_objectL10n.fmc_Romania,fmc_objectL10n.fmc_Russia,fmc_objectL10n.fmc_Rwanda,fmc_objectL10n.fmc_SaintKittsandNevis,fmc_objectL10n.fmc_SaintLucia,fmc_objectL10n.fmc_SaintVincent,fmc_objectL10n.fmc_Samoa,fmc_objectL10n.fmc_SanMarino,fmc_objectL10n.fmc_SaoTomeandPrincipe,fmc_objectL10n.fmc_SaudiArabia,fmc_objectL10n.fmc_Senegal,fmc_objectL10n.fmc_SerbiandMontenegro,fmc_objectL10n.fmc_Seychelles,fmc_objectL10n.fmc_SierraLeone,fmc_objectL10n.fmc_Singapore,fmc_objectL10n.fmc_Slovakia,fmc_objectL10n.fmc_Slovenia,fmc_objectL10n.fmc_SolomonIslands,fmc_objectL10n.fmc_Somalia,fmc_objectL10n.fmc_SouthAfrica,fmc_objectL10n.fmc_Spain,fmc_objectL10n.fmc_SriLanka,fmc_objectL10n.fmc_Sudan,fmc_objectL10n.fmc_Suriname,fmc_objectL10n.fmc_Swaziland,fmc_objectL10n.fmc_Sweden,fmc_objectL10n.fmc_Switzerland,fmc_objectL10n.fmc_Syria,fmc_objectL10n.fmc_Taiwan,fmc_objectL10n.fmc_Tajikistan,fmc_objectL10n.fmc_Tanzania,fmc_objectL10n.fmc_Thailand,fmc_objectL10n.fmc_Togo,fmc_objectL10n.fmc_Tonga,fmc_objectL10n.fmc_TrinidadandTobago,fmc_objectL10n.fmc_Tunisia,fmc_objectL10n.fmc_Turkey,fmc_objectL10n.fmc_Turkmenistan,fmc_objectL10n.fmc_Tuvalu,fmc_objectL10n.fmc_Uganda,fmc_objectL10n.fmc_Ukraine,fmc_objectL10n.fmc_UnitedArabEmirates,fmc_objectL10n.fmc_UnitedKingdom,fmc_objectL10n.fmc_UnitedStates,fmc_objectL10n.fmc_Uruguay,fmc_objectL10n.fmc_Uzbekistan,fmc_objectL10n.fmc_Vanuatu,fmc_objectL10n.fmc_VaticanCity,fmc_objectL10n.fmc_Venezuela,fmc_objectL10n.fmc_Vietnam,fmc_objectL10n.fmc_Yemen,fmc_objectL10n.fmc_Zambia,fmc_objectL10n.fmc_Zimbabwe];	
 		for(r=0;r<coutries.length;r++)
 		{
 		var option_ = document.createElement('option');
@@ -6247,7 +6247,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -6260,7 +6260,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 	
 	var el_label_label = document.createElement('label');
 	                el_label_label.setAttribute("for", "edit_for_label");
-			el_label_label.innerHTML = "Field label";
+			el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -6271,7 +6271,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -6282,7 +6282,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-	    		el_label_position_label.innerHTML = "Field label position";
+	    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
@@ -6291,7 +6291,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
                 
 		el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
@@ -6300,7 +6300,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 		
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 				el_label_position2.setAttribute("checked", "checked");
@@ -6309,7 +6309,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 
 	var el_size_label = document.createElement('label');
 	        el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Field size(px) ";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 	var el_size = document.createElement('input');
 		   el_size.setAttribute("id", "edit_for_input_size");
 		   el_size.setAttribute("type", "text");
@@ -6321,7 +6321,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 
 	var el_first_value_label = document.createElement('label');
 	        el_first_value_label.setAttribute("for", "el_first_value_input");
-		el_first_value_label.innerHTML = "Value if empty";
+		el_first_value_label.innerHTML = fmc_objectL10n.fmc_Value_empty;
 	
 	var el_first_value_input = document.createElement('input');
                 el_first_value_input.setAttribute("id", "el_first_value_input");
@@ -6332,7 +6332,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 				
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -6344,7 +6344,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 	
 	var el_required_label = document.createElement('label');
 	        el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -6357,7 +6357,7 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 
 	var el_unique_label = document.createElement('label');
 	    el_unique_label.setAttribute("for", "el_unique");
-		el_unique_label.innerHTML = "Allow only unique values";
+		el_unique_label.innerHTML = fmc_objectL10n.fmc_Allow_only_unique_values;
 	
 	var el_unique = document.createElement('input');
                 el_unique.setAttribute("id", "el_unique");
@@ -6369,12 +6369,12 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
 			
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_text')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -6390,11 +6390,11 @@ function type_submitter_mail(i, w_field_label, w_field_label_size, w_field_label
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -6686,7 +6686,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 			  
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -6700,7 +6700,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_label = document.createElement('label');
 	    el_label_label.setAttribute("for", "edit_for_label");
-		el_label_label.innerHTML = "Field label";
+		el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -6711,7 +6711,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -6722,7 +6722,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-	    		el_label_position_label.innerHTML = "Field label position";
+	    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
@@ -6731,7 +6731,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
                 
 		el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
@@ -6740,7 +6740,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 		
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 				el_label_position2.setAttribute("checked", "checked");
@@ -6749,7 +6749,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_style_label = document.createElement('label');
 	    el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
         el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -6760,7 +6760,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_public_label = document.createElement('label');
 	    el_public_label.style.cssText ="color:#BA0D0D; font-weight:bold; font-size: 13px;text-decoration:underline";
-		el_public_label.innerHTML = "Public key";
+		el_public_label.innerHTML = fmc_objectL10n.fmc_Public_key;
 	
 	var el_public_textarea = document.createElement('input');
         el_public_textarea.setAttribute("id", "public_key");
@@ -6772,7 +6772,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_private_label = document.createElement('label');
 	    el_private_label.style.cssText ="color:#BA0D0D; font-weight:bold; font-size: 13px; text-decoration:underline";
-		el_private_label.innerHTML = "Private key";
+		el_private_label.innerHTML = fmc_objectL10n.fmc_Private_key;
 	
 	var el_private_textarea = document.createElement('input');
         el_private_textarea.setAttribute("id", "private_key");
@@ -6784,7 +6784,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_theme_label = document.createElement('label');
 	    el_theme_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_theme_label.innerHTML = "Recaptcha Theme";
+		el_theme_label.innerHTML = fmc_objectL10n.fmc_Recaptcha_theme;
 	
 	var el_theme_select = document.createElement('select');
         el_theme_select.style.cssText = "width:100px;";
@@ -6792,19 +6792,19 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 		
 	var el_theme_option1 = document.createElement('option');
 		el_theme_option1.value="red";
-		el_theme_option1.innerHTML="Red";
+		el_theme_option1.innerHTML= fmc_objectL10n.fmc_Red;
 		
 	var el_theme_option2= document.createElement('option');
 		el_theme_option2.value="white";
-		el_theme_option2.innerHTML="White";
+		el_theme_option2.innerHTML= fmc_objectL10n.fmc_White;
 		
 	var el_theme_option3= document.createElement('option');
 		el_theme_option3.value="blackglass";
-		el_theme_option3.innerHTML="Blackglass";
+		el_theme_option3.innerHTML= fmc_objectL10n.fmc_Blackglass;
 	
 	var el_theme_option4= document.createElement('option');
 		el_theme_option4.value="clean";
-		el_theme_option4.innerHTML="Clean";
+		el_theme_option4.innerHTML= fmc_objectL10n.fmc_Clean;
 	
 	el_theme_select.appendChild(el_theme_option1);
 	el_theme_select.appendChild(el_theme_option2);
@@ -6819,12 +6819,12 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_recaptcha')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -6840,11 +6840,11 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -7005,7 +7005,7 @@ function type_recaptcha(i,w_field_label, w_field_label_size, w_field_label_pos, 
 		var adding_text = document.createElement('span');
 			adding_text.style.color="red";
 			adding_text.style.fontStyle="italic";
-			adding_text.innerHTML="Recaptcha doesn't display in back end";
+			adding_text.innerHTML= fmc_objectL10n.fmc_Recaptcha_doesnt_display_backend;
 			
 		adding.appendChild(adding_text);
 		
@@ -7106,7 +7106,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -7119,7 +7119,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 	
 	var el_label_label = document.createElement('label');
 	    el_label_label.setAttribute("for", "edit_for_label");
-		el_label_label.innerHTML = "Field label";
+		el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
         el_label_textarea.setAttribute("id", "edit_for_label");
@@ -7130,7 +7130,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -7141,7 +7141,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-		el_label_position_label.innerHTML = "Field label position";
+		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
         el_label_position1.setAttribute("id", "edit_for_label_position_top");
@@ -7151,7 +7151,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 		el_label_position1.setAttribute("name", "edit_for_label_position");
         el_label_position1.setAttribute("onchange", "label_left("+i+")");
 		
-	Left = document.createTextNode("Left");
+	Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
         el_label_position2.setAttribute("id", "edit_for_label_position_left");
@@ -7160,7 +7160,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 		
         el_label_position2.setAttribute("name", "edit_for_label_position");
         el_label_position2.setAttribute("onchange", "label_top("+i+")");
-	Top = document.createTextNode("Top");
+	Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 		el_label_position2.setAttribute("checked", "checked");
@@ -7169,7 +7169,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 
 	var el_size_label = document.createElement('label');
 	    el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Captcha size";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Captcha_size;
 	
 	var el_captcha_digit = document.createElement('input');
         el_captcha_digit.setAttribute("id", "captcha_digit");
@@ -7184,7 +7184,7 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 	
 	var el_style_label = document.createElement('label');
 	    el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
         el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -7195,13 +7195,13 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 
 	var el_attr_label = document.createElement('label');
 	    
-		el_attr_label.innerHTML = "Additional Attributes";
+		el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 		
 	var el_attr_add = document.createElement('img');
         
         el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
         el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-        el_attr_add.setAttribute("title", 'add');
+        el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
         el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_captcha')");
 		
 	var el_attr_table = document.createElement('table');
@@ -7223,11 +7223,11 @@ function type_captcha(i,w_field_label, w_field_label_size, w_field_label_pos, w_
 		
 	var el_attr_name_label = document.createElement('label');
 	    el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_name_label.innerHTML = "Name";
+		el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	    el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-		el_attr_value_label.innerHTML = "Value";
+		el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -7533,7 +7533,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -7547,7 +7547,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_label = document.createElement('label');
 			        el_label_label.setAttribute("for", "edit_for_label");
-			el_label_label.innerHTML = "Field label";
+			el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -7558,7 +7558,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -7569,7 +7569,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-			    		el_label_position_label.innerHTML = "Field label position";
+			    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
@@ -7578,7 +7578,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
                 
                 el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
-		Left = document.createTextNode("Left");
+		Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
@@ -7587,7 +7587,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 			
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-		Top = document.createTextNode("Top");
+		Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 	
@@ -7596,7 +7596,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 				el_label_position1.setAttribute("checked", "checked");
 	var el_label_flow = document.createElement('label');
 			        el_label_flow.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_label_flow.innerHTML = "Relative Position";
+		el_label_flow.innerHTML = fmc_objectL10n.fmc_Relative_position;
 	
 	var el_flow_vertical = document.createElement('input');
                 el_flow_vertical.setAttribute("id", "edit_for_flow_vertical");
@@ -7604,7 +7604,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
                 el_flow_vertical.setAttribute("value", "ver");
                 el_flow_vertical.setAttribute("name", "edit_for_flow");
                 el_flow_vertical.setAttribute("onchange", "refresh_rowcol("+i+",'checkbox')");
-		Vertical = document.createTextNode("Vertical");
+		Vertical = document.createTextNode(fmc_objectL10n.fmc_Vertical);
 		
 	var el_flow_horizontal = document.createElement('input');
                 el_flow_horizontal.setAttribute("id", "edit_for_flow_horizontal");
@@ -7612,7 +7612,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
                 el_flow_horizontal.setAttribute("value", "hor");
                 el_flow_horizontal.setAttribute("name", "edit_for_flow");
                 el_flow_horizontal.setAttribute("onchange", "refresh_rowcol("+i+",'checkbox')");
-		Horizontal = document.createTextNode("Horizontal");
+		Horizontal = document.createTextNode(fmc_objectL10n.fmc_Horizontal);
 		
 	if(w_flow=="hor")
 				el_flow_horizontal.setAttribute("checked", "checked");
@@ -7621,7 +7621,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 				
 	var el_rowcol_label = document.createElement('label');
 	        el_rowcol_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_rowcol_label.innerHTML = "Rows/Columns";
+		el_rowcol_label.innerHTML = fmc_objectL10n.fmc_Rows_columns;
 	
 	var el_rowcol_textarea = document.createElement('input');
                 el_rowcol_textarea.setAttribute("id", "edit_for_rowcol");
@@ -7633,7 +7633,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -7644,7 +7644,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_required_label = document.createElement('label');
 	        el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -7659,7 +7659,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 				
 	var el_randomize_label = document.createElement('label');
 				el_randomize_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-				el_randomize_label.innerHTML = "Randomize in frontend";
+				el_randomize_label.innerHTML = fmc_objectL10n.fmc_Randomize_frontend;
 	
 	var el_randomize = document.createElement('input');
                 el_randomize.setAttribute("id", "el_randomize");
@@ -7671,7 +7671,7 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_allow_other_label = document.createElement('label');
 				el_allow_other_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-				el_allow_other_label.innerHTML = "Allow other";
+				el_allow_other_label.innerHTML = fmc_objectL10n.fmc_Allow_other;
 	
 	var el_allow_other = document.createElement('input');
                 el_allow_other.setAttribute("id", "el_allow_other");
@@ -7687,12 +7687,12 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 	
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_checkbox')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -7708,11 +7708,11 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -7767,12 +7767,12 @@ function type_checkbox(i, w_field_label, w_field_label_size, w_field_label_pos, 
 
 	var el_choices_label = document.createElement('label');
 			        el_choices_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_choices_label.innerHTML = "Options ";
+		el_choices_label.innerHTML = fmc_objectL10n.fmc_Options;
 	var el_choices_add = document.createElement('img');
                 el_choices_add.setAttribute("id", "el_choices_add");
            		el_choices_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_choices_add.style.cssText = 'cursor:pointer;';
-            	el_choices_add.setAttribute("title", 'add');
+            	el_choices_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_choices_add.setAttribute("onClick", "add_choise('checkbox',"+i+")");
 	
 	var t  = document.getElementById('edit_table');
@@ -8102,7 +8102,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 			
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -8115,7 +8115,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 	
 	var el_label_label = document.createElement('label');
 			        el_label_label.setAttribute("for", "edit_for_label");
-			el_label_label.innerHTML = "Field label";
+			el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -8126,7 +8126,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -8137,7 +8137,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-			    		el_label_position_label.innerHTML = "Field label position";
+			    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
@@ -8148,7 +8148,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
                 el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
 				el_label_position1.setAttribute("checked", "checked");
-		Left = document.createTextNode("Left");
+		Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
@@ -8159,7 +8159,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-		Top = document.createTextNode("Top");
+		Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 		
 	if(w_field_label_pos=="top")
 	
@@ -8169,7 +8169,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 	
 	var el_label_flow = document.createElement('label');
 			        el_label_flow.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_label_flow.innerHTML = "Relative Position";
+		el_label_flow.innerHTML = fmc_objectL10n.fmc_Relative_position;
 
 	var el_flow_vertical = document.createElement('input');
                 el_flow_vertical.setAttribute("id", "edit_for_flow_vertical");
@@ -8177,7 +8177,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
                 el_flow_vertical.setAttribute("value", "ver");
                 el_flow_vertical.setAttribute("name", "edit_for_flow");
                 el_flow_vertical.setAttribute("onchange", "refresh_rowcol("+i+",'radio')");
-		Vertical = document.createTextNode("Vertical");
+		Vertical = document.createTextNode(fmc_objectL10n.fmc_Vertical);
 		
 	var el_flow_horizontal = document.createElement('input');
             el_flow_horizontal.setAttribute("id", "edit_for_flow_horizontal");
@@ -8185,7 +8185,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
             el_flow_horizontal.setAttribute("value", "hor");
             el_flow_horizontal.setAttribute("name", "edit_for_flow");
             el_flow_horizontal.setAttribute("onchange", "refresh_rowcol("+i+",'radio')");
-		Horizontal = document.createTextNode("Horizontal");
+		Horizontal = document.createTextNode(fmc_objectL10n.fmc_Horizontal);
 		
 	if(w_flow=="hor")
 				el_flow_horizontal.setAttribute("checked", "checked");
@@ -8195,7 +8195,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 
 	var el_rowcol_label = document.createElement('label');
 	        el_rowcol_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_rowcol_label.innerHTML = "Rows/Columns";
+		el_rowcol_label.innerHTML = fmc_objectL10n.fmc_Rows_columns;
 	
 	var el_rowcol_textarea = document.createElement('input');
         el_rowcol_textarea.setAttribute("id", "edit_for_rowcol");
@@ -8207,7 +8207,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 	
 	var el_style_label = document.createElement('label');
 	    el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
         el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -8218,7 +8218,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 	
 	var el_required_label = document.createElement('label');
 	        el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -8232,7 +8232,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 				
 	var el_randomize_label = document.createElement('label');
 				el_randomize_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-				el_randomize_label.innerHTML = "Randomize in frontend";
+				el_randomize_label.innerHTML = fmc_objectL10n.fmc_Randomize_frontend;
 	
 	var el_randomize = document.createElement('input');
                 el_randomize.setAttribute("id", "el_randomize");
@@ -8244,7 +8244,7 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 
 	var el_allow_other_label = document.createElement('label');
 				el_allow_other_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-				el_allow_other_label.innerHTML = "Allow other";
+				el_allow_other_label.innerHTML = fmc_objectL10n.fmc_Allow_other;
 	
 	var el_allow_other = document.createElement('input');
                 el_allow_other.setAttribute("id", "el_allow_other");
@@ -8259,12 +8259,12 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_checkbox')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -8280,11 +8280,11 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -8340,14 +8340,14 @@ function type_radio(i, w_field_label, w_field_label_size, w_field_label_pos, w_f
 
 	var el_choices_label = document.createElement('label');
 			        el_choices_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_choices_label.innerHTML = "Options ";
+		el_choices_label.innerHTML = fmc_objectL10n.fmc_Options;
 
 	
 	var el_choices_add = document.createElement('img');
                 el_choices_add.setAttribute("id", "el_choices_add");
            	el_choices_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_choices_add.style.cssText = 'cursor:pointer;';
-            	el_choices_add.setAttribute("title", 'add');
+            	el_choices_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_choices_add.setAttribute("onClick", "add_choise('radio',"+i+")");
 				
 	var t  = document.getElementById('edit_table');
@@ -8673,7 +8673,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -8687,7 +8687,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 		  
 	var el_label_label = document.createElement('label');
 			        el_label_label.setAttribute("for", "edit_for_label");
-			el_label_label.innerHTML = "Field label";
+			el_label_label.innerHTML = fmc_objectL10n.fmc_Field_label;
 	
 	var el_label_textarea = document.createElement('textarea');
                 el_label_textarea.setAttribute("id", "edit_for_label");
@@ -8698,7 +8698,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 	
 	var el_label_size_label = document.createElement('label');
 	    el_label_size_label.setAttribute("for", "edit_for_label_size");
-		el_label_size_label.innerHTML = "Field label size(px) ";
+		el_label_size_label.innerHTML = fmc_objectL10n.fmc_Field_label_size;
 		
 	var el_label_size = document.createElement('input');
 	    el_label_size.setAttribute("id", "edit_for_label_size");
@@ -8709,7 +8709,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
         el_label_size.setAttribute("onKeyUp", "change_w_style('"+i+"_label_sectionform_id_temp', this.value)");
 	
 	var el_label_position_label = document.createElement('label');
-			    		el_label_position_label.innerHTML = "Field label position";
+			    		el_label_position_label.innerHTML = fmc_objectL10n.fmc_Field_label_position;
 	
 	var el_label_position1 = document.createElement('input');
                 el_label_position1.setAttribute("id", "edit_for_label_position_top");
@@ -8720,7 +8720,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
                 el_label_position1.setAttribute("name", "edit_for_label_position");
                 el_label_position1.setAttribute("onchange", "label_left("+i+")");
 		el_label_position1.setAttribute("checked", "checked");
-		Left = document.createTextNode("Left");
+		Left = document.createTextNode(fmc_objectL10n.fmc_Left);
 		
 	var el_label_position2 = document.createElement('input');
                 el_label_position2.setAttribute("id", "edit_for_label_position_left");
@@ -8730,7 +8730,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 
                 el_label_position2.setAttribute("name", "edit_for_label_position");
                 el_label_position2.setAttribute("onchange", "label_top("+i+")");
-		Top = document.createTextNode("Top");
+		Top = document.createTextNode(fmc_objectL10n.fmc_Top);
 	
 	if(w_field_label_pos=="top")
 	
@@ -8740,7 +8740,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 	
 	var el_size_label = document.createElement('label');
 	        el_size_label.setAttribute("for", "edit_for_input_size");
-		el_size_label.innerHTML = "Field size(px) ";
+		el_size_label.innerHTML = fmc_objectL10n.fmc_Field_size;
 	var el_size = document.createElement('input');
 		   el_size.setAttribute("id", "edit_for_input_size");
 		   el_size.setAttribute("type", "text");
@@ -8753,7 +8753,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 	
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -8764,7 +8764,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 	
 	var el_required_label = document.createElement('label');
 	        el_required_label.setAttribute("for", "el_required");
-		el_required_label.innerHTML = "Required";
+		el_required_label.innerHTML = fmc_objectL10n.fmc_Required;
 	
 	var el_required = document.createElement('input');
                 el_required.setAttribute("id", "el_required");
@@ -8777,12 +8777,12 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 	
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_text')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -8798,11 +8798,11 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -8859,17 +8859,17 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 		
 	var el_choices_label = document.createElement('label');
 	        el_choices_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_choices_label.innerHTML = "Options";
+		el_choices_label.innerHTML = fmc_objectL10n.fmc_Options;
 	var el_choices_add = document.createElement('img');
                 el_choices_add.setAttribute("id", "el_choices_add");
            	el_choices_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_choices_add.style.cssText = 'cursor:pointer;';
-            	el_choices_add.setAttribute("title", 'add');
+            	el_choices_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_choices_add.setAttribute("onClick", "add_choise('select',"+i+")");
 
 	var el_choices_important = document.createElement('div');			
 	    el_choices_important.style.cssText = 'color:red; padding:14px';
-		el_choices_important.innerHTML = 'IMPORTANT! Check the "Empty value" checkbox only if you want the option to be considered as empty.';
+		el_choices_important.innerHTML = fmc_objectL10n.fmc_Check_emptyvalue_checkbox;
 
 
 
@@ -8925,19 +8925,19 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 		var br = document.createElement('br');
 		
 		var el_choices_mini_label = document.createElement('b');
-			el_choices_mini_label.innerHTML="Option name";
+			el_choices_mini_label.innerHTML= fmc_objectL10n.fmc_Option_name;
 			el_choices_mini_label.style.cssText='padding-right: 20px; padding-left: 20px; font-size:9px';
 			
 		var el_choices_price_mini_label = document.createElement('b');
-			el_choices_price_mini_label.innerHTML="Price";
+			el_choices_price_mini_label.innerHTML= fmc_objectL10n.fmc_Price;
 			el_choices_price_mini_label.style.cssText='padding-right: 15px; padding-left: 15px;  font-size:9px';
 	
 		var el_choices_remove_mini_label = document.createElement('b');
-			el_choices_remove_mini_label.innerHTML="Empty value";
+			el_choices_remove_mini_label.innerHTML= fmc_objectL10n.fmc_Empty_value;
 			el_choices_remove_mini_label.style.cssText='padding-right: 2px; padding-left: 2px; font-size:9px';
 			
 		var el_choices_dis_mini_label = document.createElement('b');
-			el_choices_dis_mini_label.innerHTML="Delete";
+			el_choices_dis_mini_label.innerHTML= fmc_objectL10n.fmc_Delete;
 			el_choices_dis_mini_label.style.cssText='padding-left: 2px; padding-right: 2px; font-size:9px';
 			
 		div_.appendChild(br);
@@ -8970,7 +8970,7 @@ function type_own_select(i, w_field_label, w_field_label_size, w_field_label_pos
 			
 		var el_choices_dis = document.createElement('input');
 			el_choices_dis.setAttribute("type", 'checkbox');
-			el_choices_dis.setAttribute("title", 'Empty value');
+			el_choices_dis.setAttribute("title", fmc_objectL10n.fmc_Empty_value);
 			el_choices_dis.setAttribute("id", "el_option"+j+"_dis");
 			el_choices_dis.setAttribute("onClick", "dis_option('"+i+"_option"+j+"', this.checked)");
 			el_choices_dis.style.cssText ="vertical-align: middle; margin-left:24px; margin-right:24px;";
@@ -9190,11 +9190,11 @@ function type_map(i, w_center_x, w_center_y, w_long, w_lat, w_zoom, w_width, w_h
 	
 	var center1 = document.createElement('p');
         center1.setAttribute("id", "center1");
-		center1.innerHTML="Drag the marker to change marker position."	;
+		center1.innerHTML= fmc_objectL10n.fmc_Drag_change_position;
 	
 	var el_label_disable = document.createElement('label');
 	    el_label_disable.setAttribute("for", "edit_for_disable");
-		el_label_disable.innerHTML = "Enable field";
+		el_label_disable.innerHTML = fmc_objectL10n.fmc_Enable_field;
 		
 	var el_input_disable = document.createElement('input');
         el_input_disable.setAttribute("id", "edit_for_disable");
@@ -9207,7 +9207,7 @@ function type_map(i, w_center_x, w_center_y, w_long, w_lat, w_zoom, w_width, w_h
 		  
 	var el_label_location = document.createElement('label');
 	    el_label_location.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_label_location.innerHTML = "Location";
+		el_label_location.innerHTML = fmc_objectL10n.fmc_Location;
 		
 	var el_img_add_marker = document.createElement('img');
         el_img_add_marker.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
@@ -9220,7 +9220,7 @@ function type_map(i, w_center_x, w_center_y, w_long, w_lat, w_zoom, w_width, w_h
 	*/
 	var el_label_map_size = document.createElement('label');
 	    el_label_map_size.style.cssText ="color:#00aeef; font-weight:bold; font-size: 13px";
-		el_label_map_size.innerHTML = "Map size";
+		el_label_map_size.innerHTML = fmc_objectL10n.fmc_Map_size;
 	
 	var el_map_width = document.createElement('input');
         el_map_width.setAttribute("type", "text");
@@ -9229,7 +9229,7 @@ function type_map(i, w_center_x, w_center_y, w_long, w_lat, w_zoom, w_width, w_h
  		el_map_width.setAttribute("onKeyPress", "return check_isnum(event)");
         el_map_width.setAttribute("onKeyUp", "change_w_style('"+i+"_elementform_id_temp', this.value);");
 
-	Width = document.createTextNode("Width");
+	Width = document.createTextNode(fmc_objectL10n.fmc_Width);
 		
 	var el_map_height = document.createElement('input');
         el_map_height.setAttribute("type", "text");
@@ -9238,11 +9238,11 @@ function type_map(i, w_center_x, w_center_y, w_long, w_lat, w_zoom, w_width, w_h
       	el_map_height.setAttribute("onKeyPress", "return check_isnum(event)");
 	    el_map_height.setAttribute("onKeyUp", "change_h_style('"+i+"_elementform_id_temp', this.value);");
 	
-	Height = document.createTextNode("Height");
+	Height = document.createTextNode(fmc_objectL10n.fmc_Height);
 	
 	var el_style_label = document.createElement('label');
 	        el_style_label.setAttribute("for", "el_style_textarea");
-		el_style_label.innerHTML = "Class name";
+		el_style_label.innerHTML = fmc_objectL10n.fmc_Class_name;
 	
 	var el_style_textarea = document.createElement('input');
                 el_style_textarea.setAttribute("id", "el_style_textarea");
@@ -9253,12 +9253,12 @@ function type_map(i, w_center_x, w_center_y, w_long, w_lat, w_zoom, w_width, w_h
 
 	var el_attr_label = document.createElement('label');
 	                
-			el_attr_label.innerHTML = "Additional Attributes";
+			el_attr_label.innerHTML = fmc_objectL10n.fmc_Additional_attributes;
 	var el_attr_add = document.createElement('img');
                 
            	el_attr_add.setAttribute("src", contact_form_maker_plugin_url + '/images/add.png');
             	el_attr_add.style.cssText = 'cursor:pointer; margin-left:68px';
-            	el_attr_add.setAttribute("title", 'add');
+            	el_attr_add.setAttribute("title", fmc_objectL10n.fmc_add);
                 el_attr_add.setAttribute("onClick", "add_attr("+i+", 'type_text')");
 	var el_attr_table = document.createElement('table');
                 el_attr_table.setAttribute("id", 'attributes');
@@ -9274,11 +9274,11 @@ function type_map(i, w_center_x, w_center_y, w_long, w_lat, w_zoom, w_width, w_h
             	el_attr_td_X_label.style.cssText = 'width:10px';
 	var el_attr_name_label = document.createElement('label');
 	                el_attr_name_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_name_label.innerHTML = "Name";
+			el_attr_name_label.innerHTML = fmc_objectL10n.fmc_Name;
 			
 	var el_attr_value_label = document.createElement('label');
 	                el_attr_value_label.style.cssText ="color:#00aeef; font-weight:bold; font-size: 11px";
-			el_attr_value_label.innerHTML = "Value";
+			el_attr_value_label.innerHTML = fmc_objectL10n.fmc_Value;
 			
 	el_attr_table.appendChild(el_attr_tr_label);
 	el_attr_tr_label.appendChild(el_attr_td_name_label);
@@ -9544,7 +9544,7 @@ function add_marker(id, i, w_long, w_lat, w_info)
 		
 		var Marker_info = document.createElement('label');
 			Marker_info.style.cssText =" font-size: 11px; vertical-align:top; margin-right:43px";
-			Marker_info.innerHTML = "Marker Info";
+			Marker_info.innerHTML = fmc_objectL10n.fmc_Marker_info;
 	
 		var el_map_address = document.createElement('input');
 			el_map_address.setAttribute("id", "addrval"+i);
@@ -9555,7 +9555,7 @@ function add_marker(id, i, w_long, w_lat, w_info)
 	
 		var Address = document.createElement('label');
 			Address.style.cssText =" font-size: 11px; vertical-align:top; margin-right:59px";
-			Address.innerHTML = "Address";
+			Address.innerHTML = fmc_objectL10n.fmc_Address;
 	
 		var el_map_longitude = document.createElement('input');
 			el_map_longitude.setAttribute("id", "longval"+i);
@@ -9567,7 +9567,7 @@ function add_marker(id, i, w_long, w_lat, w_info)
 	
 		var Longitude = document.createElement('label');
 			Longitude.style.cssText =" font-size: 11px; vertical-align:top; margin-right:51px";
-			Longitude.innerHTML = "Longitude";
+			Longitude.innerHTML = fmc_objectL10n.fmc_Longitude;
 			
 		var el_map_latitude = document.createElement('input');
 			el_map_latitude.setAttribute("id", "latval"+i);
@@ -9578,7 +9578,7 @@ function add_marker(id, i, w_long, w_lat, w_info)
 		
 		var Latitude = document.createElement('label');
 			Latitude.style.cssText =" font-size: 11px; vertical-align:top; margin-right:62px";
-			Latitude.innerHTML = "Latitude";
+			Latitude.innerHTML = fmc_objectL10n.fmc_Latitude;
 			
 
 		
@@ -9686,7 +9686,7 @@ function remove_row(id)
 	if(wdform_row.getAttribute("disabled"))
 	{
 		wdform_row.removeAttribute("disabled");
-		document.getElementById( "disable_field"+id).setAttribute("title", "Disable the field");
+		document.getElementById( "disable_field"+id).setAttribute("title", fmc_objectL10n.fmc_Disable_thefield);
 		wdform_field.parentNode.style.cssText = 'opacity:1;';
 	}
 	else
@@ -9695,7 +9695,7 @@ function remove_row(id)
 		if(wdform_field.getAttribute("type")!='type_section_break')
 			wdform_field.style.cssText = 'display:table-cell;';
 		
-			document.getElementById( "disable_field"+id).setAttribute("title", "Enable the field");
+			document.getElementById( "disable_field"+id).setAttribute("title", fmc_objectL10n.fmc_Enable_thefield);
 			wdform_field.parentNode.style.cssText = ' opacity:0.4;';
 	}
 
@@ -9775,7 +9775,7 @@ function add(key) {
 
 			var img_X = document.createElement("input");
 				img_X.setAttribute("id", "disable_field"+i);
-				img_X.setAttribute("title", "Diasble the field");
+				img_X.setAttribute("title", fmc_objectL10n.fmc_Disable_thefield);
 				img_X.setAttribute("type", "checkbox");
 				img_X.setAttribute("onclick", 'remove_row("'+i+'")');
 				
@@ -9786,7 +9786,7 @@ function add(key) {
 /*image pah@*/
 			var img_EDIT = document.createElement("img");
 					img_EDIT.setAttribute("src", contact_form_maker_plugin_url + "/images/edit.png");
-					img_EDIT.setAttribute("title", "Edit the field");
+					img_EDIT.setAttribute("title", fmc_objectL10n.fmc_Edit_field);
 					img_EDIT.setAttribute("onclick", 'edit("'+i+'")');
 					img_EDIT.setAttribute("onmouseover", 'chnage_icons_src(this,"edit")');
 					img_EDIT.setAttribute("onmouseout", 'chnage_icons_src(this,"edit")');
@@ -9798,7 +9798,7 @@ function add(key) {
 		
 			var img_DUBLICATE = document.createElement("img");
 					img_DUBLICATE.setAttribute("src", contact_form_maker_plugin_url + "/images/dublicate.png");
-					img_DUBLICATE.setAttribute("title", "Dublicate the field");
+					img_DUBLICATE.setAttribute("title", fmc_objectL10n.fmc_Dublicate_field);
 					img_DUBLICATE.setAttribute("onclick", 'dublicate("'+i+'")');
 					img_DUBLICATE.setAttribute("onmouseover", 'chnage_icons_src(this,"dublicate")');
 					img_DUBLICATE.setAttribute("onmouseout", 'chnage_icons_src(this,"dublicate")');
@@ -9902,7 +9902,7 @@ function add(key) {
 			
 			var img_X = document.createElement("input");
 				img_X.setAttribute("id", "disable_field"+i);
-				img_X.setAttribute("title", "Diasble the field");
+				img_X.setAttribute("title", fmc_objectL10n.fmc_Disable_thefield);
 				img_X.setAttribute("type", "checkbox");
 				img_X.setAttribute("onclick", 'remove_row("'+i+'")');
 					
@@ -9915,7 +9915,7 @@ function add(key) {
 /*image pah@*/
 			var img_UP = document.createElement("img");
 					img_UP.setAttribute("src", contact_form_maker_plugin_url + "/images/up.png");
-					img_UP.setAttribute("title", "Move the field up");
+					img_UP.setAttribute("title", fmc_objectL10n.fmc_Move_fieldup);
 					img_UP.setAttribute("onclick", 'up_row("'+i+'")');
 					img_UP.setAttribute("onmouseover", 'chnage_icons_src(this,"up")');
 					img_UP.setAttribute("onmouseout", 'chnage_icons_src(this,"up")');
@@ -9928,7 +9928,7 @@ function add(key) {
 					
 			var img_DOWN = document.createElement("img");
 					img_DOWN.setAttribute("src", contact_form_maker_plugin_url + "/images/down.png");
-					img_DOWN.setAttribute("title", "Move the field down");
+					img_DOWN.setAttribute("title", fmc_objectL10n.fmc_Move_fielddown);
 					img_DOWN.setAttribute("onclick", 'down_row("'+i+'")');
 					img_DOWN.setAttribute("onmouseover", 'chnage_icons_src(this,"down")');
 					img_DOWN.setAttribute("onmouseout", 'chnage_icons_src(this,"down")');
@@ -9941,7 +9941,7 @@ function add(key) {
 					
 			var img_RIGHT = document.createElement("img");
 					img_RIGHT.setAttribute("src", contact_form_maker_plugin_url + "/images/right.png");
-					img_RIGHT.setAttribute("title", "Move the field to the right");
+					img_RIGHT.setAttribute("title", fmc_objectL10n.fmc_Move_fieldright);
 					img_RIGHT.setAttribute("onclick", 'right_row("'+i+'")');
 					img_RIGHT.setAttribute("onmouseover", 'chnage_icons_src(this,"right")');
 					img_RIGHT.setAttribute("onmouseout", 'chnage_icons_src(this,"right")');
@@ -9954,7 +9954,7 @@ function add(key) {
 					
 			var img_LEFT = document.createElement("img");
 					img_LEFT.setAttribute("src", contact_form_maker_plugin_url + "/images/left.png");
-					img_LEFT.setAttribute("title", "Move the field to the left");
+					img_LEFT.setAttribute("title", fmc_objectL10n.fmc_Move_fieldleft);
 					img_LEFT.setAttribute("onclick", 'left_row("'+i+'")');
 					img_LEFT.setAttribute("onmouseover", 'chnage_icons_src(this,"left")');
 					img_LEFT.setAttribute("onmouseout", 'chnage_icons_src(this,"left")');
@@ -9967,7 +9967,7 @@ function add(key) {
 					
 			var img_EDIT = document.createElement("img");
 					img_EDIT.setAttribute("src", contact_form_maker_plugin_url + "/images/edit.png");
-					img_EDIT.setAttribute("title", "Edit the field");
+					img_EDIT.setAttribute("title", fmc_objectL10n.fmc_Edit_field);
 					img_EDIT.setAttribute("onclick", 'edit("'+i+'")');
 					img_EDIT.setAttribute("onmouseover", 'chnage_icons_src(this,"edit")');
 					img_EDIT.setAttribute("onmouseout", 'chnage_icons_src(this,"edit")');
@@ -10057,7 +10057,7 @@ function add(key) {
 			}
 			if(in_lab)
 			{
-				alert('Sorry, the labels must be unique.');
+				alert(fmc_objectL10n.fmc_labels_mustbe_unique);
 				return;
 			}
 			else
@@ -10103,7 +10103,7 @@ function add(key) {
 		}
 		if(in_lab)
 		{
-			alert('Sorry, the labels must be unique.');
+			alert(fmc_objectL10n.fmc_labels_mustbe_unique);
 			return
 		}
 		else
@@ -10139,7 +10139,7 @@ function add(key) {
 			
 			var img_X = document.createElement("input");
 				img_X.setAttribute("id", "disable_field"+i);
-				img_X.setAttribute("title", "Diasble the field");
+				img_X.setAttribute("title", fmc_objectL10n.fmc_Disable_thefield);
 				img_X.setAttribute("type", "checkbox");
 				img_X.setAttribute("onclick", 'remove_row("'+i+'")');
 					
@@ -10152,7 +10152,7 @@ function add(key) {
 /*image pah@*/
 			var img_UP = document.createElement("img");
 					img_UP.setAttribute("src", contact_form_maker_plugin_url + "/images/up.png");
-					img_UP.setAttribute("title", "Move the field up");
+					img_UP.setAttribute("title", fmc_objectL10n.fmc_Move_fieldup);
 					img_UP.setAttribute("onclick", 'up_row("'+i+'")');
 					img_UP.setAttribute("onmouseover", 'chnage_icons_src(this,"up")');
 					img_UP.setAttribute("onmouseout", 'chnage_icons_src(this,"up")');
@@ -10165,7 +10165,7 @@ function add(key) {
 					
 			var img_DOWN = document.createElement("img");
 					img_DOWN.setAttribute("src", contact_form_maker_plugin_url + "/images/down.png");
-					img_DOWN.setAttribute("title", "Move the field down");
+					img_DOWN.setAttribute("title", fmc_objectL10n.fmc_Move_fielddown);
 					img_DOWN.setAttribute("onclick", 'down_row("'+i+'")');
 					img_DOWN.setAttribute("onmouseover", 'chnage_icons_src(this,"down")');
 					img_DOWN.setAttribute("onmouseout", 'chnage_icons_src(this,"down")');
@@ -10178,7 +10178,7 @@ function add(key) {
 					
 			var img_RIGHT = document.createElement("img");
 					img_RIGHT.setAttribute("src", contact_form_maker_plugin_url + "/images/right.png");
-					img_RIGHT.setAttribute("title", "Move the field to the right");
+					img_RIGHT.setAttribute("title", fmc_objectL10n.fmc_Move_fieldright);
 					img_RIGHT.setAttribute("onclick", 'right_row("'+i+'")');
 					img_RIGHT.setAttribute("onmouseover", 'chnage_icons_src(this,"right")');
 					img_RIGHT.setAttribute("onmouseout", 'chnage_icons_src(this,"right")');
@@ -10191,7 +10191,7 @@ function add(key) {
 					
 			var img_LEFT = document.createElement("img");
 					img_LEFT.setAttribute("src", contact_form_maker_plugin_url + "/images/left.png");
-					img_LEFT.setAttribute("title", "Move the field to the left");
+					img_LEFT.setAttribute("title", fmc_objectL10n.fmc_Move_fieldleft);
 					img_LEFT.setAttribute("onclick", 'left_row("'+i+'")');
 					img_LEFT.setAttribute("onmouseover", 'chnage_icons_src(this,"left")');
 					img_LEFT.setAttribute("onmouseout", 'chnage_icons_src(this,"left")');
@@ -10204,7 +10204,7 @@ function add(key) {
 					
 			var img_EDIT = document.createElement("img");
 					img_EDIT.setAttribute("src", contact_form_maker_plugin_url + "/images/edit.png");
-					img_EDIT.setAttribute("title", "Edit the field");
+					img_EDIT.setAttribute("title", fmc_objectL10n.fmc_Edit_field);
 					img_EDIT.setAttribute("onclick", 'edit("'+i+'")');
 					img_EDIT.setAttribute("onmouseover", 'chnage_icons_src(this,"edit")');
 					img_EDIT.setAttribute("onmouseout", 'chnage_icons_src(this,"edit")');
@@ -10242,14 +10242,14 @@ function add(key) {
 	}
 		else
 		{
-			alert("The field label is required.");
+			alert(fmc_objectL10n.fmc_field_label_required);
 			return;
 		}
 	
 /*	undo_redo.push(document.getElementById('take').innerHTML);
 	undo_redo_num++;*/
 	}			
-	else alert("Please select an element to add.");
+	else alert(fmc_objectL10n.fmc_select_element_add);
 
 }
 

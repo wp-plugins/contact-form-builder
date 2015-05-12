@@ -43,49 +43,49 @@ class WDW_CFM_Library {
     if ($message_id) {
       switch($message_id) {
         case 1: {
-          $message = 'Item Succesfully Saved.';
+          $message = __("Item Succesfully Saved.", "contact_form_maker");
           $type = 'updated';
           break;
 
         }
         case 2: {
-          $message = 'Error. Please install plugin again.';
+          $message = __("Error. Please install plugin again.", "contact_form_maker");
           $type = 'error';
           break;
 
         }
         case 3: {
-          $message = 'Item Succesfully Deleted.';
+          $message = __("Item Succesfully Deleted.", "contact_form_maker");
           $type = 'updated';
           break;
 
         }
         case 4: {
-          $message = "You can't delete default theme";
+          $message = __("You can't delete default theme", "contact_form_maker");
           $type = 'error';
           break;
 
         }
         case 5: {
-          $message = 'Items Succesfully Deleted.';
+          $message = __("Items Succesfully Deleted.", "contact_form_maker");
           $type = 'updated';
           break;
 
         }
         case 6: {
-          $message = 'You must select at least one item.';
+          $message = __("You must select at least one item.", "contact_form_maker");
           $type = 'error';
           break;
 
         }
         case 7: {
-          $message = 'The item is successfully set as default.';
+          $message = __("The item is successfully set as default.", "contact_form_maker");
           $type = 'updated';
           break;
 
         }
         case 8: {
-          $message = 'Options Succesfully Saved.';
+          $message = __("Options Succesfully Saved.", "contact_form_maker");
           $type = 'updated';
           break;
 
@@ -123,8 +123,8 @@ class WDW_CFM_Library {
         <input type="text" id="search_value" name="search_value" class="spider_search_value" value="<?php echo esc_html($search_value); ?>" style="width: 150px;<?php echo (get_bloginfo('version') > '3.7') ? ' height: 28px;' : ''; ?>" />
       </div>
       <div class="alignleft actions">
-        <input type="button" value="Search" onclick="spider_search()" class="button-secondary action">
-        <input type="button" value="Reset" onclick="spider_reset()" class="button-secondary action">
+        <input type="button" value="<?php echo __("Search", "contact_form_maker"); ?>" onclick="spider_search()" class="button-secondary action" />
+        <input type="button" value="<?php echo __("Reset", "contact_form_maker"); ?>" onclick="spider_reset()" class="button-secondary action" />
       </div>
     </div>
     <?php
@@ -219,7 +219,7 @@ class WDW_CFM_Library {
       <span class="displaying-num">
         <?php
         if ($count_items != 0) {
-          echo $count_items; ?> item<?php echo (($count_items == 1) ? '' : 's');
+          echo $count_items; ?> <?php echo (($count_items == 1) ? __("item", "contact_form_maker") : __("items", "contact_form_maker"));
         }
         ?>
       </span>
@@ -243,18 +243,18 @@ class WDW_CFM_Library {
         }
       ?>
       <span class="pagination-links">
-        <a class="<?php echo $first_page; ?>" title="Go to the first page" href="javascript:spider_page(<?php echo $page_number; ?>,-2);">«</a>
-        <a class="<?php echo $prev_page; ?>" title="Go to the previous page" href="javascript:spider_page(<?php echo $page_number; ?>,-1);">‹</a>
+        <a class="<?php echo $first_page; ?>" title="<?php echo __("Go to the first page", "contact_form_maker"); ?>" href="javascript:spider_page(<?php echo $page_number; ?>,-2);">«</a>
+        <a class="<?php echo $prev_page; ?>" title="<?php echo __("Go to the previous page", "contact_form_maker"); ?>" href="javascript:spider_page(<?php echo $page_number; ?>,-1);">‹</a>
         <span class="paging-input">
           <span class="total-pages">
-          <input class="current_page" id="current_page" name="current_page" value="<?php echo $page_number; ?>" onkeypress="return check_enter_key(event)" title="Go to the page" type="text" size="1" />
-        </span> of 
+          <input class="current_page" id="current_page" name="current_page" value="<?php echo $page_number; ?>" onkeypress="return check_enter_key(event)" title="<?php echo __("Go to the page", "contact_form_maker"); ?>" type="text" size="1" />
+        </span> <?php echo __("of","contact_form_maker"); ?> 
         <span class="total-pages">
             <?php echo $items_county; ?>
           </span>
         </span>
-        <a class="<?php echo $next_page ?>" title="Go to the next page" href="javascript:spider_page(<?php echo $page_number; ?>,1);">›</a>
-        <a class="<?php echo $last_page ?>" title="Go to the last page" href="javascript:spider_page(<?php echo $page_number; ?>,2);">»</a>
+        <a class="<?php echo $next_page ?>" title="<?php echo __("Go to the next page", "contact_form_maker"); ?>" href="javascript:spider_page(<?php echo $page_number; ?>,1);">›</a>
+        <a class="<?php echo $last_page ?>" title="<?php echo __("Go to the last page", "contact_form_maker"); ?>" href="javascript:spider_page(<?php echo $page_number; ?>,2);">»</a>
         <?php
       }
       ?>
@@ -286,8 +286,8 @@ class WDW_CFM_Library {
         <input type="text" id="search_value" name="search_value" class="spider_search_value" value="<?php echo esc_html($search_value); ?>" style="width: 150px;<?php echo (get_bloginfo('version') > '3.7') ? ' height: 28px;' : ''; ?>" />
       </div>
       <div class="alignleft actions">
-        <input type="button" value="Search" onclick="spider_search()" class="button-secondary action">
-        <input type="button" value="Reset" onclick="spider_reset()" class="button-secondary action">
+        <input type="button" value="<?php echo __("Search", "contact_form_maker"); ?>" onclick="spider_search()" class="button-secondary action" />
+        <input type="button" value="<?php echo __("Reset", "contact_form_maker"); ?>" onclick="spider_reset()" class="button-secondary action" />
       </div>
     </div>
     <?php
@@ -357,7 +357,7 @@ class WDW_CFM_Library {
       <span class="displaying-num">
         <?php
         if ($count_items != 0) {
-          echo $count_items; ?> item<?php echo (($count_items == 1) ? '' : 's');
+          echo $count_items; ?> <?php echo (($count_items == 1) ? __("item", "contact_form_maker") : __("items", "contact_form_maker"));
         }
         ?>
       </span>
@@ -381,18 +381,18 @@ class WDW_CFM_Library {
         }
       ?>
       <span class="pagination-links">
-        <a class="<?php echo $first_page; ?>" title="Go to the first page" onclick="spider_page(<?php echo $page_number; ?>,-2)">«</a>
-        <a class="<?php echo $prev_page; ?>" title="Go to the previous page" onclick="spider_page(<?php echo $page_number; ?>,-1)">‹</a>
+        <a class="<?php echo $first_page; ?>" title="<?php echo __("Go to the first page", "contact_form_maker"); ?>" onclick="spider_page(<?php echo $page_number; ?>,-2)">«</a>
+        <a class="<?php echo $prev_page; ?>" title="<?php echo __("Go to the previous page", "contact_form_maker"); ?>" onclick="spider_page(<?php echo $page_number; ?>,-1)">‹</a>
         <span class="paging-input">
           <span class="total-pages">
-          <input class="current_page" id="current_page" name="current_page" value="<?php echo $page_number; ?>" onkeypress="return check_enter_key(event)" title="Go to the page" type="text" size="1" />
-        </span> of 
+          <input class="current_page" id="current_page" name="current_page" value="<?php echo $page_number; ?>" onkeypress="return check_enter_key(event)" title="<?php echo __("Go to the page", "contact_form_maker"); ?>" type="text" size="1" />
+        </span>  <?php echo __("of","contact_form_maker"); ?>
         <span class="total-pages">
             <?php echo $items_county; ?>
           </span>
         </span>
-        <a class="<?php echo $next_page ?>" title="Go to the next page" onclick="spider_page(<?php echo $page_number; ?>,1)">›</a>
-        <a class="<?php echo $last_page ?>" title="Go to the last page" onclick="spider_page(<?php echo $page_number; ?>,2)">»</a>
+        <a class="<?php echo $next_page ?>" title="<?php echo __("Go to the next page", "contact_form_maker"); ?>" onclick="spider_page(<?php echo $page_number; ?>,1)">›</a>
+        <a class="<?php echo $last_page ?>" title="<?php echo __("Go to the last page", "contact_form_maker"); ?>" onclick="spider_page(<?php echo $page_number; ?>,2)">»</a>
         <?php
       }
       ?>

@@ -18,7 +18,7 @@ class CFMControllerWidget extends WP_Widget {
   public function __construct() {
     $widget_ops = array(
       'classname' => 'contact_form_maker_widget',
-      'description' => 'Add Conatct Form Maker widget.'
+      'description' => __('Add Conatct Form Builder widget.', 'contact_form_maker')
     );
     // Widget Control Settings.
     $control_ops = array('id_base' => 'contact_form_maker_widget');

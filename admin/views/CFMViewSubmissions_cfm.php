@@ -27,9 +27,9 @@ class CFMViewSubmissions_cfm {
     <div style="clear: both; float: left; width: 99%;">
       <div style="float: left; font-size: 14px; font-weight: bold;">
         <br />
-        This section allows you to view form submissions.
-        <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-7.html">Read More in User Manual</a><br /><br />
-        <span style="color: #FF0000;">This feature is disabled for the non-commercial version.</span>
+        <?php echo __("This section allows you to view form submissions.","contact_form_maker"); ?>
+        <a style="color: blue; text-decoration: none;" target="_blank" href="http://web-dorado.com/wordpress-contact-form-builder-guide-7.html"><?php echo __("Read More in User Manual","contact_form_maker"); ?></a><br /><br />
+        <span style="color: #FF0000;"><?php echo __("This feature is disabled for the non-commercial version.","contact_form_maker"); ?></span>
       </div>
       <div style="float: right; text-align: right;">
         <a style="text-decoration: none;" target="_blank" href="http://web-dorado.com/files/fromContactFormBuilder.php">
