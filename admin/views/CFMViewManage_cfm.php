@@ -82,7 +82,7 @@ class CFMViewManage_cfm {
           <th class="table_xxl_col">PHP <?php echo __("function", "contact_form_maker"); ?></th>
           <th class="table_medium_col"><?php echo __("Preview", "contact_form_maker"); ?></th>
           <th class="table_medium_col"><?php echo __("Edit", "contact_form_maker"); ?></th>
-          <th class="table_medium_col"><a title="<?php echo __("Delete selected items", "contact_form_maker"); ?>" href="" onclick="if (confirm('<?php echo __("Do you want to delete selected items?", "contact_form_maker"); ?>')) {
+          <th class="table_medium_col"><a title="<?php echo __("Delete selected items", "contact_form_maker"); ?>" href="" onclick="if (confirm('<?php echo addslashes(__("Do you want to delete selected items?", "contact_form_maker")); ?>')) {
                                                        spider_set_input_value('task', 'delete_all');
                                                        spider_form_submit(event, 'manage_form');
                                                      } else {
@@ -180,7 +180,7 @@ class CFMViewManage_cfm {
         if ($id) {
         ?>
         if (!document.getElementById('araqel') || (document.getElementById('araqel').value == '0')) {
-          alert('<?php echo __("Please wait while page loading", "contact_form_maker"); ?>.');
+          alert('<?php echo addslashes(__("Please wait while page loading", "contact_form_maker")); ?>.');
           return false;
         }
         <?php
@@ -872,7 +872,7 @@ class CFMViewManage_cfm {
               <a href="<?php echo add_query_arg(array('action' => 'ContactFormMakerPreview', 'form_id' => $row->id, 'test_theme' => $row->theme, 'width' => '1000', 'height' => '500', 'TB_iframe' => '1'), admin_url('admin-ajax.php')); ?>" class="button-primary thickbox thickbox-preview" id="preview_form" title="<?php echo __("Form Preview", "contact_form_maker"); ?>" onclick="return false;">
                 <?php echo __("Preview", "contact_form_maker"); ?>
               </a>
-              <a onclick="alert('This option is disabled in free version.'); return false;" href="#" class="button-secondary" id="edit_css" title="Edit CSS">
+              <a onclick="alert('<?php echo addslashes(__("This option is disabled in free version.", "contact_form_maker")); ?>'); return false;" href="#" class="button-secondary" id="edit_css" title="Edit CSS">
                 <?php echo __("Edit CSS", "contact_form_maker"); ?>
               </a>
               <div class="spider_description spider_free_desc"><?php echo __("Themes are disabled in free version.","contact_form_maker"); ?></div>
@@ -1435,7 +1435,7 @@ class CFMViewManage_cfm {
       }
       function insertAtCursor_form(myId, myLabel) {
         if (jQuery('#autogen_layout').is(':checked')) {
-          alert('<?php echo __("Uncheck the Auto-Generate Layout box.", "contact_form_maker"); ?>');
+          alert('<?php echo addslashes(__("Uncheck the Auto-Generate Layout box.", "contact_form_maker")); ?>');
           return;
         }
         myValue = '<div wdid="' + myId + '" class="wdform_row">%' + myId + ' - ' + myLabel + '%</div>';

@@ -67,7 +67,7 @@ class CFMViewUninstall_cfm {
         </p>
         <p style="text-align: center;">
           <input type="submit" value="<?php echo __("UNINSTALL", "contact_form_maker"); ?>" class="button-primary" onclick="if (check_yes.checked) { 
-                                                                                    if (confirm('<?php echo __('You are About to Uninstall Contact Form Builder from WordPress.\nThis Action Is Not Reversible.','contact_form_maker'); ?>')) {
+                                                                                    if (confirm('<?php echo addslashes(__('You are About to Uninstall Contact Form Builder from WordPress.\nThis Action Is Not Reversible.', 'contact_form_maker')); ?>')) {
                                                                                         spider_set_input_value('task', 'uninstall');
                                                                                     } else {
                                                                                         return false;

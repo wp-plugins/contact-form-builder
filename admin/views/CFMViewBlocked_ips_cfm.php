@@ -49,7 +49,7 @@ class CFMViewBlocked_ips_cfm {
       <h2><?php echo __("Blocked IPs", "contact_form_maker"); ?></h2>
       <div class="buttons_div">
         <input class="button-primary" type="submit" value="<?php echo __("Save", "contact_form_maker"); ?>" onclick="spider_set_input_value('task', 'save_all');" />
-        <input class="button-secondary" type="submit" value="<?php echo __("Delete", "contact_form_maker"); ?>" onclick="if (confirm('<?php echo __('Do you want to unblock selected IPs?', 'contact_form_maker'); ?>')) {
+        <input class="button-secondary" type="submit" value="<?php echo __("Delete", "contact_form_maker"); ?>" onclick="if (confirm('<?php echo addslashes(__('Do you want to unblock selected IPs?', 'contact_form_maker')); ?>')) {
                                                                       spider_set_input_value('task', 'delete_all');
                                                                     } else {
                                                                       return false;

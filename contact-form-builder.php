@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.19
+ * Version: 1.0.20
  * Author: WebDorado
  * Author URI: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -182,7 +182,7 @@ if (class_exists('WP_Widget')) {
 // Activate plugin.
 function contact_form_maker_activate() {
   $version = get_option("wd_contact_form_maker_version");
-  $new_version = '1.0.19';
+  $new_version = '1.0.20';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_CFM_DIR . "/contact-form-builder-update.php";
     contact_form_maker_update($version);
@@ -285,7 +285,7 @@ function contact_form_maker_manage_scripts() {
     'fmc_CongoBrazzaville'  => __('Congo (Brazzaville)', 'contact_form_maker'),
     'fmc_Congo'  => __('Congo', 'contact_form_maker'),
     'fmc_CostaRica'  => __('Costa Rica', 'contact_form_maker'),
-    "fmc_CotedIvoire"  => __("Cote d'Ivoire", 'contact_form_maker'),
+    'fmc_CotedIvoire'  => __("Cote d'Ivoire", 'contact_form_maker'),
     'fmc_Croatia'  => __('Croatia', 'contact_form_maker'),
     'fmc_Cuba'  => __('Cuba', 'contact_form_maker'),
     'fmc_Cyprus'  => __('Cyprus', 'contact_form_maker'),
