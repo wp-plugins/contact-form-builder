@@ -14,6 +14,9 @@ Contact Form Builder is an intuitive tool for creating contact forms.
 Create responsive FREE contact forms with multiple templates and theme options. 
    
 [WordPress Contact Form Builder](http://web-dorado.com/products/wordpress-contact-form-builder.html)  
+[Demo](http://wpdemo.web-dorado.com/contact-form-builder/)  
+[Demo Admin](http://wpdemo.web-dorado.com/wp-admin/admin.php?page=manage_cfm)  
+[User Manual](https://web-dorado.com/wordpress-contact-form-builder/installing.html)   
  
 Contact Form Builder is the best tool for quickly arranging a contact form for your clients and visitors. The form includes all of the form field types necessary to create a complete contact form, where is those can be activated and deactivated, as well as rearranged.
 The responsiveness of the product allows you to become available for contacting using various gadgets.
