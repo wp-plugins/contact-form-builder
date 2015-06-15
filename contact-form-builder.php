@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.20
+ * Version: 1.0.21
  * Author: WebDorado
  * Author URI: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -31,6 +31,7 @@ function contact_form_maker_options_panel() {
   add_action('admin_print_styles-' . $licensing_plugins_page, 'contact_form_maker_licensing_styles');
 
   add_submenu_page('manage_cfm', __('Featured Plugins', 'contact_form_maker'), __('Featured Plugins', 'contact_form_maker'), 'manage_options', 'featured_plugins_cfm', 'cfm_featured');
+  add_submenu_page('manage_cfm', __('Featured Themes', 'contact_form_maker'), __('Featured Themes', 'contact_form_maker'), 'manage_options', 'featured_themes_cfm', 'wds_featured_themes');
 
   $uninstall_page = add_submenu_page('manage_cfm', __('Uninstall', 'contact_form_maker'),  __('Uninstall', 'contact_form_maker'), 'manage_options', 'uninstall_cfm', 'contact_form_maker');
   add_action('admin_print_styles-' . $uninstall_page, 'contact_form_maker_styles');
@@ -69,7 +70,22 @@ function cfm_featured() {
   require_once(WD_CFM_DIR . '/featured/featured.php');
   wp_register_style('cfm_featured', WD_CFM_URL . '/featured/style.css', array(), get_option("wd_contact_form_maker_version"));
   wp_print_styles('cfm_featured');
-  spider_featured('contact-form-builder');
+  spider_featured('contact_form_bulder');
+}
+
+function cfm_featured_themes() {
+  if (function_exists('current_user_can')) {
+    if (!current_user_can('manage_options')) {
+      die('Access Denied');
+    }
+  }
+  else {
+    die('Access Denied');
+  }
+  require_once(WD_CFM_DIR . '/featured/featured_themes.php');
+  wp_register_style('cfm_featured_themes', WD_CFM_URL . '/featured/themes_style.css', array(), get_option("wd_contact_form_maker_version"));
+  wp_print_styles('cfm_featured_themes');
+  spider_featured_themes();
 }
 
 add_action('wp_ajax_ContactFormMakerPreview', 'contact_form_maker_ajax');
@@ -182,7 +198,7 @@ if (class_exists('WP_Widget')) {
 // Activate plugin.
 function contact_form_maker_activate() {
   $version = get_option("wd_contact_form_maker_version");
-  $new_version = '1.0.20';
+  $new_version = '1.0.21';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_CFM_DIR . "/contact-form-builder-update.php";
     contact_form_maker_update($version);
