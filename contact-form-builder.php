@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.21
+ * Version: 1.0.22
  * Author: WebDorado
  * Author URI: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -198,7 +198,7 @@ if (class_exists('WP_Widget')) {
 // Activate plugin.
 function contact_form_maker_activate() {
   $version = get_option("wd_contact_form_maker_version");
-  $new_version = '1.0.21';
+  $new_version = '1.0.22';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_CFM_DIR . "/contact-form-builder-update.php";
     contact_form_maker_update($version);
@@ -233,6 +233,7 @@ function contact_form_maker_manage_scripts() {
   wp_enqueue_script('thickbox');
   wp_enqueue_script('jquery');
   wp_enqueue_script('jquery-ui-widget');
+  wp_enqueue_script('jquery-ui-sortable');
 
   wp_enqueue_script('gmap_form_api', 'https://maps.google.com/maps/api/js?sensor=false');
   wp_enqueue_script('gmap_form', WD_CFM_URL . '/js/if_gmap_back_end.js');
@@ -592,7 +593,7 @@ function contact_form_maker_scripts() {
 }
 
 function contact_form_maker_licensing_styles() {
-  wp_enqueue_style('ontact_form_maker_licensing', WD_CFM_URL . '/css/contact_form_maker_licensing.css');
+  wp_enqueue_style('contact_form_maker_licensing', WD_CFM_URL . '/css/contact_form_maker_licensing.css');
 }
 
 function contact_form_maker_front_end_scripts() {

@@ -833,64 +833,61 @@ function right_row(id)
 	
 	    
 	}
-	if(wdform_column.firstChild==null)
-		wdform_section.removeChild(wdform_column);
-	
+	//  if(wdform_column.firstChild==null)
+  //  wdform_section.removeChild(wdform_column);	
+
+	sortable_columns();
+	remove_empty_columns();
+
+	if (document.getElementById("enable_sortable").value == 0) {
+		jQuery('.wdform_column').sortable("disable");
+  }
 }
 
-function left_row(id)
-{
-	wdform_field=document.getElementById("wdform_field"+id);
-	wdform_row=wdform_field.parentNode;
+function left_row(id) {
+	wdform_field = document.getElementById("wdform_field" + id);
+	wdform_row = wdform_field.parentNode;
 	wdform_column=wdform_row.parentNode;
 	wdform_section=wdform_column.parentNode;
-	if(wdform_column.previousSibling!=null)
-	{
-		wdform_column_next=wdform_column.previousSibling;
+	if (wdform_column.previousSibling != null) {
+		wdform_column_next = wdform_column.previousSibling;
 		wdform_column_next.appendChild(wdform_row);
-	
 	}
-
-	if(wdform_column.firstChild==null)
-		wdform_section.removeChild(wdform_column);
-
-	
+  //  if(wdform_column.firstChild==null)
+  //  wdform_section.removeChild(wdform_column);
+	sortable_columns();
+	remove_empty_columns();
+	if (document.getElementById("enable_sortable").value == 0) {
+		jQuery('.wdform_column').sortable("disable");
+  }
 }
 
-function remove_whitespace(node)
-{
-var ttt;
-	for (ttt=0; ttt < node.childNodes.length; ttt++)
-	{
-        if( node.childNodes[ttt] && node.childNodes[ttt].nodeType == '3' && !/\S/.test(  node.childNodes[ttt].nodeValue ))
-		{
-			
+function remove_whitespace(node) {
+  var ttt;
+	for (ttt=0; ttt < node.childNodes.length; ttt++) {
+    if (node.childNodes[ttt] && node.childNodes[ttt].nodeType == '3' && !/\S/.test(  node.childNodes[ttt].nodeValue )) {
 			node.removeChild(node.childNodes[ttt]);
-			 ttt--;
+ 		  ttt--;
 		}
-		else
-		{
-			if(node.childNodes[ttt].childNodes.length)
+		else {
+			if (node.childNodes[ttt].childNodes.length) {
 				remove_whitespace(node.childNodes[ttt]);
+      }
 		}
 	}
-	return
+	return;
 }
 
 
-function set_checked(id,j)
-{
-	checking=document.getElementById(id+"_elementform_id_temp"+j);
+function set_checked(id,j) {
+	var checking = document.getElementById(id + "_elementform_id_temp" + j);
 	if(checking.checked)
 		checking.setAttribute("checked", "checked");
-	if(!checking.checked)
-	{
+	if(!checking.checked) {
 		checking.removeAttribute("checked");
 		if(checking.getAttribute('other'))
-			if(checking.getAttribute('other')==1)
-			{
-				if(document.getElementById(id+"_other_inputform_id_temp"))
-				{
+			if(checking.getAttribute('other')==1) {
+				if(document.getElementById(id+"_other_inputform_id_temp")) {
 					document.getElementById(id+"_other_inputform_id_temp").parentNode.removeChild(document.getElementById(id+"_other_brform_id_temp"));
 					document.getElementById(id+"_other_inputform_id_temp").parentNode.removeChild(document.getElementById(id+"_other_inputform_id_temp"));
 				}
@@ -900,8 +897,7 @@ function set_checked(id,j)
 	return true;
 }
 
-function set_default(id, j)
-{
+function set_default(id, j) {
 	for(k=0; k<100; k++)
 		if(document.getElementById(id+"_elementform_id_temp"+k))
 			if(!document.getElementById(id+"_elementform_id_temp"+k).checked)
@@ -9662,8 +9658,7 @@ function remove_section_break(id)
 	
 }
 
-function remove_row(id)
-{
+function remove_row(id) {
 	var wdform_field=document.getElementById( "wdform_field"+id);
 	var	wdform_row = wdform_field.parentNode;
 	
@@ -9733,6 +9728,8 @@ function remove_add_(id)
 }
 
 function add(key) {
+  if(jQuery('#enable_sortable').prop( 'checked' ))
+		show_arrows(wdid);
 	if (document.getElementById("element_type").value == "type_section_break") {
 		form_view = 1;
 		if (document.getElementById('editing_id').value) {
@@ -9851,6 +9848,11 @@ function add(key) {
 			j=2;
 			
 		}
+    sortable_columns();
+    if(document.getElementById('enable_sortable').value==0)
+      jQuery('.wdform_column').sortable( "disable" );			
+    else
+      jQuery( ".wdform_arrows" ).hide();
 
 	close_window();
 	return;
@@ -10250,7 +10252,10 @@ function add(key) {
 	undo_redo_num++;*/
 	}			
 	else alert(fmc_objectL10n.fmc_select_element_add);
+  if(document.getElementById('enable_sortable').value==1)
+		jQuery( ".wdform_arrows" ).hide();
 
+	jQuery(".wdform_page input[type='text'], .wdform_page input[type='password'], .wdform_page input[type='file'], .wdform_page textarea, .wdform_page input[type='checkbox'], .wdform_page input[type='radio'], .wdform_page select").prop("disabled", true);
 }
 
 function call(i,key)

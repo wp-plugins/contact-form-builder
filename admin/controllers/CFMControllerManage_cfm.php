@@ -275,7 +275,7 @@ class CFMControllerManage_cfm {
     $recaptcha_theme = (isset($_POST['recaptcha_theme']) ? esc_html(stripslashes($_POST['recaptcha_theme'])) : '');
     $form_fields = (isset($_POST['form_fields']) ? stripslashes($_POST['form_fields']) : '');
     $disabled_fields = (isset($_POST['disabled_fields']) ? stripslashes($_POST['disabled_fields']) : '');
-
+    $sortable = (isset($_POST['sortable']) ? esc_html(stripslashes($_POST['sortable'])) : 0);
     $label_id = array();
     $label_label = array();
     $label_all = explode('#****#', $label_order_current);
@@ -315,6 +315,7 @@ class CFMControllerManage_cfm {
         'disabled_fields' => $disabled_fields,
         'mail_subject' => $mail_subject,
         'mail_subject_user' => $mail_subject_user,
+        'sortable' => $sortable,
       ), array('id' => $id));
     }
     else {
@@ -358,6 +359,7 @@ class CFMControllerManage_cfm {
         'mail_mode' => 1,
         'mail_mode_user' => 1,
         'wpmail' => 1,
+        'sortable' => $sortable,
       ), array(
 				'%s',
         '%s',
@@ -398,6 +400,7 @@ class CFMControllerManage_cfm {
         '%d',
         '%d',
         '%d',
+        '%d',
       ));
       $id = $wpdb->get_var("SELECT MAX(id) FROM " . $wpdb->prefix . "contactformmaker");
       $wpdb->insert($wpdb->prefix . 'contactformmaker_views', array(
@@ -430,6 +433,7 @@ class CFMControllerManage_cfm {
     $recaptcha_theme = (isset($_POST['recaptcha_theme']) ? esc_html(stripslashes($_POST['recaptcha_theme'])) : '');
     $form_fields = (isset($_POST['form_fields']) ? stripslashes($_POST['form_fields']) : '');
     $disabled_fields = (isset($_POST['disabled_fields']) ? stripslashes($_POST['disabled_fields']) : '');
+    $sortable = (isset($_POST['sortable']) ? esc_html(stripslashes($_POST['sortable'])) : 0);
 
     $save = $wpdb->insert($wpdb->prefix . 'contactformmaker', array(
       'title' => $title,
@@ -472,6 +476,7 @@ class CFMControllerManage_cfm {
       'mail_mode' => $row->mail_mode,
       'mail_mode_user' => $row->mail_mode_user,
       'wpmail' => $row->wpmail,
+      'sortable' => $sortable,
     ), array(
       '%s',
       '%s',
@@ -510,6 +515,7 @@ class CFMControllerManage_cfm {
       '%s',
       '%s',
       '%s',
+      '%d',
       '%d',
       '%d',
       '%d',

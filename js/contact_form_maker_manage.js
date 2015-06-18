@@ -14,6 +14,117 @@ function remove_whitespace(node) {
   return;
 }
 
+function remove_empty_columns() {
+	jQuery('.wdform_section').each(function() {
+		if (jQuery(this).find('.wdform_column').last().prev().html() == '') {
+			if (jQuery(this).children().length > 2) {
+				jQuery(this).find('.wdform_column').last().prev().remove();
+				remove_empty_columns();
+			}
+		}
+	});
+}
+
+function sortable_columns() {
+  jQuery( ".wdform_column" ).sortable({
+		connectWith: ".wdform_column",
+		cursor: 'move',
+		placeholder: "highlight",
+		start: function(e,ui){
+			jQuery('.wdform_column').each(function() {
+				if (jQuery(this).html()) {
+					jQuery(this).append(jQuery('<div class="wdform_empty_row" style="height:80px;"></div>'));
+					jQuery( ".wdform_column" ).sortable("refresh");
+				}
+			});
+		},
+		update: function(event, ui) {
+      jQuery('.wdform_section .wdform_column:last-child').each(function() {
+        if (jQuery(this).html()) {
+          jQuery(this).parent().append(jQuery('<div></div>').addClass("wdform_column"));
+          sortable_columns();
+        }
+      });
+		},
+		stop: function(event, ui) {
+			jQuery('.wdform_empty_row').remove();
+			remove_empty_columns();
+			/*add_border();*/
+		}
+  });
+	/*add_border();*/
+}
+
+function all_sortable_events() {
+	jQuery(document).on("click", ".wdform_field, .wdform_field_section_break", function() { 
+    var this2 = this;
+      if (jQuery("#wdform_arrows" + jQuery(this2).parent().attr("wdid")).attr("class") == "wdform_arrows_show") {
+        jQuery("#wdform_field" + jQuery(this2).parent().attr("wdid")).css({"background-color":"transparent", "border":"none", "margin-top":""});
+        jQuery("#wdform_arrows" + jQuery(this2).parent().attr("wdid")).removeClass("wdform_arrows_show");
+        jQuery("#wdform_arrows" + jQuery(this2).parent().attr("wdid")).addClass("wdform_arrows");
+        jQuery("#wdform_arrows" + jQuery(this2).parent().attr("wdid")).hide();
+      }
+      else {
+        jQuery(".wdform_arrows_show").addClass("wdform_arrows");
+        if (jQuery('#enable_sortable').prop('checked')) {
+          jQuery(".wdform_arrows").hide();
+        }
+        jQuery(".wdform_arrows_show").removeClass("wdform_arrows_show");
+        jQuery(".wdform_field, .wdform_field_section_break").css("background-color", "transparent");
+        jQuery(".wdform_field, .wdform_field_section_break").css("border", "none");
+        jQuery(".wdform_field").css("margin-top", "");
+        if (jQuery("#wdform_field" + jQuery(this2).parent().attr("wdid")).attr("type") == 'type_editor') {
+          jQuery("#wdform_field" + jQuery(this2).parent().attr("wdid")).css("margin-top", "-5px");
+        }
+        jQuery("#wdform_field" + jQuery(this2).parent().attr("wdid")).css({"background-color": "rgb(224, 224, 224)", "border": "1px solid rgb(213, 213, 213)"});
+        jQuery("#wdform_arrows" + jQuery(this2).parent().attr("wdid")).removeClass("wdform_arrows");
+        jQuery("#wdform_arrows" + jQuery(this2).parent().attr("wdid")).addClass("wdform_arrows_show");
+        jQuery("#wdform_arrows" + jQuery(this2).parent().attr("wdid")).show();
+      }
+  });
+  jQuery(document).on("hover", ".wdform_tr_section_break", function() {
+    jQuery("#wdform_field" + jQuery(this).attr("wdid")).css({"background-color": "rgb(224, 224, 224)"});
+  });
+  jQuery(document).on("hover", ".wdform_row", function() {
+    jQuery("#wdform_field" + jQuery(this).attr("wdid")).css({"cursor": "move","background-color": "rgb(224, 224, 224)"});
+  });
+  jQuery(document).on("mouseleave", ".wdform_row, .wdform_tr_section_break", function() {
+    if (jQuery("#wdform_arrows" + jQuery(this).attr("wdid")).attr("class") != "wdform_arrows_show") {
+      jQuery("#wdform_field" + jQuery(this).attr("wdid")).css({"background-color": "transparent", "border": "none"});
+      jQuery("#wdform_arrows" + jQuery(this).attr("wdid")).addClass("wdform_arrows");
+    }
+  });
+}
+
+jQuery(document).on("dblclick", ".wdform_row, .wdform_tr_section_break", function() {
+  edit(jQuery(this).attr("wdid"));
+});
+
+function enable_drag(elem) {
+	if (jQuery('#enable_sortable').prop('checked')) {
+		jQuery('#enable_sortable').val(1);
+		jQuery('.wdform_column').sortable("enable");
+		jQuery(".wdform_arrows").slideUp(1);
+		/*add_border();*/
+	}
+	else {
+		jQuery('#enable_sortable').val(0);
+		jQuery('.wdform_column').sortable("disable");	
+		jQuery(".wdform_column").css("border", "none");		
+		jQuery(".wdform_row, .wdform_tr_section_break").die("click");
+		jQuery(".wdform_row").die("hover");
+		jQuery(".wdform_tr_section_break").die("hover");
+		jQuery(".wdform_field").css("cursor", "default");
+		jQuery(".wdform_field, .wdform_field_section_break").css("background-color", "transparent");
+		jQuery(".wdform_field, .wdform_field_section_break").css("border", "none");
+		jQuery(".wdform_arrows_show").hide();
+		jQuery(".wdform_arrows_show").addClass("wdform_arrows");
+		jQuery(".wdform_arrows_show").removeClass("wdform_arrows_show");
+		jQuery(".wdform_arrows").slideDown(1);
+	}
+  all_sortable_events();
+}
+
 function refresh_() {
   document.getElementById('counter').value = gen;
   if (document.getElementById('form_id_tempform_view1')) {

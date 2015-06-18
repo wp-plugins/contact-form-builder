@@ -4,7 +4,7 @@ Donate link: http://web-dorado.com/products/wordpress-contact-form-builder.html
 Tags:  form,  forms,  contact form, contact forms,  contact form plugin, contact forms plugin, forms plugin, Contact Form Builder, contact form manager, multiple contact forms, custom  form, Contact Form Builder with recaptcha, contact form with google map, feedback form, feedback forms, contact us, wordpress contact form, email form, feedback, web form, contact me, email, contact manager, contact us form, admin, captcha, contact, database, email, javascript, jquery, page, plugin, survey, widget, custom form, forms creator, input, validation, send copy, form with captcha, advanced form, recaptcha
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.0.21
+Stable tag: 1.0.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,9 +135,12 @@ After downloading the ZIP file,
 
 == Changelog ==
 
+= 1.0.22 =
+Added: Form fields drag & drop in backend.  
+
 = 1.0.21 =
-Changed: Featured plugins page.
-New: Featured themes page.
+Changed: Featured plugins page.  
+New: Featured themes page.  
 
 = 1.0.20 =
 Fixed: Alert messages with single quotes.  

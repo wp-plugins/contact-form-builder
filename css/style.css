@@ -32,6 +32,11 @@ fieldset label {
 .wdform_tr_section_break {
 	min-width:480px;
 }
+
+.wdform_tr_section_break .wdform_checkbox {
+  display: inline-block !important;
+}
+
 .element_toolbar {
   margin: 0px;
   padding: 0px;
@@ -51,19 +56,37 @@ fieldset label {
   float: left;
   padding-right: 10px !important;
 }
-.wdform_arrows_section
-{
+
+.wdform_arrows_section {
 	padding-left: 10px;
 	vertical-align: middle;
 	display: inline-block;
-	min-width:77px;
+	min-width: 77px;
 }
+
+.wdform_checkbox {
+  vertical-align: middle !important;
+	width: 35px !important;
+	background: #D7E3EB !important;
+	text-align: center !important;
+	margin-bottom: 0 !important;
+	border-top: 1px solid #B4C8D5 !important;
+}
+
 .wdform_arrows {
-	padding-left: 10px;
-	vertical-align: middle;
-	display: inline-block;
-	min-width:216px;
+  display: inline-block;
+  vertical-align: middle;
+  background: #C0D0DB;
+  width: 130px;
 }
+
+.wdform_arrows_show {
+  display: inline-block;
+  vertical-align: middle;
+  background: #C0D0DB;
+  cursor: default !important;
+}
+
 .page_toolbar {
 	width: 33px;
 	cursor: pointer;
@@ -86,6 +109,7 @@ fieldset label {
 .wdform_field_section_break {
   min-width: 300px;
   display: inline-block;
+  /*display: table-cell;*/
   width: 80%;
 }
 .wdform_field{
@@ -96,13 +120,16 @@ fieldset label {
 	float:left;
 }
 .wdform_section {
-	margin:7px
+	margin: 7px 0;
+	display: inline-block;
 }
 .wdform_column {
 	padding-right: 20px !important;
 	float: left;
 	border-spacing: 1px;
 	border-collapse: separate !important;
+  min-width: 250px;
+  min-height: 50px;
 }
 .time_box {
 	border-width:1px;
@@ -327,4 +354,12 @@ fieldset input, fieldset textarea, fieldset select, fieldset img, fieldset butto
 
 .email_labels a:hover {
   background: #CCCCCC;
+}
+
+.highlight {
+  border: 1px dotted red !important; 
+  visibility: visible !important; 
+  height: 50px !important; 	
+  width: 100% !important; 
+  display: inline-block;
 }

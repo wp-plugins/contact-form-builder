@@ -170,8 +170,6 @@ class CFMViewManage_cfm {
     ?>
     <script type="text/javascript">
       var contact_form_maker_plugin_url = "<?php echo WD_CFM_URL; ?>";
-    </script>
-    <script type="text/javascript">
       form_view = 1;
       form_view_count = 1;
       form_view_max = 1;
@@ -222,7 +220,8 @@ class CFMViewManage_cfm {
                     l_id = wdid;
                     l_label = document.getElementById(wdid + '_element_labelform_id_temp').innerHTML;
                     l_label = l_label.replace(/(\r\n|\n|\r)/gm," ");
-                    wdtype = wdform_row.firstChild.getAttribute('type');
+                    // wdtype = wdform_row.firstChild.getAttribute('type');
+                    wdtype = jQuery(wdform_row).find("div[id^=wdform_field]").eq(0).attr('type');
                     if (wdform_row.getAttribute("disabled")) {
                       if (wdtype != "type_address") {
                         disabled_ids += wdid + ',';
@@ -494,7 +493,13 @@ class CFMViewManage_cfm {
         <?php
       }
       ?>
-      <br /><br />
+      <br />
+      <div style="margin-left:5px;">
+        <label for="enable_sortable" style="font-size: 14px; font-weight: bold;"><?php echo __("Enable Drag & Drop", "contact_form_maker"); ?></label>
+        <input type="checkbox" name="sortable" id="enable_sortable" value="<?php echo $row->sortable; ?>" onclick="enable_drag(this)" <?php if($row->sortable==1) echo 'checked="checked"'; ?> />
+        <div><?php echo __("You can use drag and drop to move the fields up/down for the change of the order and left/right for creating columns within the form.", "contact_form_maker"); ?></div>
+      </div>
+      <br />
       <fieldset>
         <legend><h2 style="color: #00aeef;"><?php echo __("Form", "contact_form_maker"); ?></h2></legend>
         <div id="saving" style="display: none;">
@@ -734,8 +739,34 @@ class CFMViewManage_cfm {
         jQuery(window).load(function () {
           formOnload();
         });
+        jQuery(function() {
+          jQuery('.wdform_section .wdform_column:last-child').each(function() {
+            jQuery(this).parent().append(jQuery('<div></div>').addClass("wdform_column"));		
+          });
+          sortable_columns();
+          if (<?php echo $row->sortable ?> == 1) {
+            jQuery(".wdform_arrows").hide();
+            all_sortable_events();
+          }
+          else {
+            jQuery('.wdform_column').sortable("disable");
+          }
+        });
       </script>
         <?php
+      }
+      else {
+        ?>
+        <script type="text/javascript">
+          jQuery(function() {
+            jQuery('.wdform_section .wdform_column:last-child').each(function() {
+              jQuery(this).parent().append(jQuery('<div></div>').addClass("wdform_column"));
+            });
+            sortable_columns();
+            all_sortable_events();
+          });
+        </script>
+      <?php
       }
       ?>
       <input type="hidden" name="id" value="<?php echo $row->id; ?>" />
