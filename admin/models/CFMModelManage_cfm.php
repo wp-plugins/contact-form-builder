@@ -78,7 +78,7 @@ class CFMModelManage_cfm {
           $rep = '';
           $param = array();
           $param['attributes'] = '';
-          $rep = '<div class="wdform_checkbox" style="display: table-cell;"><div id="X_'.$id.'" class="element_toolbar"><input type="checkbox" id="disable_field'.$id.'" title="' . __("Disable the field", 'contact_form_maker') . '" onclick="remove_row(&quot;'.$id.'&quot;)" style="vertical-align: top; margin-left: 5px;"></div></div>';
+          $rep = '<div class="wdform_checkbox" style="display: table-cell;"><div id="X_'.$id.'" class="element_toolbar"' . ($type == 'type_submit_reset' ? ' style="visibility: hidden;"' : '') . '><input type="checkbox" id="disable_field'.$id.'" title="' . __("Disable the field", 'contact_form_maker') . '" onclick="remove_row(&quot;'.$id.'&quot;)" style="vertical-align: top; margin-left: 5px;"></div></div>';
           switch ($type) {
             case 'type_section_break': {
               $params_names = array('w_editor');

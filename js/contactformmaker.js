@@ -1054,8 +1054,7 @@ if( window.getComputedStyle )
 	}
 }
 
-function disable_form_field(id)
-{
+function disable_form_field(id) {
 	var wdform_field = document.getElementById('wdform_field'+id);
 	if(id==28 && !document.getElementById( "disable_field29").parentNode.getAttribute("disabled"))
 	{
@@ -9728,8 +9727,6 @@ function remove_add_(id)
 }
 
 function add(key) {
-  if(jQuery('#enable_sortable').prop( 'checked' ))
-		show_arrows(wdid);
 	if (document.getElementById("element_type").value == "type_section_break") {
 		form_view = 1;
 		if (document.getElementById('editing_id').value) {
@@ -10254,8 +10251,6 @@ function add(key) {
 	else alert(fmc_objectL10n.fmc_select_element_add);
   if(document.getElementById('enable_sortable').value==1)
 		jQuery( ".wdform_arrows" ).hide();
-
-	jQuery(".wdform_page input[type='text'], .wdform_page input[type='password'], .wdform_page input[type='file'], .wdform_page textarea, .wdform_page input[type='checkbox'], .wdform_page input[type='radio'], .wdform_page select").prop("disabled", true);
 }
 
 function call(i,key)
