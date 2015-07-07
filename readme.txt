@@ -26,6 +26,7 @@ The form has an integrating Google Maps feature allowing you to display the loca
 Each form comes with a shortcode displayed in Manager Section for easier copying/pasting it in the post or page, where you want to display.
 After submitting the form, the users might get a custom text and even receive an email copy of the submissions.
 
+https://www.youtube.com/watch?v=EqhOv7xVI2w
 
 
 IMPORTANT: If you think you found a bug in the Contact Form Builder or have any problem or question concerning Contact Form Builder, do not hesitate to contact us at [info@web-dorado.com](mailto:info@web-dorado.com).    
