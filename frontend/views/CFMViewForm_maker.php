@@ -23,9 +23,6 @@ class CFMViewForm_maker {
   // Public Methods                                                                     //
   ////////////////////////////////////////////////////////////////////////////////////////
   public function display($id) {
-    // if (session_id() == '' || (function_exists('session_status') && (session_status() == PHP_SESSION_NONE))) {
-      // @session_start();
-    // }
     $form_maker_front_end = "";
     $result = $this->model->showform($id);
     if (!$result) {
@@ -747,13 +744,15 @@ class CFMViewForm_maker {
               }
               $check_js .= '
               if (x.find(jQuery("div[wdid='.$id1.']")).length != 0) {
-                if (jQuery("#wdform_'.$id1.'_element'.$form_id.'").val() != "" && jQuery("#wdform_'.$id1.'_element'.$form_id.'").val().search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
-                  alert("' . addslashes(__("This is not a valid email address.", 'contact_form_maker')) . '");
-                  old_bg=x.find(jQuery("div[wdid='.$id1.']")).css("background-color");
-                  x.find(jQuery("div[wdid='.$id1.']")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
-                  jQuery("#wdform_'.$id1.'_element'.$form_id.'").focus();
-                  return false;
-                }
+                if (jQuery("#wdform_'.$id1.'_element'.$form_id.'").val() != "") {
+		  if (jQuery("#wdform_'.$id1.'_element'.$form_id.'").val().search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
+                    alert("' . addslashes(__("This is not a valid email address.", 'contact_form_maker')) . '");
+                    old_bg=x.find(jQuery("div[wdid='.$id1.']")).css("background-color");
+                    x.find(jQuery("div[wdid='.$id1.']")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
+                    jQuery("#wdform_'.$id1.'_element'.$form_id.'").focus();
+                    return false;
+                  }
+		}
               }';		
               break;
             }
@@ -1086,24 +1085,27 @@ class CFMViewForm_maker {
     ?>
     <script type="text/javascript">
       function contactformOnload<?php echo $id; ?>() {
-        /*if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) === 8) {*/
-        if (navigator.userAgent.toLowerCase().indexOf('msie') != -1 && parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) === 8) {
-          jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']")).click(function() {jQuery("input[type='radio']+label").removeClass('if-ie-div-label'); jQuery("input[type='radio']:checked+label").addClass('if-ie-div-label')});	
-          jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']:checked+label")).addClass('if-ie-div-label');
-          jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='checkbox']")).click(function() {jQuery("input[type='checkbox']+label").removeClass('if-ie-div-label'); jQuery("input[type='checkbox']:checked+label").addClass('if-ie-div-label')});	
-          jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='checkbox']:checked+label")).addClass('if-ie-div-label');
+        if (navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
+	  if (parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) === 8) {
+            jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']")).click(function() {jQuery("input[type='radio']+label").removeClass('if-ie-div-label'); jQuery("input[type='radio']:checked+label").addClass('if-ie-div-label')});	
+            jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']:checked+label")).addClass('if-ie-div-label');
+            jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='checkbox']")).click(function() {jQuery("input[type='checkbox']+label").removeClass('if-ie-div-label'); jQuery("input[type='checkbox']:checked+label").addClass('if-ie-div-label')});	
+            jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='checkbox']:checked+label")).addClass('if-ie-div-label');
+          }
         }
         jQuery("div[type='type_text'] input, div[type='type_number'] input, div[type='type_phone'] input, div[type='type_name'] input, div[type='type_submitter_mail'] input, div[type='type_textarea'] textarea").focus(function() {delete_value(this)}).blur(function() {return_value(this)});
         jQuery("div[type='type_number'] input, div[type='type_phone'] input").keypress(function(evt) {return check_isnum(evt)});
 
         jQuery('.wdform-element-section').each(function() {
-          if (!jQuery(this).parent()[0].style.width && parseInt(jQuery(this).width()) != 0) {
-            if (jQuery(this).css('display') == "table-cell") {
-              if (jQuery(this).parent().attr('type') != "type_captcha") {
-                jQuery(this).parent().css('width', parseInt(jQuery(this).width()) + parseInt(jQuery(this).parent().find(jQuery(".wdform-label-section"))[0].style.width)+15);
-              }
-              else {
-                jQuery(this).parent().css('width', (parseInt(jQuery(this).parent().find(jQuery(".captcha_input"))[0].style.width)*2+50) + parseInt(jQuery(this).parent().find(jQuery(".wdform-label-section"))[0].style.width)+15);
+          if (!jQuery(this).parent()[0].style.width) {
+	    if (parseInt(jQuery(this).width()) != 0) {
+              if (jQuery(this).css('display') == "table-cell") {
+                if (jQuery(this).parent().attr('type') != "type_captcha") {
+                  jQuery(this).parent().css('width', parseInt(jQuery(this).width()) + parseInt(jQuery(this).parent().find(jQuery(".wdform-label-section"))[0].style.width)+15);
+                }
+                else {
+                  jQuery(this).parent().css('width', (parseInt(jQuery(this).parent().find(jQuery(".captcha_input"))[0].style.width)*2+50) + parseInt(jQuery(this).parent().find(jQuery(".wdform-label-section"))[0].style.width)+15);
+                }
               }
             }
           }
@@ -1166,8 +1168,10 @@ class CFMViewForm_maker {
         x = jQuery("#contactform<?php echo $form_id; ?>");
         <?php echo $check_js; ?>;
         var a = [];
-        if (typeof a[<?php echo $form_id ?>] !== 'undefined' && a[<?php echo $form_id ?>] == 1) {
-          return;
+        if (typeof a[<?php echo $form_id ?>] !== 'undefined') {
+          if (a[<?php echo $form_id ?>] == 1) {
+            return;
+          }
         }
         <?php echo $onsubmit_js; ?>;
         a[<?php echo $form_id ?>] = 1;

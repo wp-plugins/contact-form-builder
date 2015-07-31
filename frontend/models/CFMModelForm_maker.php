@@ -38,7 +38,7 @@ class CFMModelForm_maker {
         return FALSE;
       }
     }
-    $pattern = '/\/\/(.+)\r\n/';
+    $pattern = '/\/\/(.+)(\r\n|\r|\n)/';
     $form_theme = preg_replace($pattern, ' ', $form_theme);
     $form_theme = str_replace('//', ' ', $form_theme);
     $label_id = array();
