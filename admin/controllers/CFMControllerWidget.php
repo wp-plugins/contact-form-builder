@@ -23,7 +23,7 @@ class CFMControllerWidget extends WP_Widget {
     // Widget Control Settings.
     $control_ops = array('id_base' => 'contact_form_maker_widget');
     // Create the widget.
-    $this->WP_Widget('contact_form_maker_widget', 'Contact Form Builder', $widget_ops, $control_ops);
+    parent::__construct('contact_form_maker_widget', 'Contact Form Builder', $widget_ops, $control_ops);
     require_once WD_CFM_DIR . "/admin/models/CFMModelWidget.php";
     $this->model = new CFMModelWidget();
 
