@@ -3,7 +3,7 @@
  * Plugin Name: Contact Form Builder
  * Plugin URI: http://web-dorado.com/products/wordpress-contact-form-builder.html
  * Description: Contact Form Builder is an advanced plugin to add contact forms into your website. It comes along with multiple default templates which can be customized.
- * Version: 1.0.28
+ * Version: 1.0.30
  * Author: WebDorado
  * Author URI: http://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -170,7 +170,7 @@ if (class_exists('WP_Widget')) {
 // Activate plugin.
 function contact_form_maker_activate() {
   $version = get_option("wd_contact_form_maker_version");
-  $new_version = '1.0.28';
+  $new_version = '1.0.30';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_CFM_DIR . "/contact-form-builder-update.php";
     contact_form_maker_update($version);
@@ -554,6 +554,23 @@ function contact_form_maker_manage_scripts() {
     'fmc_Items_succesfully_saved' => __('Items Succesfully Saved.', 'contact_form_maker'),
     'fmc_SaveIP' => __('Save IP', 'contact_form_maker'),
     'fmc_field_required' => __('* field is required.', 'contact_form_maker'),
+    'fmc_Validation' => __('Validation (Regular Exp.)', 'contact_form_maker'),
+    'fmc_reg_exp' => __('Regular Expression', 'contact_form_maker'),
+    'fmc_common_reg_exp' => __('Common Regular Expressions', 'contact_form_maker'),
+    'fmc_case_insensitive' => __('Case Insensitive', 'contact_form_maker'),
+    'fmc_alert_message' => __('Alert Message', 'contact_form_maker'),
+    'fmc_select' => __('Select', 'contact_form_maker'),
+    'fmc_name_latin_letters' => __('Name(Latin letters and some symbols)', 'contact_form_maker'),
+    'fmc_phone_number' => __('Phone Number(Digits and dashes)', 'contact_form_maker'),
+    'fmc_integer_number' => __('Integer Number', 'contact_form_maker'),
+    'fmc_decimal_number' => __('Decimal Number', 'contact_form_maker'),
+    'fmc_latin_letters_and_numbers' => __('Latin letters and Numbers', 'contact_form_maker'),
+    'fmc_credit_card' => __('Credit Card (16 Digits)', 'contact_form_maker'),
+    'fmc_zip_code' => __('Zip Code', 'contact_form_maker'),
+    'fmc_IP_address' => __('IP Address', 'contact_form_maker'),
+    'fmc_date_mdy' => __('Date m/d/y (e.g. 12/21/2013)', 'contact_form_maker'),
+    'fmc_date_dmy' => __('Date d.m.y (e.g. 21.12.2013)', 'contact_form_maker'),
+    'fmc_date_format' => __('MySQL Date Format (2013-12-21)', 'contact_form_maker'),
   ));
 }
 
@@ -590,4 +607,8 @@ function contact_form_maker_language_load() {
 }
 add_action('init', 'contact_form_maker_language_load');
 
+if (is_admin() && (!defined('DOING_AJAX') || !DOING_AJAX)) {
+	include_once(WD_CFM_DIR . '/contact-form-builder-notices.php');
+  new CFM_Notices();
+}
 ?>

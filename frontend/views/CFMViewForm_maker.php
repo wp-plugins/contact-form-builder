@@ -210,6 +210,9 @@ class CFMViewForm_maker {
             case 'type_text': {
               $params_names = array('w_field_label_size', 'w_field_label_pos', 'w_size', 'w_first_val', 'w_title', 'w_required', 'w_unique');
               $temp = $params;
+              if (strpos($temp, 'w_regExp_status') > -1) {
+				        $params_names = array('w_field_label_size', 'w_field_label_pos', 'w_size', 'w_first_val', 'w_title', 'w_required', 'w_regExp_status', 'w_regExp_value', 'w_regExp_common', 'w_regExp_arg', 'w_regExp_alert', 'w_unique');
+              }
               foreach($params_names as $params_name ) {
                 $temp = explode('*:*' . $params_name . '*:*', $temp);
                 $param[$params_name] = $temp[0];
@@ -228,6 +231,7 @@ class CFMViewForm_maker {
               $param['w_field_label_pos2'] = ($param['w_field_label_pos'] == "left" ? "" : "display: block;");
               $input_active = ($param['w_first_val'] == $param['w_title'] ? "input_deactive" : "input_active");	
               $required = ($param['w_required'] == "yes" ? TRUE : FALSE);
+              $param['w_regExp_status'] = (isset($param['w_regExp_status']) ? $param['w_regExp_status'] : "no");
               $rep = '<div type="type_text" class="wdform-field" style="width:'.$wdformfieldsize.'px"><div class="wdform-label-section" style="'.$param['w_field_label_pos1'].' width: '.$param['w_field_label_size'].'px;"><span class="wdform-label">'.$label.'</span>';
               if ($required) {
                 $rep .= '<span class="wdform-required">' . $required_sym . '</span>';
@@ -247,6 +251,23 @@ class CFMViewForm_maker {
                   }
                 }';
               }
+              if ($param['w_regExp_status'] == 'yes') {
+                $check_js .= '
+				       	  var RegExpression = "";
+					        var rules = unescape("' . $param["w_regExp_value"] . '");
+  		      	    ("'.$param["w_regExp_arg"].'".length <= 0) ?  RegExpression = new RegExp(rules) : RegExpression = new RegExp(rules' . ', "' . $param["w_regExp_arg"] . '");
+			        	  if (jQuery("#wdform_' . $id1 . '_element' . $form_id . '").val().length > 0) {
+                    if (RegExpression.test(jQuery("#wdform_' . $id1 . '_element' . $form_id . '").val()) != true) {
+                      alert(" '.$param["w_regExp_alert"].' ");
+                      old_bg = x.find(jQuery("div[wdid=' . $id1 . ']")).css("background-color");
+                      x.find(jQuery("div[wdid=' . $id1 . ']")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
+                      jQuery("#wdform_' . $id1 . '_element' . $form_id . '").addClass("form-error");
+                      jQuery("#wdform_' . $id1 . '_element' . $form_id . '").focus();
+                      jQuery("#wdform_' . $id1 . '_element' . $form_id . '").change(function() { if( jQuery(this).val()!="" ) jQuery(this).removeClass("form-error"); else jQuery(this).addClass("form-error");});
+                      return false;
+                    }
+                  }';
+			          }
               break;              
             }
             case 'type_number': {
@@ -745,14 +766,14 @@ class CFMViewForm_maker {
               $check_js .= '
               if (x.find(jQuery("div[wdid='.$id1.']")).length != 0) {
                 if (jQuery("#wdform_'.$id1.'_element'.$form_id.'").val() != "") {
-		  if (jQuery("#wdform_'.$id1.'_element'.$form_id.'").val().search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
+                  if (jQuery("#wdform_'.$id1.'_element'.$form_id.'").val().search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) == -1) {
                     alert("' . addslashes(__("This is not a valid email address.", 'contact_form_maker')) . '");
                     old_bg=x.find(jQuery("div[wdid='.$id1.']")).css("background-color");
                     x.find(jQuery("div[wdid='.$id1.']")).effect( "shake", {}, 500 ).css("background-color","#FF8F8B").animate({backgroundColor: old_bg}, {duration: 500, queue: false });
                     jQuery("#wdform_'.$id1.'_element'.$form_id.'").focus();
                     return false;
                   }
-		}
+                }
               }';		
               break;
             }
@@ -1086,7 +1107,7 @@ class CFMViewForm_maker {
     <script type="text/javascript">
       function contactformOnload<?php echo $id; ?>() {
         if (navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
-	  if (parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) === 8) {
+          if (parseInt(navigator.userAgent.toLowerCase().split('msie')[1]) === 8) {
             jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']")).click(function() {jQuery("input[type='radio']+label").removeClass('if-ie-div-label'); jQuery("input[type='radio']:checked+label").addClass('if-ie-div-label')});	
             jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='radio']:checked+label")).addClass('if-ie-div-label');
             jQuery("#contactform<?php echo $id; ?>").find(jQuery("input[type='checkbox']")).click(function() {jQuery("input[type='checkbox']+label").removeClass('if-ie-div-label'); jQuery("input[type='checkbox']:checked+label").addClass('if-ie-div-label')});	
@@ -1098,7 +1119,7 @@ class CFMViewForm_maker {
 
         jQuery('.wdform-element-section').each(function() {
           if (!jQuery(this).parent()[0].style.width) {
-	    if (parseInt(jQuery(this).width()) != 0) {
+            if (parseInt(jQuery(this).width()) != 0) {
               if (jQuery(this).css('display') == "table-cell") {
                 if (jQuery(this).parent().attr('type') != "type_captcha") {
                   jQuery(this).parent().css('width', parseInt(jQuery(this).width()) + parseInt(jQuery(this).parent().find(jQuery(".wdform-label-section"))[0].style.width)+15);

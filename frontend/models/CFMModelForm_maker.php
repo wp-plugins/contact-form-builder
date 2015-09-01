@@ -61,9 +61,6 @@ class CFMModelForm_maker {
   }
 
   public function savedata($form, $id) {
-    // if (session_id() == '' || (function_exists('session_status') && (session_status() == PHP_SESSION_NONE))) {
-      // @session_start();
-    // }
     $all_files = array();
     $correct = FALSE;
     $id_for_old = $id;
@@ -127,9 +124,6 @@ class CFMModelForm_maker {
   
   public function save_db($counter, $id) {
     global $wpdb;
-    // if (session_id() == '' || (function_exists('session_status') && (session_status() == PHP_SESSION_NONE))) {
-      // @session_start();
-    // }
     $chgnac = TRUE;
     $all_files = array();
     $form = $wpdb->get_row($wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "contactformmaker WHERE id= %d", $id));
