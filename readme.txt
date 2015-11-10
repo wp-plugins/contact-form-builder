@@ -139,7 +139,7 @@ After downloading the ZIP file,
 == Changelog ==
 
 = 1.0.32 =
-Changed: Mail header.
+Changed: Mail header.     
 
 = 1.0.31 =
 Changed: Notices show order.
