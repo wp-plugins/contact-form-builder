@@ -589,7 +589,7 @@ class CFMModelForm_maker {
           $from = '';
         }
 
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers  = ''; //'MIME-Version: 1.0' . "\r\n";
         $headers .= $from;
         $headers .= 'Content-type: ' . $content_type . '; charset="' . get_option('blog_charset') . '"' . "\r\n";
 
@@ -699,7 +699,7 @@ class CFMModelForm_maker {
           $from = "";
         }
 
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers  = ''; //'MIME-Version: 1.0' . "\r\n";
         $headers .= $from;
         $headers .= 'Content-type: ' . $content_type . '; charset="' . get_option('blog_charset') . '"' . "\r\n";
 

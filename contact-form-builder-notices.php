@@ -83,10 +83,10 @@ class CFM_Notices {
 				// Ensure the notice hasn't been hidden and that the current date is after the start date
         if ($admin_display_check == 0 && strtotime($admin_display_start) <= strtotime($current_date)) {
 					// Get remaining query string
-					$query_str = esc_url(add_query_arg($this->prefix . '_admin_notice_ignore', $slug));
+					$query_str = (isset($admin_notices[$slug]['later_link']) ? $admin_notices[$slug]['later_link'] : esc_url(add_query_arg($this->prefix . '_admin_notice_ignore', $slug)));
 					// Admin notice display output
 					echo '<div class="update-nag wd-admin-notice">
-                  <div class="wd-notice-logo"></div>
+                  <div class="' . $this->prefix . '-notice-logo"></div>
                   <p class="wd-notice-title">' . $admin_display_title . '</p>
                   <p class="wd-notice-body">' . $admin_display_msg . '</p>
                   <ul class="wd-notice-body wd-blue">' . $admin_display_link . '</ul>
@@ -182,15 +182,6 @@ class CFM_Notices {
 	}
 
   public function wd_admin_notices() {
-    $one_week_support = add_query_arg(array($this->prefix . '_admin_notice_ignore' => 'one_week_support'));
-    $notices['one_week_support'] = array(
-      'title' => __('Hey! How\'s It Going?', $this->prefix),
-      'msg' => sprintf(__('Thank you for using WordPress %s! We hope that you\'ve found everything you need, but if you have any questions:', $this->prefix), $this->plugin_name),
-      'link' => '<li><span class="dashicons dashicons-media-text"></span><a target="_blank" href="https://web-dorado.com/wordpress-contact-form-builder/installing.html">' . __('Check out User Guide', $this->prefix) . '</a></li>
-                <li><span class="dashicons dashicons-sos"></span><a target="_blank" href="https://web-dorado.com/forum/contact-form-builder.html">' . __('Get Some Help', $this->prefix) . '</a></li>
-                <li><span class="dashicons dashicons-dismiss"></span><a href="' . $one_week_support . '">' . __('Never show again', $this->prefix) . '</a></li>',
-      'int' => 7
-    );
     $two_week_review_ignore = add_query_arg(array($this->prefix . '_admin_notice_ignore' => 'two_week_review'));
     $two_week_review_temp = add_query_arg(array($this->prefix . '_admin_notice_temp_ignore' => 'two_week_review', 'int' => 14));
     $notices['two_week_review'] = array(
@@ -200,7 +191,17 @@ class CFM_Notices {
                  <li><span class="dashicons dashicons-smiley"></span><a href="' . $two_week_review_ignore . '"> ' . __('I\'ve already left a review', $this->prefix) . '</a></li>
                  <li><span class="dashicons dashicons-calendar-alt"></span><a href="' . $two_week_review_temp . '">' . __('Maybe Later', $this->prefix) . '</a></li>
                  <li><span class="dashicons dashicons-dismiss"></span><a href="' . $two_week_review_ignore . '">' . __('Never show again', $this->prefix) . '</a></li>',
+      'later_link' => $two_week_review_temp,
       'int' => 14
+    );
+    $one_week_support = add_query_arg(array($this->prefix . '_admin_notice_ignore' => 'one_week_support'));
+    $notices['one_week_support'] = array(
+      'title' => __('Hey! How\'s It Going?', $this->prefix),
+      'msg' => sprintf(__('Thank you for using WordPress %s! We hope that you\'ve found everything you need, but if you have any questions:', $this->prefix), $this->plugin_name),
+      'link' => '<li><span class="dashicons dashicons-media-text"></span><a target="_blank" href="https://web-dorado.com/forum/contact-form-builder.html">' . __('Check out User Guide', $this->prefix) . '</a></li>
+                <li><span class="dashicons dashicons-sos"></span><a target="_blank" href="https://web-dorado.com/wordpress-contact-form-builder/installing.html">' . __('Get Some Help', $this->prefix) . '</a></li>
+                <li><span class="dashicons dashicons-dismiss"></span><a href="' . $one_week_support . '">' . __('Never show again', $this->prefix) . '</a></li>',
+      'int' => 7
     );
     $this->admin_notice($notices);
 	}
